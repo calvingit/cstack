@@ -1,2 +1,38 @@
-# cstack
-Research prototype for small, evidence-based, risk-adaptive engineering skills across AI coding agents.
+# CStack
+
+面向 AI Coding Agent 的工程方法与证据机制研究。目标是形成小而稳定、跨 Agent Runtime、依据真实证据和风险选择工作方式的 Skills 包。
+
+**当前状态：研究原型。提案尚未批准为架构或实现规范；仓库暂不提供可安装的正式 Skill。**
+
+六阶段 `DEFINE → PLAN → BUILD → VERIFY → REVIEW → SHIP` 目前作为工程地图，不要求每项任务运行完整流程。
+
+## 当前材料
+
+| 材料 | 内容 |
+| --- | --- |
+| [研究提案](docs/cstack-proposal-2026-10-28.md) | 2026-10-28 原提案，按原文保存 |
+| [第一轮架构审查](docs/architecture-review-2026-10-28.md) | 保留项、必须补足的语义与三个开放决策 |
+| [Example eval](evals/example-v0/README.md) | sol / luna、基线与最小 CStack 指令的 24 次试验 |
+| [评测报告](evals/example-v0/results/cstack-example-eval-2026-10-28.md) | 结果、标签歧义、日志缺口及验证限制 |
+
+本轮评测的两个模型、两种指令条件均作出了符合预期的交付决策与模拟动作。**尚无证据证明最小 CStack 指令优于基线。** 每个条件只运行一次，使用合成项目；不能据此推断长期可靠性或真实交付能力。
+
+## 检查已保存的实验
+
+使用 Python 标准库核对归档校验和、预注册 manifest、冻结评分脚本、24 份输出和已记录的模拟动作：
+
+```bash
+python3 evals/example-v0/verify_archive.py
+```
+
+该命令验证保存材料的一致性，不调用模型，也不会补造缺失的历史执行证据。重新生成样例及分派模型的方法见 [eval 说明](evals/example-v0/README.md)。
+
+## 研究边界
+
+- 明确区分事实、推断和未知；实验结果不能被写成已证明的工程效果。
+- 复用项目的验收、测试、CI 与权限机制，不建设第二套权威状态。
+- 候选、实际运行对象、环境与证据来源需要可核对；模型共识不能代替观察。
+- 技术就绪、执行授权与已发生的结果分别表达。
+- 后续优先加入真实失败样例及完整执行日志，再决定 Skill、入口和适配层的结构。
+
+原提案中关于“不创建仓库、不提交”的文字记录的是当时阶段的权限。用户之后授权创建本仓库并提交研究材料；这一授权不代表批准提案架构、发布 Skills 或操作生产环境。
