@@ -1,0 +1,4 @@
+interface:
+  display_name: "CStack Simplify"
+  short_description: "Remove unnecessary complexity with evidence"
+  default_prompt: "Use $cstack-simplify to assess and, if requested, remove unnecessary complexity in this scope."

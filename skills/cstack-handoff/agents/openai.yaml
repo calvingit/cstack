@@ -1,0 +1,4 @@
+interface:
+  display_name: "CStack Handoff"
+  short_description: "Prepare a verifiable engineering handoff"
+  default_prompt: "Use $cstack-handoff to prepare a concise, evidence-backed handoff for the next session."

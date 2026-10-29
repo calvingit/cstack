@@ -1,0 +1,4 @@
+interface:
+  display_name: "CStack Impact"
+  short_description: "Trace concrete change impact and risks"
+  default_prompt: "Use $cstack-impact to assess what this change could affect and how to verify it."

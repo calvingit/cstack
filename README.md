@@ -21,6 +21,19 @@
 | REVIEW | [cstack-test-audit](skills/cstack-test-audit/SKILL.md) | 在有具体疑点时审计测试有效性和维护价值 |
 | SHIP | [cstack-ship](skills/cstack-ship/SKILL.md) | 判断并在明确授权范围内执行交付 |
 
+## 按需辅助方法
+
+这些 Skill 横跨阶段，只在存在对应的独立任务或判断时使用。
+
+| Skill | 用途 | 与主流程的边界 |
+| --- | --- | --- |
+| [cstack-research](skills/cstack-research/SKILL.md) | 基于来源调查技术事实、比较方案 | 提供决策依据，不代替具体技术设计 |
+| [cstack-impact](skills/cstack-impact/SKILL.md) | 追踪变更对调用方、数据和关键不变量的影响 | 可用于计划或审查，不代替验收与代码审查 |
+| [cstack-architecture-review](skills/cstack-architecture-review/SKILL.md) | 审查现有架构的结构问题及实际代价 | 判断当前架构，不自行设计或实施重构 |
+| [cstack-simplify](skills/cstack-simplify/SKILL.md) | 识别或移除无当前职责的复杂性 | 限于用户请求的范围，不扩展成无关清理 |
+| [cstack-ui-review](skills/cstack-ui-review/SKILL.md) | 根据实际界面与交互检查视觉和可用性 | 与逐项业务验收分开，无法观察时保留未知 |
+| [cstack-handoff](skills/cstack-handoff/SKILL.md) | 整理可核查的工作状态和下一步 | 复用现有事实，不建立第二份任务状态 |
+
 Skill 按任务需要组合；同一方法可以跨阶段使用。例如验证时发现故障，可以进入诊断；审查发现测试可能虚假通过，可以按需审计测试。已有目标和验收依据的局部改动不需要先生成规格、设计或任务清单。
 
 ## 关键边界

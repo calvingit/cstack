@@ -1,0 +1,4 @@
+interface:
+  display_name: "CStack Architecture Review"
+  short_description: "Review architecture against real constraints"
+  default_prompt: "Use $cstack-architecture-review to assess the current architecture and report evidence-backed concerns."
