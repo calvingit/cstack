@@ -3,7 +3,7 @@ name: cstack-ship
 description: 当要处理 PR、合并或发布，并要分清是否就绪、是否已授权、是否已执行时。
 ---
 
-# 交付变更
+# Ship - 交付变更
 
 ## 目标
 

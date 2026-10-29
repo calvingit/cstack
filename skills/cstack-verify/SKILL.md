@@ -3,7 +3,7 @@ name: cstack-verify
 description: 当要按已确认的验收条件核对某个候选的实际行为时。不用于改产品，也不用于批准发布。
 ---
 
-# 验收候选
+# Verify - 验收候选
 
 ## 目标
 

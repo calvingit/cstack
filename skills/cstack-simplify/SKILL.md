@@ -3,7 +3,7 @@ name: cstack-simplify
 description: 当用户要求简化指定代码，或只看这块有没有多余复杂度时。不用于顺手清理无关代码。
 ---
 
-# 简化代码
+# Simplify - 简化代码
 
 ## 目标
 

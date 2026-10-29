@@ -3,7 +3,7 @@ name: cstack-architecture-review
 description: 当要判断现有代码或指定子系统的结构是否成立、问题在哪、代价是什么时。不用于单点缺陷，也不用于设计目标方案。
 ---
 
-# 审查现有架构
+# Architecture Review - 审查现有架构
 
 ## 目标
 

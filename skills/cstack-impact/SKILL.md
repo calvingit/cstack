@@ -3,7 +3,7 @@ name: cstack-impact
 description: 当要查一项已有或计划中的改动会碰到哪些调用方、数据和行为时。
 ---
 
-# 变更影响分析
+# Impact - 变更影响分析
 
 ## 目标
 

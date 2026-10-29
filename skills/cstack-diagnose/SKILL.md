@@ -3,7 +3,7 @@ name: cstack-diagnose
 description: 当故障已经出现但原因不明，需要先复现再定位时。原因已经清楚的修改不用。
 ---
 
-# 诊断故障
+# Diagnose - 诊断故障
 
 ## 目标
 

@@ -3,7 +3,7 @@ name: report-style
 description: 当要汇报任务结果、当前进度、排查结论或还没定的事项时。
 ---
 
-# Report Style
+# Report Style - 任务汇报
 
 让读者快速知道结果、依据和仍需处理的事项。根据请求的复杂度选择形式，不为使用本 Skill 强制生成固定报告。
 

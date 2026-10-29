@@ -3,7 +3,7 @@ name: cstack-specify
 description: 当已经确认的需求需要写成可核对的规格或验收依据时。业务上还没定的选择不要在这里决定。
 ---
 
-# 整理规格
+# Specify - 整理规格
 
 ## 目标
 

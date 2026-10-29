@@ -3,7 +3,7 @@ name: cstack-verification-setup
 description: 当用户要求建立或修好项目的验证方法，或验收还没有可靠的运行方式时。不用于判定这次候选过没过。
 ---
 
-# 建立项目验证能力
+# Verification Setup - 建立项目验证能力
 
 ## 目标
 

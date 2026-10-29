@@ -3,7 +3,7 @@ name: cstack-clarify
 description: 当目标、用户行为、范围或验收仍有会改变结果的选择没定时。请求已经清楚则不要追问。
 ---
 
-# 澄清需求
+# Clarify - 澄清需求
 
 ## 目标
 
