@@ -1,0 +1,4 @@
+interface:
+  display_name: "CStack VERIFY"
+  short_description: "Evidence-based engineering: verify"
+  default_prompt: "Use $cstack-verify to handle the current verify task."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "CStack REVIEW"
+  short_description: "Evidence-based engineering: review"
+  default_prompt: "Use $cstack-review to handle the current review task."

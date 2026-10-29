@@ -1,0 +1,4 @@
+interface:
+  display_name: "CStack DEFINE"
+  short_description: "Evidence-based engineering: define"
+  default_prompt: "Use $cstack-define to handle the current define task."

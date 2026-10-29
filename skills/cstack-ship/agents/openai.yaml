@@ -1,0 +1,4 @@
+interface:
+  display_name: "CStack SHIP"
+  short_description: "Evidence-based engineering: ship"
+  default_prompt: "Use $cstack-ship to handle the current ship task."

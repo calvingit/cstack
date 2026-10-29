@@ -1,0 +1,4 @@
+interface:
+  display_name: "CStack PLAN"
+  short_description: "Evidence-based engineering: plan"
+  default_prompt: "Use $cstack-plan to handle the current plan task."
