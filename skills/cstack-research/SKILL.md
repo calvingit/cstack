@@ -1,6 +1,6 @@
 ---
 name: cstack-research
-description: 基于可核查来源研究技术问题和选项。Use for technical research, product or library comparisons, and decisions requiring external evidence; do not treat unverified claims as facts.
+description: 当技术问题或库、产品的比较依赖仓库以外的资料时。
 ---
 
 # 技术调研

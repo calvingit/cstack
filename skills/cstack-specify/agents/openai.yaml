@@ -1,4 +1,4 @@
 interface:
   display_name: "CStack Specify"
-  short_description: "Write verifiable engineering requirements"
+  short_description: "要把已确认需求写成规格"
   default_prompt: "Use $cstack-specify to turn the confirmed requirements into a verifiable specification."

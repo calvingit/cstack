@@ -1,6 +1,6 @@
 ---
 name: cstack-specify
-description: 将已确认的软件需求整理为范围清晰、可观察的规格或验收依据。Use when a specification or durable handoff is needed; do not invent or settle missing business decisions.
+description: 当已经确认的需求需要写成可核对的规格或验收依据时。业务上还没定的选择不要在这里决定。
 ---
 
 # 整理规格

@@ -1,4 +1,4 @@
 interface:
   display_name: "CStack Research"
-  short_description: "Research technical choices from evidence"
+  short_description: "答案在仓库以外的资料里"
   default_prompt: "Use $cstack-research to investigate the technical question and recommend a practical direction."

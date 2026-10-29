@@ -1,6 +1,6 @@
 ---
 name: report-style
-description: 用简洁、可核查的语言汇报工程任务的结果、进度、排查发现或待决事项。Use for work reports, status updates, investigation findings, and decision summaries; distinguish completion from verification and preserve uncertainty.
+description: 当要汇报任务结果、当前进度、排查结论或还没定的事项时。
 ---
 
 # Report Style

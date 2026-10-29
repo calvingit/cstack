@@ -1,6 +1,6 @@
 ---
 name: cstack-performance
-description: 测量并分析性能问题，按授权优化和复测。Use for slow startup, UI jank, latency, resource usage, or a suspected performance regression that needs a comparable baseline.
+description: 当启动慢、界面卡、延迟高、资源占用异常，或怀疑变慢并需要测量对比时。
 ---
 
 # 分析性能

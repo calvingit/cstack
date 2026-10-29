@@ -1,6 +1,6 @@
 interface:
   display_name: "CStack Restate Goal"
-  short_description: "Restate the user goal and its boundaries"
+  short_description: "点名复述当前目标和边界"
   default_prompt: "Use $cstack-restate-goal to restate my goal and the boundaries you understand."
 policy:
   allow_implicit_invocation: false

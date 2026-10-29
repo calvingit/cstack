@@ -1,6 +1,6 @@
 ---
 name: cstack-clarify
-description: 澄清会改变软件目标、用户行为、范围或验收的未决需求。Use when consequential product or acceptance choices are unresolved; avoid interviewing when the request is already clear.
+description: 当目标、用户行为、范围或验收仍有会改变结果的选择没定时。请求已经清楚则不要追问。
 ---
 
 # 澄清需求

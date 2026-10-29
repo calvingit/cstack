@@ -1,6 +1,6 @@
 ---
 name: cstack-retro
-description: 复盘指定工程任务或 Agent 会话并提出有依据的改进。Use when asked to retrospect on a completed or ongoing session, its workflow, tools, instructions, or checks.
+description: 当用户要求复盘一次任务或会话，包括流程、工具、指令或检查时。
 ---
 
 # 复盘工程工作

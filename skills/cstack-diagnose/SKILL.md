@@ -1,6 +1,6 @@
 ---
 name: cstack-diagnose
-description: 复现并定位软件故障或性能回归，按授权修复并验证。Use when the cause is unknown or a reported failure needs investigation; diagnosis-only requests do not authorize code changes.
+description: 当故障已经出现但原因不明，需要先复现再定位时。原因已经清楚的修改不用。
 ---
 
 # 诊断故障

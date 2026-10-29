@@ -1,4 +1,4 @@
 interface:
   display_name: "CStack Diagnose"
-  short_description: "Reproduce and diagnose runtime failures"
+  short_description: "故障原因不明，先复现定位"
   default_prompt: "Use $cstack-diagnose to investigate this failure and report the evidence."

@@ -1,6 +1,6 @@
 ---
 name: cstack-handoff
-description: 为后续会话或接手者整理可核查的工程工作交接。Use when the user requests a handoff, or when an authorized long-running task needs a resumable checkpoint; do not create a second task-state system.
+description: 当用户要求交接，或一段还没做完的工作需要留给下次接着做时。
 ---
 
 # 工程交接

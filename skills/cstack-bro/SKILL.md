@@ -1,6 +1,6 @@
 ---
 name: cstack-bro
-description: 将上一条助手答复或用户指定的片段改写得更通俗、简洁。Use only when explicitly invoked to restate an existing answer in plain language; retain its meaning and uncertainty.
+description: 仅当用户点名，要求把上一条答复或指定片段说得更通俗时。
 ---
 
 # 用人话重说

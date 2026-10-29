@@ -1,4 +1,4 @@
 interface:
   display_name: "CStack Slice"
-  short_description: "Split work into verifiable deliveries"
+  short_description: "要拆成可分别交付的单元"
   default_prompt: "Use $cstack-slice to split this work into independently verifiable deliveries."

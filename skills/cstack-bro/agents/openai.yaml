@@ -1,6 +1,6 @@
 interface:
   display_name: "CStack Bro"
-  short_description: "Restate an answer in plain language"
+  short_description: "把已有答复说得更通俗"
   default_prompt: "Use $cstack-bro to restate your last answer in plain language."
 policy:
   allow_implicit_invocation: false

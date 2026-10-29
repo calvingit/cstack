@@ -1,6 +1,6 @@
 ---
 name: cstack-restate-goal
-description: 重述对用户当前目标、约束和问题的理解。Use only when explicitly invoked to confirm understanding of the user’s intent; do not start an interview or implementation.
+description: 仅当用户点名，要求复述当前目标、约束和边界时。不由此开始追问或实现。
 ---
 
 # 重述用户目标

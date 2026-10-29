@@ -1,6 +1,6 @@
 ---
 name: cstack-domain-model
-description: 梳理或调整业务领域概念、关系和规则。Use when domain terms, ownership, state transitions, or business invariants need modeling or clarification; do not assume the current implementation is the desired rule.
+description: 当业务名词、归属、状态变化或业务规则对不齐，需要先建模时。
 ---
 
 # 梳理领域模型

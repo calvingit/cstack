@@ -1,6 +1,6 @@
 ---
 name: cstack-simplify
-description: 识别或移除指定代码范围中没有当前职责的复杂性。Use when the user requests simplification or a focused complexity review; do not expand into unrelated cleanup or change confirmed behavior.
+description: 当用户要求简化指定代码，或只看这块有没有多余复杂度时。不用于顺手清理无关代码。
 ---
 
 # 简化代码

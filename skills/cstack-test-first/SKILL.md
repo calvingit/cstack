@@ -1,6 +1,6 @@
 ---
 name: cstack-test-first
-description: 围绕明确行为运行测试先行的失败、实现和复验循环。Use when TDD is requested or an affordable test-first loop can establish a useful behavioural or regression check.
+description: 当用户要求先写失败测试再实现，或要用这个循环钉住一个明确行为时。
 ---
 
 # 测试先行

@@ -1,6 +1,6 @@
 ---
 name: cstack-impact
-description: 分析已有或计划中的变更会影响哪些调用方、数据和行为。Use for a requested blast-radius or change-impact investigation, especially where a consequential safety assumption needs evidence.
+description: 当要查一项已有或计划中的改动会碰到哪些调用方、数据和行为时。
 ---
 
 # 变更影响分析

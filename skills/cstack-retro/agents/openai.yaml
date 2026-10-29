@@ -1,4 +1,4 @@
 interface:
   display_name: "CStack Retro"
-  short_description: "Review a work session and suggest improvements"
+  short_description: "要求复盘任务或会话"
   default_prompt: "Use $cstack-retro to review this work session and suggest evidence-based improvements."

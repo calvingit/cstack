@@ -1,6 +1,6 @@
 ---
 name: cstack-slice
-description: 将软件工作拆成有清晰交付结果、验收方法和真实依赖的工作单元。Use when multiple independently manageable units or ordering are needed; do not impose tickets for a single straightforward change.
+description: 当一件工作要拆成多个可分别交付的单元，或要排它们的真实先后关系时。一件已经清楚的小改动不要拆。
 ---
 
 # 拆分工作

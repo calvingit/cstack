@@ -1,6 +1,6 @@
 ---
 name: cstack-ui-review
-description: 基于实际渲染和交互审查界面质量。Use for requested visual, responsive, accessibility, or interaction review of a web, desktop, or mobile UI; distinguish missing observation from a verified defect.
+description: 当用户要求看网页、桌面或移动端界面的样子、适配、无障碍或交互时。
 ---
 
 # 审查界面

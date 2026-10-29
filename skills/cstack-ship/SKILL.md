@@ -1,6 +1,6 @@
 ---
 name: cstack-ship
-description: 检查并在明确授权范围内交付指定候选。Use for preparing or handling a PR, merge, or release and distinguish readiness, authorization, execution, and side effects; respect project gates.
+description: 当要处理 PR、合并或发布，并要分清是否就绪、是否已授权、是否已执行时。
 ---
 
 # 交付变更

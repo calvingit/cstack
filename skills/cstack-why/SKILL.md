@@ -1,6 +1,6 @@
 ---
 name: cstack-why
-description: 基于现有证据调查设计、约束或变更为什么存在。Use only when explicitly invoked for historical or decision rationale; distinguish documented intent, inference, and unknowns.
+description: 仅当用户点名，要求查某项设计、约束或改动为什么会存在时。不用于讲当前代码怎么运行。
 ---
 
 # 调查为什么这样设计

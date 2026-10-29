@@ -1,6 +1,6 @@
 ---
 name: cstack-design
-description: 为明确的软件目标设计必要的技术方案。Use for consequential interface, ownership, data, lifecycle, compatibility, migration, or cross-component decisions; skip formal design for a clear local change.
+description: 当接口、归属、数据、生命周期、兼容、迁移或跨组件取舍会卡住后续实现时。局部改动已经明确则不用。
 ---
 
 # 设计技术方案

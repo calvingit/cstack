@@ -1,6 +1,6 @@
 ---
 name: cstack-visual-explain
-description: 用图示或交互方式解释工程概念、运行流程、代码结构或 PR 变更。Use when the user asks for a visual explanation of an engineering topic or change; prefer the runtime's native visualize capability when available and applicable.
+description: 当用户要求用图或交互讲清概念、流程、代码结构或某次变更时。
 ---
 
 # 图形化解释

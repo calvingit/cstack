@@ -1,6 +1,6 @@
 ---
 name: cstack-verification-setup
-description: 发现、建立或修复项目可重复的验证能力。Use when the user requests project verification setup or an acceptance surface lacks a reliable runnable method; do not treat setup as task acceptance.
+description: 当用户要求建立或修好项目的验证方法，或验收还没有可靠的运行方式时。不用于判定这次候选过没过。
 ---
 
 # 建立项目验证能力

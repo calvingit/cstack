@@ -1,6 +1,6 @@
 ---
 name: cstack-how
-description: 追踪并解释当前代码或指定子系统如何运行。Use only when explicitly invoked for a code walkthrough; do not diagnose a failure, investigate historical reasons, or propose a redesign.
+description: 仅当用户点名，要求讲当前代码或指定部分现在怎么运行时。不用于排障、追历史原因或提议改造。
 ---
 
 # 解释代码如何工作

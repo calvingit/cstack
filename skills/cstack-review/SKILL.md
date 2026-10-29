@@ -1,6 +1,6 @@
 ---
 name: cstack-review
-description: 审查具体代码变更、相关调用路径和证据，报告可达到且有影响的缺陷。Use for change or pull request review; do not replace per-criterion acceptance or shipping decisions.
+description: 当要审查一次代码改动或 PR 里有没有会造成影响的缺陷时。不用于逐条验收，也不用于决定能否交付。
 ---
 
 # 审查变更

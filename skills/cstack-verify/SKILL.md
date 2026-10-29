@@ -1,6 +1,6 @@
 ---
 name: cstack-verify
-description: 依据已确认验收条件核验指定候选的实际行为，并逐项给出 PASS、FAIL 或 NOT VERIFIED。Use for acceptance or completion verification; do not repair the product or approve shipping within this judgment.
+description: 当要按已确认的验收条件核对某个候选的实际行为时。不用于改产品，也不用于批准发布。
 ---
 
 # 验收候选

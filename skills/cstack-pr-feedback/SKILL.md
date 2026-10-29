@@ -1,6 +1,6 @@
 ---
 name: cstack-pr-feedback
-description: 核实并按授权处理 PR 的评审意见。Use when asked to assess or address review comments on a pull request; distinguish code changes, replies, and thread resolution.
+description: 当用户要求核对或处理某条 PR 上的评审意见时。
 ---
 
 # 处理 PR 反馈

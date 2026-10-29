@@ -1,6 +1,6 @@
 ---
 name: cstack-prototype
-description: 为具体设计或可行性问题制作最小原型并检验结果。Use when an interactive experiment or runnable prototype is needed to decide how a behavior, state model, UI, or integration should work.
+description: 当要做一个最小可运行原型，来决定行为、状态、界面或集成怎么做时。
 ---
 
 # 制作原型

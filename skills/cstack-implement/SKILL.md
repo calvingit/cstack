@@ -1,6 +1,6 @@
 ---
 name: cstack-implement
-description: 按用户授权实现软件变更并运行相称的开发检查。Use for an implementation or fix with sufficiently clear scope; diagnose an unexplained failure before making speculative fixes.
+description: 当用户要求实现或修复，且改什么已经足够清楚时。原因不明的故障不要直接改。
 ---
 
 # 实现变更

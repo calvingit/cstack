@@ -1,6 +1,6 @@
 ---
 name: cstack-test-audit
-description: 审计指定测试的有效性和维护价值。Use when tests may pass falsely, duplicate protection, over-mock real behavior, or be costly to maintain; do not make this a mandatory acceptance step.
+description: 当怀疑某些测试会假通过、保护重复、用替身盖住真实行为，或维护成本过高时。普通验收不要自动用。
 ---
 
 # 审计测试
