@@ -1,0 +1,4 @@
+interface:
+  display_name: "Report Style"
+  short_description: "Write clear evidence based work reports"
+  default_prompt: "Use $report-style to report the current work clearly and accurately."

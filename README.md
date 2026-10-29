@@ -34,6 +34,10 @@
 | [cstack-ui-review](skills/cstack-ui-review/SKILL.md) | 根据实际界面与交互检查视觉和可用性 | 与逐项业务验收分开，无法观察时保留未知 |
 | [cstack-handoff](skills/cstack-handoff/SKILL.md) | 整理可核查的工作状态和下一步 | 复用现有事实，不建立第二份任务状态 |
 
+## 汇报风格
+
+[report-style](skills/report-style/SKILL.md) 将工作状态、验证结果和证据分开，帮助 Agent 给出简洁、可核查的任务汇报。它借鉴 [ste-zh](https://github.com/dualface/ste-zh/tree/27d57e4d6609ce88e14dd15cbae355223a83b246) 的规则，保留上游 MIT 许可；不强制固定模板或修改项目文件。
+
 ## 沟通与理解
 
 这些小工具按显式调用设计，不承担工程流程调度。其用途参考 [pstack 的沟通类 Skill](https://github.com/cursor/plugins/tree/1ba91fc25c0977741dd0e267849e6234b037ed0a/pstack/skills)，指令按 CStack 的边界编写。
@@ -59,14 +63,14 @@ Skill 按任务需要组合；同一方法可以跨阶段使用。例如验证�
 
 ## 在测试项目中使用
 
-每个 `skills/cstack-*` 目录都是一个完整的 Skill。按目标 Harness 的机制导入完整目录；`SKILL.md` 不依赖仓库根目录或其他 CStack Skill，`agents/openai.yaml` 是可选的 OpenAI 元数据，部分 Skill 在其中声明调用策略。其他 Runtime 的发现和调用行为需要各自验证。
+每个 `skills/` 下的目录都是一个完整的 Skill。按目标 Harness 的机制导入完整目录；`SKILL.md` 不依赖仓库根目录或其他 CStack Skill，`agents/openai.yaml` 是可选的 OpenAI 元数据，部分 Skill 在其中声明调用策略。其他 Runtime 的发现和调用行为需要各自验证。
 
 例如，在**准备好的临时 Codex 测试项目根目录**中，将下面的路径改成你的 CStack 本地克隆路径后运行：
 
 ```bash
 CSTACK_ROOT="/absolute/path/to/cstack"
 mkdir -p .agents/skills
-cp -R "$CSTACK_ROOT"/skills/cstack-* .agents/skills/
+cp -R "$CSTACK_ROOT"/skills/* .agents/skills/
 ```
 
 建议使用没有旧版同名 Skill 的隔离项目，避免覆盖已有配置。通过目标 Harness 检查 Skill 是否被发现，并分别测试显式调用与不点名的自然语言请求；自动触发不由文件存在保证。
