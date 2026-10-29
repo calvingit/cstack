@@ -1,0 +1,17 @@
+{
+  "name": "cstack",
+  "owner": {
+    "name": "calvingit"
+  },
+  "metadata": {
+    "description": "CStack 工程方法 Skills 市场。"
+  },
+  "plugins": [
+    {
+      "name": "cstack",
+      "source": "./",
+      "version": "0.1.0",
+      "description": "六阶段工程方法 Skills 与共享产物链。内部包含 cstack-core 索引 Skill 以及 clarify、specify、design、slice、implement、verify、review、ship 等方法。"
+    }
+  ]
+}

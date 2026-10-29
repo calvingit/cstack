@@ -1,0 +1,18 @@
+{
+  "name": "cstack",
+  "version": "0.1.0",
+  "description": "CStack：面向 AI Coding Agent 的工程方法 Skills。六阶段 DEFINE → PLAN → BUILD → VERIFY → REVIEW → SHIP，共享产物链 DECISIONS → SPEC → TECH → SLICES → EVIDENCE，强调候选绑定证据与风险自适应。",
+  "author": {
+    "name": "calvingit"
+  },
+  "homepage": "https://github.com/calvingit/cstack",
+  "repository": "https://github.com/calvingit/cstack",
+  "keywords": [
+    "skills",
+    "engineering",
+    "agent",
+    "workflow",
+    "verification",
+    "code-review"
+  ]
+}

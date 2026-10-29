@@ -1,0 +1,4 @@
+interface:
+  display_name: "CStack Challenge"
+  short_description: "对已成形方案做对抗审查"
+  default_prompt: "Use $cstack-challenge to adversarially review this existing proposal or decision."

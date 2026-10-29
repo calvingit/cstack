@@ -1,0 +1,6 @@
+interface:
+  display_name: "CStack Project Setup"
+  short_description: "记录项目稳定工程档案"
+  default_prompt: "Use $cstack-project-setup to record this project's stable engineering profile."
+policy:
+  allow_implicit_invocation: false

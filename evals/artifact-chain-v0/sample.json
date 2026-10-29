@@ -1,0 +1,92 @@
+{
+  "decisions": [
+    {
+      "id": "C1",
+      "question": "账号删除后如何保留数据？",
+      "choice": "软删除，保留 30 天",
+      "reason": "用户需要可恢复窗口，也接受 30 天后物理清除",
+      "observable": "删除后 30 天内管理员可恢复；第 31 天起不可恢复",
+      "source": "用户确认 2026-10-29",
+      "status": "confirmed"
+    },
+    {
+      "id": "C2",
+      "question": "30 天到期后是否需要通知用户？",
+      "status": "open"
+    }
+  ],
+  "spec": {
+    "goal": "账号删除支持可恢复窗口",
+    "requirements": [
+      { "id": "R1", "text": "用户删除账号后进入可恢复状态", "source": "C1" }
+    ],
+    "acceptance": [
+      {
+        "id": "AC1",
+        "source": "R1",
+        "criterion": "删除后 30 天内，管理员可恢复该账号",
+        "observable": "管理端恢复接口返回 200 且账号状态为 active"
+      },
+      {
+        "id": "AC2",
+        "source": "R1",
+        "criterion": "第 31 天起，账号数据不可恢复",
+        "observable": "恢复接口返回 410"
+      }
+    ],
+    "acceptance_seams": ["管理端恢复接口", "账号状态查询"],
+    "open": ["C2"]
+  },
+  "tech": {
+    "required": true,
+    "decisions": [
+      {
+        "id": "D1",
+        "decision": "账号删除采用软删除标记 + 定时清理任务",
+        "basis": ["AC1", "code:services/AccountService.deleteAccount"],
+        "alternatives": ["立即物理删除", "归档到独立表"],
+        "tradeoffs": "软删除多一张状态表，但保留可恢复窗口；定时任务需要容错",
+        "recovery": "软删除可逆；物理清除不可逆，执行前依赖备份",
+        "verification_seam": "仓储集成测试 + 迁移验证"
+      }
+    ]
+  },
+  "slices": [
+    {
+      "id": "S1",
+      "delivers": "删除后 30 天内管理员可恢复账号",
+      "covers": { "requirements": ["R1"], "acceptance": ["AC1"], "design": ["D1"] },
+      "blocked_by": [],
+      "local_ac": ["S1-AC1"],
+      "constraints": ["删除只标记，不物理清除"]
+    },
+    {
+      "id": "S2",
+      "delivers": "第 31 天起账号被物理清除且不可恢复",
+      "covers": { "requirements": ["R1"], "acceptance": ["AC2"], "design": ["D1"] },
+      "blocked_by": ["S1"],
+      "local_ac": ["S2-AC1"],
+      "constraints": []
+    }
+  ],
+  "evidence": {
+    "candidate": { "head": "abc123", "dirty": true, "untracked_files": 2 },
+    "results": [
+      {
+        "ac": "AC1",
+        "slice": "S1",
+        "verdict": "PASS",
+        "method": "调用管理端恢复接口并查询账号状态",
+        "environment": "本地 staging",
+        "executor": "verify",
+        "limits": "单账号；未覆盖并发恢复"
+      },
+      {
+        "ac": "AC2",
+        "slice": "S2",
+        "verdict": "NOT VERIFIED",
+        "reason": "无法等待 31 天；建议时钟注入或数据构造，需单独授权"
+      }
+    ]
+  }
+}

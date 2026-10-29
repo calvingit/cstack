@@ -8,12 +8,12 @@
 
 | 阶段 | Skill | 用途 |
 | --- | --- | --- |
-| DEFINE | [cstack-clarify](skills/cstack-clarify/SKILL.md) | 澄清会改变行为、范围或验收的未决选择 |
-| DEFINE | [cstack-specify](skills/cstack-specify/SKILL.md) | 将已确认需求整理为可验证的规格或交接依据 |
-| PLAN | [cstack-design](skills/cstack-design/SKILL.md) | 处理需要共享或不可轻易撤回的技术决策 |
-| PLAN | [cstack-slice](skills/cstack-slice/SKILL.md) | 拆分可验证的交付单元和真实依赖 |
-| BUILD | [cstack-implement](skills/cstack-implement/SKILL.md) | 实现授权范围并运行相称的开发检查 |
-| BUILD | [cstack-diagnose](skills/cstack-diagnose/SKILL.md) | 复现和定位故障，按授权修复 |
+| DEFINE | [cstack-clarify](skills/cstack-clarify/SKILL.md) | 澄清会改变行为、范围或验收的未决选择，产出 DECISIONS |
+| DEFINE | [cstack-specify](skills/cstack-specify/SKILL.md) | 将已确认需求整理为带 R/AC 的 SPEC 或验收依据 |
+| PLAN | [cstack-design](skills/cstack-design/SKILL.md) | 处理需要共享或不可轻易撤回的技术决策，产出 TECH 的 D 记录 |
+| PLAN | [cstack-slice](skills/cstack-slice/SKILL.md) | 拆成可验证的纵向切片和真实依赖，产出 SLICES |
+| BUILD | [cstack-implement](skills/cstack-implement/SKILL.md) | 实现授权范围，跑相称的开发检查并接独立收尾 |
+| BUILD | [cstack-diagnose](skills/cstack-diagnose/SKILL.md) | 先建立能变红的反馈回路，再定位根因，按授权修复 |
 | BUILD | [cstack-test-first](skills/cstack-test-first/SKILL.md) | 按行为进行测试先行的失败与通过循环 |
 | VERIFY | [cstack-verification-setup](skills/cstack-verification-setup/SKILL.md) | 发现或建立项目可重复的验证方法 |
 | VERIFY | [cstack-verify](skills/cstack-verify/SKILL.md) | 按验收条件核验指定候选和实际受测对象 |
@@ -30,6 +30,11 @@
 | [cstack-research](skills/cstack-research/SKILL.md) | 基于来源调查技术事实、比较方案 | 提供决策依据，不代替具体技术设计 |
 | [cstack-impact](skills/cstack-impact/SKILL.md) | 追踪变更对调用方、数据和关键不变量的影响 | 可用于计划或审查，不代替验收与代码审查 |
 | [cstack-architecture-review](skills/cstack-architecture-review/SKILL.md) | 审查现有架构的结构问题及实际代价 | 判断当前架构，不自行设计或实施重构 |
+| [cstack-codebase-design](skills/cstack-codebase-design/SKILL.md) | 用深模块、Seam、删除测试等词汇设计单个模块 | 回答单点怎么成形，不判断整体架构 |
+| [cstack-wayfinding](skills/cstack-wayfinding/SKILL.md) | 跨会话大工程的地图、战争迷雾与决策票据 | 规划，不直接实现；目的地清楚后交给 specify / design / slice |
+| [cstack-challenge](skills/cstack-challenge/SKILL.md) | 对已成形方案做有边界的对抗审查 | 只报告问题，不重新设计或修改实现 |
+| [cstack-project-setup](skills/cstack-project-setup/SKILL.md) | 记录稳定的项目工程档案（PROFILE） | 只放位置与策略，不存任务状态 |
+| [cstack-core](skills/cstack-core/SKILL.md) | 共享判断底线与产物槽位词汇 | 只做索引，不执行任务；不自动触发，供其他 Skill 调用 |
 | [cstack-simplify](skills/cstack-simplify/SKILL.md) | 识别或移除无当前职责的复杂性 | 限于用户请求的范围，不扩展成无关清理 |
 | [cstack-ui-review](skills/cstack-ui-review/SKILL.md) | 根据实际界面与交互检查视觉和可用性 | 与逐项业务验收分开，无法观察时保留未知 |
 | [cstack-handoff](skills/cstack-handoff/SKILL.md) | 整理可核查的工作状态和下一步 | 复用现有事实，不建立第二份任务状态 |
@@ -39,7 +44,7 @@
 | [cstack-retro](skills/cstack-retro/SKILL.md) | 复盘实际任务并提出有依据的改进 | 按需复盘，不默认增加规则或 Skill |
 | [cstack-domain-model](skills/cstack-domain-model/SKILL.md) | 梳理业务概念、关系和规则 | 支持需求澄清与设计，不代替业务决策 |
 
-这五项参考了 [tstack 的 PR 跟进](https://github.com/t3dotgg/tstack/blob/1085050f3baed1ac724caa4a8166145fb2ac88af/skills/babysit-pr/SKILL.md)、[Warp 的 PR 反馈处理](https://github.com/warpdotdev/common-skills/blob/8792394ff1b655e0af451b8fabb68ef0cfcbd208/.agents/skills/respond-to-pr-comments-in-blocklist/SKILL.md)、[Addy 的性能分析](https://github.com/addyosmani/agent-skills/blob/aeac41d4d005999432bb7312f7ff06383a91d59d/skills/performance-optimization/SKILL.md)，以及 Matt 的[原型](https://github.com/mattpocock/skills/blob/59db609eb1e18aaf59b63284d0e52255aff0c63c/skills/engineering/prototype/SKILL.md)、[复盘](https://github.com/mattpocock/skills/blob/59db609eb1e18aaf59b63284d0e52255aff0c63c/skills/engineering/retro/SKILL.md)和[领域建模](https://github.com/mattpocock/skills/blob/59db609eb1e18aaf59b63284d0e52255aff0c63c/skills/engineering/domain-modeling/SKILL.md)思路，按 CStack 的职责边界编写。
+其中一些方法参考了 [tstack 的 PR 跟进](https://github.com/t3dotgg/tstack/blob/1085050f3baed1ac724caa4a8166145fb2ac88af/skills/babysit-pr/SKILL.md)、[Warp 的 PR 反馈处理](https://github.com/warpdotdev/common-skills/blob/8792394ff1b655e0af451b8fabb68ef0cfcbd208/.agents/skills/respond-to-pr-comments-in-blocklist/SKILL.md)、[Addy 的性能分析](https://github.com/addyosmani/agent-skills/blob/aeac41d4d005999432bb7312f7ff06383a91d59d/skills/performance-optimization/SKILL.md)，以及 Matt 的[原型](https://github.com/mattpocock/skills/blob/59db609eb1e18aaf59b63284d0e52255aff0c63c/skills/engineering/prototype/SKILL.md)、[复盘](https://github.com/mattpocock/skills/blob/59db609eb1e18aaf59b63284d0e52255aff0c63c/skills/engineering/retro/SKILL.md)和[领域建模](https://github.com/mattpocock/skills/blob/59db609eb1e18aaf59b63284d0e52255aff0c63c/skills/engineering/domain-modeling/SKILL.md)思路，按 CStack 的职责边界编写。
 
 ## 汇报风格
 
@@ -70,11 +75,23 @@ Skill 按任务需要组合；同一方法可以跨阶段使用。例如验证�
 - 项目验证方法负责如何操作和观察系统；方法能够运行，并不代表某个候选已经通过验收。
 - 实现、验证和审查需要识别当前候选及相关工作树变更。证据需说明实际受测对象、环境、观察和限制；条件变化后重新判断适用性。
 - 合并就绪、发布就绪、执行授权和实际结果分别表达。合并会触发自动部署时，副作用必须在授权范围内；入队不等于已合并。
+- **产物链**：需求确认（DECISIONS）、规格（SPEC）、技术决定（TECH）、切片（SLICES）与证据（EVIDENCE）按逻辑槽位衔接。槽位可以缺席，形态自由，但下游按 ID 引用、不复制内容；缺失不授权编造。共享词汇见 [cstack-core](skills/cstack-core/SKILL.md)。
 - 不要求固定文档、独立执行者、全量检查、任务图或新的 Runtime。具体深度由任务风险、现有项目约束和用户要求决定。
+
+## 作为插件安装
+
+仓库根提供 Claude Code / Codex 插件清单（`.claude-plugin/plugin.json` 与 `.claude-plugin/marketplace.json`）：
+
+```text
+/plugin marketplace add calvingit/cstack
+/plugin install cstack@cstack
+```
+
+命令行等价写法：`claude plugin marketplace add calvingit/cstack`、`claude plugin install cstack@cstack`。更新用 `claude plugin marketplace update cstack` 与 `claude plugin update cstack@cstack`。Claude Code 按 `version` 判断有没有新版本，只有改了版本号才会更新。手写挂载方式见下一节。
 
 ## 在测试项目中使用
 
-每个 `skills/` 下的目录都是一个完整的 Skill。按目标 Harness 的机制导入完整目录；`SKILL.md` 不依赖仓库根目录或其他 CStack Skill，`agents/openai.yaml` 是可选的 OpenAI 元数据，部分 Skill 在其中声明调用策略。其他 Runtime 的发现和调用行为需要各自验证。
+`skills/cstack-core/` 是一个**不自动触发**的共享 Skill：`SKILL.md` 只索引 `PRINCIPLES.md` 与 `ARTIFACTS.md`，由其他 Skill 通过 Skill tool 调用，或由用户显式调用。其余每个目录都是一个完整 Skill。导入时建议连同 `cstack-core` 一起复制，供各 Skill 对齐槽位名与字段。每个 `SKILL.md` 内嵌自己需要的「底线 / 产物」要点，缺少 `cstack-core` 时仍可单独运行；装了时在需要对齐词汇处调用它。`agents/openai.yaml` 是可选的 OpenAI 元数据，部分 Skill 在其中声明调用策略。其他 Runtime 的发现和调用行为需要各自验证。
 
 例如，在**准备好的临时 Codex 测试项目根目录**中，将下面的路径改成你的 CStack 本地克隆路径后运行：
 

@@ -1,0 +1,4 @@
+interface:
+  display_name: "CStack Codebase Design"
+  short_description: "设计单个模块的接口与 seam"
+  default_prompt: "Use $cstack-codebase-design to shape this module's interface, seam, or dependency direction."
