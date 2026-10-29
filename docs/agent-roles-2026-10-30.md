@@ -1,7 +1,7 @@
 # CStack Agent 角色设计（提案）
 
 > 日期：2026-10-30
-> 状态：已确认采用 5 核心 + 3 可选，角色定义落在 [`skills/cstack-core/ROLES.md`](../skills/cstack-core/ROLES.md)。
+> 状态：已确认采用 5 核心 + 3 可选，角色定义落在 [`skills/cstack-core/ROLES.md`](../skills/cstack-core/ROLES.md)；Claude Code 可直接派发的实现见插件根 [`agents/`](../agents/README.md)。
 > 关联：[CStack Skills 提升方案](skill-upgrade-2026-10-29.md)、[产物链与独立性设计](artifact-spine-2026-10-29.md)。
 
 ## 0. 结论

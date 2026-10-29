@@ -82,6 +82,8 @@ Skill 按任务需要组合；同一方法可以跨阶段使用。例如验证�
 
 [cstack-core/ROLES.md](skills/cstack-core/ROLES.md) 定义 5 个核心角色（Explorer、Implementer、Verifier、Reviewer、Simplifier）与 3 个可选角色（Researcher、Architect、Orchestrator）。默认单 Agent；只有上下文隔离、独立性或并行有实际收益时才派独立实例。
 
+插件根 [agents/](agents/README.md) 提供 Claude Code **可直接派发**的 agent 定义：`cstack-explorer`、`cstack-implementer`、`cstack-verifier`、`cstack-reviewer`、`cstack-simplifier`、`cstack-researcher`、`cstack-architect`。Orchestrator 因为 Claude Code 的 subagent 不支持嵌套派发，只保留契约，由主 Agent 配合 `cstack-slice` / `cstack-wayfinding` 承担。
+
 关键规则：Implementer 不写 `EVIDENCE`；Verifier 与 Reviewer 是两种判断；预期来源独立不等于执行者独立；Orchestrator 不做判断，也不进入默认主链。
 
 ## 作为插件安装
