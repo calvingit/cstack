@@ -1,0 +1,6 @@
+interface:
+  display_name: "CStack Why"
+  short_description: "Investigate a design or decision rationale"
+  default_prompt: "Use $cstack-why to investigate why the current design or constraint exists."
+policy:
+  allow_implicit_invocation: false

@@ -1,0 +1,14 @@
+---
+name: cstack-how
+description: 追踪并解释当前代码或指定子系统如何运行。Use only when explicitly invoked for a code walkthrough; do not diagnose a failure, investigate historical reasons, or propose a redesign.
+---
+
+# 解释代码如何工作
+
+只在用户明确调用本 Skill 时使用。确定用户指定的范围和运行入口，先读取项目指令、实际源码和必要配置；范围不明确时只查足以确定目标的上下文。
+
+从入口追踪相关调用方、控制流、数据和状态变化、外部依赖及关键错误路径。阅读测试可帮助理解预期，但不能仅凭测试推断生产路径；没有实际运行就不要描述为运行观察。
+
+用用户需要的抽象层次解释关键步骤、职责和条件，并引用可核对的文件或符号。区分源码直接证明的行为、合理推断和尚未查明的部分；不要猜测缺失路径。
+
+回答当前实现如何工作后停止。历史动机、故障根因和目标重构属于其他问题；此操作不修改代码、配置或状态。

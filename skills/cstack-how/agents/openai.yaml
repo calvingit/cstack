@@ -1,0 +1,6 @@
+interface:
+  display_name: "CStack How"
+  short_description: "Explain how the current code works"
+  default_prompt: "Use $cstack-how to trace and explain how this code works."
+policy:
+  allow_implicit_invocation: false

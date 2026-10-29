@@ -34,6 +34,19 @@
 | [cstack-ui-review](skills/cstack-ui-review/SKILL.md) | 根据实际界面与交互检查视觉和可用性 | 与逐项业务验收分开，无法观察时保留未知 |
 | [cstack-handoff](skills/cstack-handoff/SKILL.md) | 整理可核查的工作状态和下一步 | 复用现有事实，不建立第二份任务状态 |
 
+## 沟通与理解
+
+这些小工具按显式调用设计，不承担工程流程调度。其用途参考 [pstack 的沟通类 Skill](https://github.com/cursor/plugins/tree/1ba91fc25c0977741dd0e267849e6234b037ed0a/pstack/skills)，指令按 CStack 的边界编写。
+
+| Skill | 用途 |
+| --- | --- |
+| [cstack-bro](skills/cstack-bro/SKILL.md) | 用更通俗的话重述上一条答复或指定片段，保留原有条件和不确定性 |
+| [cstack-restate-goal](skills/cstack-restate-goal/SKILL.md) | 重述对用户当前目标和边界的理解，不启动访谈 |
+| [cstack-how](skills/cstack-how/SKILL.md) | 追踪并解释当前代码怎样运行 |
+| [cstack-why](skills/cstack-why/SKILL.md) | 根据历史和项目证据调查某项设计或约束为什么存在 |
+
+四个 Skill 的 OpenAI 元数据声明 `allow_implicit_invocation: false`；其他 Runtime 可能不识别该设置，实际调用行为仍需在对应 Harness 中验证。
+
 Skill 按任务需要组合；同一方法可以跨阶段使用。例如验证时发现故障，可以进入诊断；审查发现测试可能虚假通过，可以按需审计测试。已有目标和验收依据的局部改动不需要先生成规格、设计或任务清单。
 
 ## 关键边界
@@ -46,7 +59,7 @@ Skill 按任务需要组合；同一方法可以跨阶段使用。例如验证�
 
 ## 在测试项目中使用
 
-每个 `skills/cstack-*` 目录都是一个完整的 Skill。按目标 Harness 的机制导入完整目录；`SKILL.md` 不依赖仓库根目录或其他 CStack Skill，`agents/openai.yaml` 是可选的 OpenAI 界面元数据。其他 Runtime 的发现和调用行为需要各自验证。
+每个 `skills/cstack-*` 目录都是一个完整的 Skill。按目标 Harness 的机制导入完整目录；`SKILL.md` 不依赖仓库根目录或其他 CStack Skill，`agents/openai.yaml` 是可选的 OpenAI 元数据，部分 Skill 在其中声明调用策略。其他 Runtime 的发现和调用行为需要各自验证。
 
 例如，在**准备好的临时 Codex 测试项目根目录**中，将下面的路径改成你的 CStack 本地克隆路径后运行：
 
