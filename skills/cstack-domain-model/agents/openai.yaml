@@ -1,0 +1,4 @@
+interface:
+  display_name: "CStack Domain Model"
+  short_description: "Clarify domain concepts and business rules"
+  default_prompt: "Use $cstack-domain-model to clarify this domain's concepts, relationships, and rules."

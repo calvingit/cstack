@@ -33,6 +33,13 @@
 | [cstack-simplify](skills/cstack-simplify/SKILL.md) | 识别或移除无当前职责的复杂性 | 限于用户请求的范围，不扩展成无关清理 |
 | [cstack-ui-review](skills/cstack-ui-review/SKILL.md) | 根据实际界面与交互检查视觉和可用性 | 与逐项业务验收分开，无法观察时保留未知 |
 | [cstack-handoff](skills/cstack-handoff/SKILL.md) | 整理可核查的工作状态和下一步 | 复用现有事实，不建立第二份任务状态 |
+| [cstack-pr-feedback](skills/cstack-pr-feedback/SKILL.md) | 核实并处理 PR 评审意见 | 区分问题判断、代码修改和外部回复的授权 |
+| [cstack-performance](skills/cstack-performance/SKILL.md) | 测量性能、定位瓶颈并按授权优化 | 与通用故障诊断配合，侧重可比测量 |
+| [cstack-prototype](skills/cstack-prototype/SKILL.md) | 用最小原型检验具体设计或可行性问题 | 原型观察不能代替生产系统验收 |
+| [cstack-retro](skills/cstack-retro/SKILL.md) | 复盘实际任务并提出有依据的改进 | 按需复盘，不默认增加规则或 Skill |
+| [cstack-domain-model](skills/cstack-domain-model/SKILL.md) | 梳理业务概念、关系和规则 | 支持需求澄清与设计，不代替业务决策 |
+
+这五项参考了 [tstack 的 PR 跟进](https://github.com/t3dotgg/tstack/blob/1085050f3baed1ac724caa4a8166145fb2ac88af/skills/babysit-pr/SKILL.md)、[Warp 的 PR 反馈处理](https://github.com/warpdotdev/common-skills/blob/8792394ff1b655e0af451b8fabb68ef0cfcbd208/.agents/skills/respond-to-pr-comments-in-blocklist/SKILL.md)、[Addy 的性能分析](https://github.com/addyosmani/agent-skills/blob/aeac41d4d005999432bb7312f7ff06383a91d59d/skills/performance-optimization/SKILL.md)，以及 Matt 的[原型](https://github.com/mattpocock/skills/blob/59db609eb1e18aaf59b63284d0e52255aff0c63c/skills/engineering/prototype/SKILL.md)、[复盘](https://github.com/mattpocock/skills/blob/59db609eb1e18aaf59b63284d0e52255aff0c63c/skills/engineering/retro/SKILL.md)和[领域建模](https://github.com/mattpocock/skills/blob/59db609eb1e18aaf59b63284d0e52255aff0c63c/skills/engineering/domain-modeling/SKILL.md)思路，按 CStack 的职责边界编写。
 
 ## 汇报风格
 

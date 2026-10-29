@@ -1,0 +1,11 @@
+---
+name: cstack-domain-model
+description: 梳理或调整业务领域概念、关系和规则。Use when domain terms, ownership, state transitions, or business invariants need modeling or clarification; do not assume the current implementation is the desired rule.
+---
+
+# 梳理领域模型
+
+1. 确定业务范围和讨论目标，读取已确认需求、现有资料及必要的代码。区分用户期望、当前实现与仍待确认的规则。
+2. 找出影响当前问题的概念、关系、状态和业务约束；用具体场景澄清含义不同或容易混淆的术语。只引入有助于理解和决策的模型，不预设架构风格。
+3. 对照已有代码与文档，指出术语或行为冲突及其证据；不能从现有实现自行推断业务意图。对会改变行为的重要未决规则提出必要问题，其余合理假设注明即可。
+4. 汇总已确认概念、规则和未决事项。按用户请求或项目已有位置记录；纯建模不自动创建术语表、ADR 或修改代码，后续实现按已有授权继续。
