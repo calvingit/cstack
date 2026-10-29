@@ -1,6 +1,6 @@
 # 事实调查子代理定义
 
-> 供 `cstack-clarify` 派发只读调查使用。当前放在 clarify 局部；如果后续 `design`、`diagnose`、`impact` 等也需要同一职责，再提升为 `cstack-core/references/` 的共享定义。
+> 供 `cstack-clarify` 派发只读调查使用。角色定义见 `cstack-core/ROLES.md` 的 **Explorer**；未安装 `cstack-core` 时按本文件执行。本文件只保留 clarify 的派发与输出细节。
 
 ## 何时派发
 

@@ -5,6 +5,7 @@ CStack 的共享内核 Skill，**不自动触发**，由其他 Skill 通过 Skil
 - [`SKILL.md`](SKILL.md)：只做索引，说明何时读哪份文档。
 - [`PRINCIPLES.md`](PRINCIPLES.md)：所有 Skill 共用的判断底线。
 - [`ARTIFACTS.md`](ARTIFACTS.md)：6 个产物槽位的字段、所有权与 ID 约定。
+- [`ROLES.md`](ROLES.md)：5 个核心角色与 3 个可选专业角色的责任契约、独立性与降级规则。
 
 ## 安装
 

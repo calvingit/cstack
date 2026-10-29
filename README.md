@@ -78,6 +78,12 @@ Skill 按任务需要组合；同一方法可以跨阶段使用。例如验证�
 - **产物链**：需求确认（DECISIONS）、规格（SPEC）、技术决定（TECH）、切片（SLICES）与证据（EVIDENCE）按逻辑槽位衔接。槽位可以缺席，形态自由，但下游按 ID 引用、不复制内容；缺失不授权编造。共享词汇见 [cstack-core](skills/cstack-core/SKILL.md)。
 - 不要求固定文档、独立执行者、全量检查、任务图或新的 Runtime。具体深度由任务风险、现有项目约束和用户要求决定。
 
+## Agent 角色
+
+[cstack-core/ROLES.md](skills/cstack-core/ROLES.md) 定义 5 个核心角色（Explorer、Implementer、Verifier、Reviewer、Simplifier）与 3 个可选角色（Researcher、Architect、Orchestrator）。默认单 Agent；只有上下文隔离、独立性或并行有实际收益时才派独立实例。
+
+关键规则：Implementer 不写 `EVIDENCE`；Verifier 与 Reviewer 是两种判断；预期来源独立不等于执行者独立；Orchestrator 不做判断，也不进入默认主链。
+
 ## 作为插件安装
 
 仓库根提供 Claude Code / Codex 插件清单（`.claude-plugin/plugin.json` 与 `.claude-plugin/marketplace.json`）：
