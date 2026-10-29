@@ -38,6 +38,10 @@
 
 [report-style](skills/report-style/SKILL.md) 将工作状态、验证结果和证据分开，帮助 Agent 给出简洁、可核查的任务汇报。它借鉴 [ste-zh](https://github.com/dualface/ste-zh/tree/27d57e4d6609ce88e14dd15cbae355223a83b246) 的规则，保留上游 MIT 许可；不强制固定模板或修改项目文件。
 
+## 图形化解释
+
+[cstack-visual-explain](skills/cstack-visual-explain/SKILL.md) 用图形解释工程概念、代码流程、方案或 PR 变更。对话内展示时，优先使用当前 Runtime 实际提供且适用的 `visualize` Skill；其他情况按环境选择 Mermaid、可复制的 PR 内容或独立 HTML。原生能力是否可发现、调用和渲染，仍需在目标 Harness 中验证。
+
 ## 沟通与理解
 
 这些小工具按显式调用设计，不承担工程流程调度。其用途参考 [pstack 的沟通类 Skill](https://github.com/cursor/plugins/tree/1ba91fc25c0977741dd0e267849e6234b037ed0a/pstack/skills)，指令按 CStack 的边界编写。

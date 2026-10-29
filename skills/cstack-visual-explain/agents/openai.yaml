@@ -1,0 +1,4 @@
+interface:
+  display_name: "CStack Visual Explain"
+  short_description: "Explain engineering topics with visuals"
+  default_prompt: "Use $cstack-visual-explain to explain this engineering topic or change visually."
