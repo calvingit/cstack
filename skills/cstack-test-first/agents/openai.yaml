@@ -1,0 +1,4 @@
+interface:
+  display_name: "CStack Test First"
+  short_description: "Develop through test-first behavior cycles"
+  default_prompt: "Use $cstack-test-first to implement the next confirmed behavior with a test-first cycle."

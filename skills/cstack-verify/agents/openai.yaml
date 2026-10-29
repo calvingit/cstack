@@ -1,4 +1,4 @@
 interface:
-  display_name: "CStack VERIFY"
-  short_description: "Evidence-based engineering: verify"
-  default_prompt: "Use $cstack-verify to handle the current verify task."
+  display_name: "CStack Verify"
+  short_description: "Verify behavior against acceptance criteria"
+  default_prompt: "Use $cstack-verify to verify the current candidate against its acceptance criteria."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "CStack Verification Setup"
+  short_description: "Establish repeatable project verification"
+  default_prompt: "Use $cstack-verification-setup to establish a repeatable way to verify the requested project behavior."

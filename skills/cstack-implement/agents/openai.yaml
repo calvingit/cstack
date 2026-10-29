@@ -1,0 +1,4 @@
+interface:
+  display_name: "CStack Implement"
+  short_description: "Implement scoped, verifiable changes"
+  default_prompt: "Use $cstack-implement to implement the requested change with appropriate checks."

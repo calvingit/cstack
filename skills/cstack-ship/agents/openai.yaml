@@ -1,4 +1,4 @@
 interface:
-  display_name: "CStack SHIP"
-  short_description: "Evidence-based engineering: ship"
-  default_prompt: "Use $cstack-ship to handle the current ship task."
+  display_name: "CStack Ship"
+  short_description: "Evaluate and deliver an authorized change"
+  default_prompt: "Use $cstack-ship to assess and carry out the authorized delivery for this candidate."

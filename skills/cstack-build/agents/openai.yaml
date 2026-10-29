@@ -1,4 +1,0 @@
-interface:
-  display_name: "CStack BUILD"
-  short_description: "Evidence-based engineering: build"
-  default_prompt: "Use $cstack-build to handle the current build task."

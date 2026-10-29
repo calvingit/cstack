@@ -1,0 +1,4 @@
+interface:
+  display_name: "CStack Slice"
+  short_description: "Split work into verifiable deliveries"
+  default_prompt: "Use $cstack-slice to split this work into independently verifiable deliveries."

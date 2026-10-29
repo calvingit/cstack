@@ -1,0 +1,4 @@
+interface:
+  display_name: "CStack Diagnose"
+  short_description: "Reproduce and diagnose runtime failures"
+  default_prompt: "Use $cstack-diagnose to investigate this failure and report the evidence."
