@@ -1,6 +1,7 @@
 ---
 name: cstack-wayfinding
-description: 当一大块工作超出单个会话、方向还看不清，需要跨会话用一张地图和决策工单推进时使用。已经清楚的小改动不要用。
+description: 仅当用户点名，要求用一张地图和决策工单推进跨会话、方向还看不清的大块工作时使用。已经清楚的小改动不要用。
+disable-model-invocation: true
 ---
 
 # cstack-wayfinding · 跨会话找路

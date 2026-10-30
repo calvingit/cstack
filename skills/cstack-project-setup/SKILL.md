@@ -1,6 +1,7 @@
 ---
 name: cstack-project-setup
-description: 当要把项目里稳定的工程约定记录成档案，或已有配置需要迁移时使用。不记录当前任务状态。
+description: 仅当用户点名，要求把项目里稳定的工程约定记录成档案，或迁移已有配置时使用。不记录当前任务状态。
+disable-model-invocation: true
 ---
 
 # cstack-project-setup · 记录项目工程档案
