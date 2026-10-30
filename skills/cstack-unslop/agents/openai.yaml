@@ -1,0 +1,6 @@
+interface:
+  display_name: "CStack 删冗余"
+  short_description: "点名后删冗余、写精准"
+  default_prompt: "使用 $cstack-unslop 删减冗余，把这段内容写得更精准简练。"
+policy:
+  allow_implicit_invocation: false
