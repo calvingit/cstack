@@ -36,7 +36,3 @@ description: 当用户要求用图或交互讲清概念、流程、代码结构�
 - 给出简短的结论和必要条件，不要在正文里把图里的内容再重复一遍。相关的源码、差异、文档或数据来源，要放在能查证的位置。信息缺失时，标明未知。
 - 检查图里的方向、标签、分支和内容跟来源是否一致，也检查能看到的渲染效果、视口和实际交互。没法预览、执行或确认的部分，要明确写成未验证。生成成功，并不能证明所描述的软件已经通过验收。
 - 遵守用户和宿主关于输出、文件保存和权限的规则。只要求解释或起草 PR 文案时，保持只读，不要创建、修改或发布 PR。用户另外明确授权时，可以在授权范围内继续。
-
-## 来源
-
-表达形式怎么选、证据边界在哪，参考 [show-me](https://github.com/calvingit/skills/tree/96651f2ad8f040a238bd3f8b499143b865f45d8b/Engineering/skills/show-me)。变更的结构怎么讲，参考 [visual-pr](https://github.com/calvingit/skills/tree/96651f2ad8f040a238bd3f8b499143b865f45d8b/Engineering/skills/visual-pr)。上游许可见 [LICENSE-HumanLayer](LICENSE-HumanLayer)。

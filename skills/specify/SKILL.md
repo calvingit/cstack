@@ -5,7 +5,7 @@ description: 当已经确认的需求要固化成带 R/AC 的规格或验收依�
 
 # Specify - 整理规格
 
-## 硬约束
+## 强制约束
 
 - 只写已确认的需求；业务未决选择回到 clarify，不在这里替用户决定。
 - SPEC 只写需求与可观察验收，不写实现、类/模块、文件改动、测试脚本或执行拆分。
@@ -16,7 +16,7 @@ description: 当已经确认的需求要固化成带 R/AC 的规格或验收依�
 
 - **读**：DECISIONS、用户本轮确认的内容、PROFILE（若存在）、代码事实。
 - **写**：SPEC，含 Goal、Scope / Out of scope、`R#`、`AC#`、Acceptance Seam、约束、未决项。
-- 需要与其他 Skill 统一槽位名和字段时，调用 `core` Skill；未安装时以本节作为最小可用版本。
+- 需要与其他 Skill 统一产物命名和字段时，调用 `core` Skill；未安装时以本节作为最小可用版本。
 
 ## 入口与模式
 

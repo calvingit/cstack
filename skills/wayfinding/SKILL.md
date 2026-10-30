@@ -5,7 +5,7 @@ description: 当一大块工作超出单个会话、方向还看不清，需要�
 
 # Wayfinding - 跨会话找路
 
-## 硬约束
+## 强制约束
 
 - 规划，不直接做：每张决策工单只处理一个决策；地图在通往目的地的路清楚时结束。
 - 不在地图之外擅自扩大范围；超出目的地的内容属于 Out of scope，不是迷雾。
@@ -16,7 +16,7 @@ description: 当一大块工作超出单个会话、方向还看不清，需要�
 
 - **读**：松散想法、项目现状、已有文档与 ADR。
 - **写**：MAP（Destination、Notes、Decisions so far、Not yet specified、Out of scope）和决策工单（Question、类型、blocked-by）。沿用项目已有的任务系统或跟踪工具；不建第二套状态。
-- 需要与其他 Skill 统一槽位名和字段时，调用 `core` Skill；未安装时以本节作为最小可用版本。
+- 需要与其他 Skill 统一产物命名和字段时，调用 `core` Skill；未安装时以本节作为最小可用版本。
 
 ## 目标
 

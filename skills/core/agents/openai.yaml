@@ -1,6 +1,6 @@
 interface:
   display_name: "CStack Core"
-  short_description: "共享判断硬约束与产物词汇"
+  short_description: "共享判断强制约束与产物词汇"
   default_prompt: "Use $core to load the shared CStack principles and artifact vocabulary."
 policy:
   allow_implicit_invocation: false

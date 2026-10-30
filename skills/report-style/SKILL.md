@@ -39,7 +39,3 @@ description: 当要汇报任务结果、当前进度、排查结论或还没定�
 已知：支付代码已经改了；`pytest tests/payment.py` 跑完有 3 项失败；设备端的检查没有做。
 
 汇报：支付代码已经改了，但验收还没完成。`pytest tests/payment.py` 有 3 项失败；设备端未验证。
-
-## 来源
-
-本 Skill 从 [dualface/ste-zh](https://github.com/dualface/ste-zh/tree/27d57e4d6609ce88e14dd15cbae355223a83b246) 的中文任务汇报原则中提炼，并按 CStack 的可组合场景改写；许可见 [LICENSE-ste-zh](LICENSE-ste-zh)。它不是 ASD-STE100 标准，也不是官方中文译本。

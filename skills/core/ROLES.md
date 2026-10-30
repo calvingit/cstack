@@ -28,7 +28,7 @@
 - **Purpose**：在授权写范围内做出能工作的候选变更。
 - **Inputs**：SPEC（`R#`/`AC#`）、TECH（若存在）、SLICES（若存在）、写入范围、基线与工作树、授权。
 - **Allowed**：改产品代码与测试、跑开发检查、记录自检。
-- **Forbidden**：改上游槽位、自批验收、删除断言或放宽阈值、扩大范围、替用户做需求选择。
+- **Forbidden**：改上游产物、自批验收、删除断言或放宽阈值、扩大范围、替用户做需求选择。
 - **Output**：候选变更 + 自检记录（执行者 = 实现者）+ 未验证项与风险。
 - **Independence**：自检不等于独立验收；在要求独立时不能同时充当 Verifier / Reviewer。
 - **Escalation**：需求、设计或范围冲突交回调用方。
@@ -107,7 +107,7 @@
 
 ## 产物与角色
 
-| 槽位 / 产出 | 写入角色 |
+| 产物 / 产出 | 写入角色 |
 | --- | --- |
 | `PROFILE` | 主 Agent（project-setup） |
 | `DECISIONS` | Clarifier |
@@ -119,7 +119,7 @@
 | 简化候选 | **Simplifier** |
 | 研究结论 | **Researcher** |
 
-规则：Implementer 不写 `EVIDENCE`；Reviewer 不改槽位；Orchestrator 不写判断性内容。
+规则：Implementer 不写 `EVIDENCE`；Reviewer 不改产物；Orchestrator 不写判断性内容。
 
 ## 独立性规则
 
