@@ -1,0 +1,6 @@
+interface:
+  display_name: "CStack 审查变更"
+  short_description: "审查改动里会造成影响的缺陷"
+  default_prompt: "使用 $cstack-review 审查当前变更里会造成影响的缺陷。"
+policy:
+  allow_implicit_invocation: true

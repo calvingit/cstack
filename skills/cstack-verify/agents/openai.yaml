@@ -1,0 +1,6 @@
+interface:
+  display_name: "CStack 验收"
+  short_description: "要按验收条件核对候选"
+  default_prompt: "使用 $cstack-verify 按已确认的验收条件核对当前候选。"
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,6 @@
+interface:
+  display_name: "CStack 性能分析"
+  short_description: "慢、卡或资源异常需要测量"
+  default_prompt: "使用 $cstack-performance 测量这个性能问题并定位瓶颈。"
+policy:
+  allow_implicit_invocation: true

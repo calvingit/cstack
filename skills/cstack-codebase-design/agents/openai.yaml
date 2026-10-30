@@ -1,0 +1,6 @@
+interface:
+  display_name: "CStack 模块设计"
+  short_description: "设计单个模块的接口与接缝"
+  default_prompt: "使用 $cstack-codebase-design 设计这个模块的接口、接缝或依赖方向。"
+policy:
+  allow_implicit_invocation: true

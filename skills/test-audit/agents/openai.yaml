@@ -1,4 +1,0 @@
-interface:
-  display_name: "CStack Test Audit"
-  short_description: "怀疑测试假通过或成本过高"
-  default_prompt: "Use $test-audit to inspect whether the selected tests provide meaningful protection."

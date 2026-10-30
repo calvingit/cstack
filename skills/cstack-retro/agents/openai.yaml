@@ -1,0 +1,6 @@
+interface:
+  display_name: "CStack 复盘"
+  short_description: "要求复盘任务或会话"
+  default_prompt: "使用 $cstack-retro 复盘这次任务或会话，并提出有依据的改进。"
+policy:
+  allow_implicit_invocation: true

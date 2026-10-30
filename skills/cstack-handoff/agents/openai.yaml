@@ -1,0 +1,6 @@
+interface:
+  display_name: "CStack 交接"
+  short_description: "需要把工作交给下次接着做"
+  default_prompt: "使用 $cstack-handoff 整理一份下次能接着做的交接。"
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,6 @@
+interface:
+  display_name: "CStack 简化"
+  short_description: "要求简化或查看多余复杂度"
+  default_prompt: "使用 $cstack-simplify 查看指定范围内有没有多余复杂度；只有明确要求时才改。"
+policy:
+  allow_implicit_invocation: true

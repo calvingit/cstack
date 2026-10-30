@@ -1,0 +1,6 @@
+interface:
+  display_name: "CStack 领域模型"
+  short_description: "业务概念和规则对不齐时"
+  default_prompt: "使用 $cstack-domain-model 梳理这块业务的概念、关系和规则。"
+policy:
+  allow_implicit_invocation: true

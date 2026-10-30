@@ -1,0 +1,6 @@
+interface:
+  display_name: "CStack 图形解释"
+  short_description: "要求用图或交互来讲"
+  default_prompt: "使用 $cstack-visual-explain 用图或交互讲清这个概念、流程或变更。"
+policy:
+  allow_implicit_invocation: true

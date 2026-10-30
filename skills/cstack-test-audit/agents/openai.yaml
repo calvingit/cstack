@@ -1,0 +1,6 @@
+interface:
+  display_name: "CStack 测试审计"
+  short_description: "怀疑测试假通过或成本过高"
+  default_prompt: "使用 $cstack-test-audit 检查这些测试是否真的在保护行为。"
+policy:
+  allow_implicit_invocation: true

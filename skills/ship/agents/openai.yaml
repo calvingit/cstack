@@ -1,4 +1,0 @@
-interface:
-  display_name: "CStack Ship"
-  short_description: "要处理 PR、合并或发布"
-  default_prompt: "Use $ship to assess and carry out the authorized delivery for this candidate."

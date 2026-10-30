@@ -1,6 +1,0 @@
-interface:
-  display_name: "CStack How"
-  short_description: "点名讲解代码现在怎么跑"
-  default_prompt: "Use $how to trace and explain how this code works."
-policy:
-  allow_implicit_invocation: false

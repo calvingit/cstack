@@ -1,4 +1,0 @@
-interface:
-  display_name: "CStack Design"
-  short_description: "有接口、数据、生命周期等设计取舍时"
-  default_prompt: "Use $design to develop the necessary technical decisions for this change."

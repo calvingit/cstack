@@ -1,4 +1,0 @@
-interface:
-  display_name: "CStack Test First"
-  short_description: "要求先写失败测试再实现"
-  default_prompt: "Use $test-first to implement the next confirmed behavior with a test-first cycle."

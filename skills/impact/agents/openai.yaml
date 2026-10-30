@@ -1,4 +1,0 @@
-interface:
-  display_name: "CStack Impact"
-  short_description: "要查改动会碰到什么"
-  default_prompt: "Use $impact to assess what this change could affect and how to verify it."

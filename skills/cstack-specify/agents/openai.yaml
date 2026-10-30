@@ -1,0 +1,6 @@
+interface:
+  display_name: "CStack 整理规格"
+  short_description: "要把已确认需求写成规格"
+  default_prompt: "使用 $cstack-specify 把已经确认的需求写成可验收的规格。"
+policy:
+  allow_implicit_invocation: true
