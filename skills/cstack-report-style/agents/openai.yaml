@@ -1,6 +1,0 @@
-interface:
-  display_name: "CStack 任务汇报"
-  short_description: "要汇报结果、进度或待决"
-  default_prompt: "使用 $cstack-report-style 汇报当前工作的结果、依据和未决事项。"
-policy:
-  allow_implicit_invocation: true
