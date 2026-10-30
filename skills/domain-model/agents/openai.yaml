@@ -1,4 +1,0 @@
-interface:
-  display_name: "CStack Domain Model"
-  short_description: "业务概念和规则对不齐时"
-  default_prompt: "Use $domain-model to clarify this domain's concepts, relationships, and rules."

@@ -1,0 +1,6 @@
+interface:
+  display_name: "CStack 影响分析"
+  short_description: "要查改动会碰到什么"
+  default_prompt: "使用 $cstack-impact 查这项变更会影响哪些调用方、数据和行为。"
+policy:
+  allow_implicit_invocation: true

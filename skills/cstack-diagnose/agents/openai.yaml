@@ -1,0 +1,6 @@
+interface:
+  display_name: "CStack 诊断故障"
+  short_description: "故障原因不明，先复现定位"
+  default_prompt: "使用 $cstack-diagnose 先复现这个故障，再定位原因并报告证据。"
+policy:
+  allow_implicit_invocation: true

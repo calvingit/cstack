@@ -1,6 +1,0 @@
-interface:
-  display_name: "CStack Why"
-  short_description: "点名追查为什么这样设计"
-  default_prompt: "Use $why to investigate why the current design or constraint exists."
-policy:
-  allow_implicit_invocation: false

@@ -1,0 +1,6 @@
+interface:
+  display_name: "CStack 对抗审查"
+  short_description: "对已成形方案做对抗审查"
+  default_prompt: "使用 $cstack-challenge 对这个已经成形的方案或判断做有边界的对抗审查。"
+policy:
+  allow_implicit_invocation: true

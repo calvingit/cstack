@@ -1,6 +1,6 @@
 # CStack 设计思想
 
-> 本文说明这套 Skills 的工作流与设计取舍。方法清单与安装方式见 [README](../README.md)；共享词汇与不变量见 [core](../skills/core/SKILL.md)。
+> 本文说明这套 Skills 的工作流与设计取舍。方法清单与安装方式见 [README](../README.md)；共享词汇与不变量见 [cstack-core](../skills/cstack-core/SKILL.md)。
 
 ## 1. 定位
 
@@ -16,7 +16,7 @@ CStack 是面向 AI Coding Agent 的工程方法 Skills 包，Markdown-first，�
 
 ## 2. 六阶段：地图，不是流水线
 
-`DEFINE → PLAN → BUILD → VERIFY → REVIEW → SHIP` 用于理解工程工作，各阶段可跳过、可返回：
+`DEFINE → PLAN → BUILD → VERIFY → REVIEW → SHIP` 用于理解工程工作。上游阶段和中间产物可以按当前问题跳过或返回。任务要声明完成时，验收和审查不能跳过。
 
 | 阶段 | 回答的问题 | 最小输出 |
 | --- | --- | --- |
@@ -27,7 +27,7 @@ CStack 是面向 AI Coding Agent 的工程方法 Skills 包，Markdown-first，�
 | REVIEW | 变更引入了哪些可证明的缺陷或风险？ | 按影响排序的发现及限制 |
 | SHIP | 是否可以合并或发布？ | 就绪结论、阻塞、已接受风险 |
 
-简单任务（目标清楚、影响局部、现有检查足够）直接实现，不经过任何中间产物。深度由风险决定，不由流程决定。
+简单任务（目标清楚、影响局部、现有检查足够）可以直接实现，不经过上游中间产物。深度由风险决定，不由流程决定。即使改动很小，收尾仍须实际运行 `cstack-verify` 和 `cstack-review`；`cstack-simplify` 可以跳过。验收或审查记为未运行不等于通过。
 
 ## 3. 证据：候选绑定与失效
 
@@ -44,12 +44,12 @@ CStack 是面向 AI Coding Agent 的工程方法 Skills 包，Markdown-first，�
 
 | 层 | 产物 | 回答的问题 | 唯一写入者 | 消费方 |
 | --- | --- | --- | --- | --- |
-| 项目基座 | `PROFILE` | 这个项目长期怎么运作？ | project-setup | 所有 Skill |
-| 需求契约 | `DECISIONS` | 哪些需求选择已由用户确认？ | clarify | specify |
-| 需求契约 | `SPEC` | 要做什么，怎么算完成？ | specify | design / slice / implement / verify / review |
-| 交付计划 | `TECH` | 哪些共享或难逆转的技术选择已定？ | design | slice / implement / verify / review |
-| 交付计划 | `SLICES` | 怎么分步交付，谁阻塞谁？ | slice | implement / verify |
-| 结果 | `EVIDENCE` | 实际做到什么程度？ | verify | review / ship |
+| 项目基座 | `PROFILE` | 这个项目长期怎么运作？ | cstack-project-setup | 所有 Skill |
+| 需求契约 | `DECISIONS` | 哪些需求选择已由用户确认？ | cstack-clarify | cstack-specify |
+| 需求契约 | `SPEC` | 要做什么，怎么算完成？ | cstack-specify | cstack-design / cstack-slice / cstack-implement / cstack-verify / cstack-review |
+| 交付计划 | `TECH` | 哪些共享或难逆转的技术选择已定？ | cstack-design | cstack-slice / cstack-implement / cstack-verify / cstack-review |
+| 交付计划 | `SLICES` | 怎么分步交付，谁阻塞谁？ | cstack-slice | cstack-implement / cstack-verify |
+| 结果 | `EVIDENCE` | 实际做到什么程度？ | cstack-verify | cstack-review / cstack-ship |
 
 三条不变量：
 
@@ -57,7 +57,7 @@ CStack 是面向 AI Coding Agent 的工程方法 Skills 包，Markdown-first，�
 2. **产物可以省略**；省略表示没有单独形成文档，但这不等于没有要求，更不等于可以凭空假设。缺少可引用的依据时，只能保留 NOT VERIFIED，不得补一个假设。
 3. **变化只改负责的产物**，再重判受影响的下游产物：需求变改 DECISIONS/SPEC，设计变改 TECH，拆分变改 SLICES，候选或环境变改 EVIDENCE。
 
-字段定义与 ID 约定见 [core/ARTIFACTS.md](../skills/core/ARTIFACTS.md)。
+字段定义与 ID 约定见 [cstack-core/ARTIFACTS.md](../skills/cstack-core/ARTIFACTS.md)。
 
 ## 5. 风险自适应与权限
 
@@ -72,11 +72,11 @@ CStack 是面向 AI Coding Agent 的工程方法 Skills 包，Markdown-first，�
 
 ## 6. 强制约束与独立性
 
-工作流与辅助 Skill 的 SKILL.md 开头有「强制约束」小节：3–5 条本 Skill 任何情况下不可违反的规则，表述完整，不依赖外部索引。全 Skill 共享的不变量（范围、认知、决策、授权、证据、恢复六组）收在 [core/PRINCIPLES.md](../skills/core/PRINCIPLES.md)。
+工作流与辅助 Skill 的 SKILL.md 开头有「强制约束」小节：3–5 条本 Skill 任何情况下不可违反的规则，表述完整，不依赖外部索引。全 Skill 共享的不变量（范围、认知、决策、授权、证据、恢复六组）收在 [cstack-core/PRINCIPLES.md](../skills/cstack-core/PRINCIPLES.md)。
 
 独立性设计：
 
-- `core` 是**唯一共享层**，不自动触发，只提供共享词汇与不变量；其他 Skill 需要对齐产物命名与字段时调用它。
+- `cstack-core` 是**唯一共享层**，不自动触发，只提供共享词汇与不变量；其他 Skill 需要对齐产物命名与字段时调用它。
 - 每个 Skill 内嵌自己需要的「强制约束 / 产物」要点，**没有硬依赖**：只装单个 Skill 也能独立运行。
 - 不能既宣称"单目录独立"，又要求读取根目录共享文件而无内嵌兜底。
 
@@ -87,15 +87,15 @@ CStack 是面向 AI Coding Agent 的工程方法 Skills 包，Markdown-first，�
 采用 5 个核心角色（Explorer、Implementer、Verifier、Reviewer、Simplifier）与 3 个可选专业角色（Researcher、Architect、Orchestrator）。关键规则：
 
 - **Implementer 永远不写 `EVIDENCE`**；自检只是候选记录。
-- **Verifier 与 Reviewer 是两种判断**（AC 是否满足 vs 变更引入了什么缺陷），不能合并成一份结论。
+- **Verifier 与 Reviewer 是两种判断**（验收条件是否满足 vs 变更引入了什么缺陷），不能合并成一份结论。任务收尾两者都必须实际运行；记为未运行不等于通过。Simplifier 可以跳过。
 - **预期来源独立 ≠ 执行者独立**：默认同上下文执行，但预期先行；高风险时才要求独立实例。
 - **角色不是越多越好**：默认单 Agent，只有隔离、独立性或并行有实际收益时才派独立实例。
 
-角色契约见 [core/ROLES.md](../skills/core/ROLES.md)；Claude Code 可直接派发的定义见 [agents/](../agents/)，使用说明见 [Agent 角色](../README.md#agent-角色)。
+角色契约见 [cstack-core/ROLES.md](../skills/cstack-core/ROLES.md)；Claude Code 可直接派发的定义见 [agents/](../agents/)，使用说明见 [Agent 角色](../README.md#agent-角色)。
 
 ## 8. 方法形态
 
-每个 Skill 的结构由它的判断决定，不用统一模板：clarify 是"决策树 + 前沿 + 轮次"，diagnose 是"先建能变红的反馈回路，再假设"，slice 是"纵向切片 + 真实依赖 + 校验"，review 是"范围 + 严重度 + 报告契约"。硬把不同的判断套进同一副结构，反而会掩盖它们之间的差别。
+每个 Skill 的结构由它的判断决定，不用统一模板：`cstack-clarify` 是"决策树 + 前沿 + 轮次"，`cstack-diagnose` 是"先建能变红的反馈回路，再假设"，`cstack-slice` 是"纵向切片 + 真实依赖 + 校验"，`cstack-review` 是"范围 + 严重度 + 报告契约"。硬把不同的判断套进同一副结构，反而会掩盖它们之间的差别。
 
 长度由不可压缩的结构决定：主 SKILL.md 放判断结构与完成判据，细节放同目录 `references/` 按需读取。每个概念都要能回答三件事——什么时候触发、产出什么、怎么判断完成；答不出来就是装饰，删掉。
 

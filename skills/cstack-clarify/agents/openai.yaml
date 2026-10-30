@@ -1,0 +1,6 @@
+interface:
+  display_name: "CStack 澄清需求"
+  short_description: "有未决选择会改变结果时"
+  default_prompt: "使用 $cstack-clarify 处理会改变结果的未决选择。"
+policy:
+  allow_implicit_invocation: true

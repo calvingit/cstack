@@ -1,0 +1,6 @@
+interface:
+  display_name: "CStack 测试先行"
+  short_description: "要求先写失败测试再实现"
+  default_prompt: "使用 $cstack-test-first 先写失败测试，再实现这个已经明确的行为。"
+policy:
+  allow_implicit_invocation: true
