@@ -1,0 +1,4 @@
+interface:
+  display_name: "CStack Retro"
+  short_description: "要求复盘任务或会话"
+  default_prompt: "Use $retro to review this work session and suggest evidence-based improvements."

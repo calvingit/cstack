@@ -1,4 +1,0 @@
-interface:
-  display_name: "CStack Performance"
-  short_description: "慢、卡或资源异常需要测量"
-  default_prompt: "Use $cstack-performance to measure this performance issue and investigate its bottleneck."

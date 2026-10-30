@@ -79,9 +79,9 @@
 
 ## 3. 独立性：principles + 内嵌底线
 
-### 3.1 唯一共享层：`cstack-core` Skill
+### 3.1 唯一共享层：`core` Skill
 
-`cstack-core` 是一个**不自动触发**的 Skill，由其他 Skill 通过 Skill tool 调用或用户显式调用；它的 `SKILL.md` 只做索引，正文放在两份文档里：
+`core` 是一个**不自动触发**的 Skill，由其他 Skill 通过 Skill tool 调用或用户显式调用；它的 `SKILL.md` 只做索引，正文放在两份文档里：
 
 **A. 判断底线（约 10 条不变量）**
 
@@ -107,18 +107,18 @@
 ## 产物
 - 读：<需要哪些槽位及字段>
 - 写：<自己拥有的槽位与必填字段>
-- 需要与其他 Skill 对齐槽位和字段时，调用 `cstack-core` Skill；未安装时以本节为最小自足版。
+- 需要与其他 Skill 对齐槽位和字段时，调用 `core` Skill；未安装时以本节为最小自足版。
 ```
 
 原则：
 
 - **只内嵌本 Skill 需要的部分**，不复制整份 principles。
 - 内嵌部分写“字段与判据”，不写别的 Skill 的流程。
-- 调用了 `cstack-core` 就按它的词汇对齐；没装时内嵌足以独立运行。**没有硬依赖。**
+- 调用了 `core` 就按它的词汇对齐；没装时内嵌足以独立运行。**没有硬依赖。**
 
 ### 3.3 打包方式
 
-- 推荐：发行 `cstack-core`（`SKILL.md` 索引 + `PRINCIPLES.md` + `ARTIFACTS.md`）与各 Skill 同目录安装，作为唯一权威词汇表；其他 Skill 需要时调用它。
+- 推荐：发行 `core`（`SKILL.md` 索引 + `PRINCIPLES.md` + `ARTIFACTS.md`）与各 Skill 同目录安装，作为唯一权威词汇表；其他 Skill 需要时调用它。
 - 单 Skill 安装：靠内嵌“底线 + 产物”块工作；跨 Skill 交接时，对方 Skill 也内嵌同名同义字段，因此仍能对上。
 - 约束：**不能既宣称“单目录独立”，又要求读取根目录共享文件且无内嵌兜底。** 这条现在满足。
 
@@ -198,7 +198,7 @@ AC2 NOT VERIFIED  原因：无法等待 31 天；建议：时区/时钟注入或
 
 在原方案的第 1 批里，先做这四件事即可验证方向：
 
-1. 写 `cstack-core`：`SKILL.md` 索引 + `PRINCIPLES.md` + `ARTIFACTS.md`（第 1、3.1 节）。
+1. 写 `core`：`SKILL.md` 索引 + `PRINCIPLES.md` + `ARTIFACTS.md`（第 1、3.1 节）。
 2. 重写 `clarify`：补 design tree / frontier / rounds，输出 `DECISIONS`，内嵌“底线 + 产物”。
 3. 重写 `specify`：消费 `DECISIONS`，输出 `SPEC` 的 R/AC 与 Acceptance Seam。
 4. 用上面的 §6 实例走一遍：检查 `C1 → R1 → AC1 → EVIDENCE` 能否按 ID 对上、未决项是否保留。

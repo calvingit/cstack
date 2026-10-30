@@ -1,4 +1,0 @@
-interface:
-  display_name: "CStack Verify"
-  short_description: "要按验收条件核对候选"
-  default_prompt: "Use $cstack-verify to verify the current candidate against its acceptance criteria."

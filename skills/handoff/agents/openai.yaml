@@ -1,0 +1,4 @@
+interface:
+  display_name: "CStack Handoff"
+  short_description: "需要把工作交给下次接着做"
+  default_prompt: "Use $handoff to prepare a concise, evidence-backed handoff for the next session."

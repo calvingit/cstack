@@ -1,4 +1,0 @@
-interface:
-  display_name: "CStack Prototype"
-  short_description: "要用最小原型做决定"
-  default_prompt: "Use $cstack-prototype to build a small experiment that answers this design question."

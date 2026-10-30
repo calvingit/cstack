@@ -1,4 +1,0 @@
-interface:
-  display_name: "CStack Verification Setup"
-  short_description: "验收还没有可重复的跑法"
-  default_prompt: "Use $cstack-verification-setup to establish a repeatable way to verify the requested project behavior."

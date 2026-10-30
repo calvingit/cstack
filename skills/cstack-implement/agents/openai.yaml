@@ -1,4 +1,0 @@
-interface:
-  display_name: "CStack Implement"
-  short_description: "改什么已经清楚时实现"
-  default_prompt: "Use $cstack-implement to implement the requested change with appropriate checks."

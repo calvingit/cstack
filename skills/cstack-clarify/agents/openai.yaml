@@ -1,4 +1,0 @@
-interface:
-  display_name: "CStack Clarify"
-  short_description: "有未决选择会改变结果时"
-  default_prompt: "Use $cstack-clarify to resolve the consequential open choices for this task."

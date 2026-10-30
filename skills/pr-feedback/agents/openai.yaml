@@ -1,0 +1,4 @@
+interface:
+  display_name: "CStack PR Feedback"
+  short_description: "要处理 PR 上的评审意见"
+  default_prompt: "Use $pr-feedback to assess this PR feedback and handle it within my authorization."

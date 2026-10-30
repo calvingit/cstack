@@ -1,4 +1,0 @@
-interface:
-  display_name: "CStack UI Review"
-  short_description: "要看实际界面和交互"
-  default_prompt: "Use $cstack-ui-review to inspect the rendered interface against the relevant design and interaction requirements."

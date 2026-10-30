@@ -1,4 +1,0 @@
-interface:
-  display_name: "CStack Simplify"
-  short_description: "要求简化或审多余复杂度"
-  default_prompt: "Use $cstack-simplify to assess and, if requested, remove unnecessary complexity in this scope."

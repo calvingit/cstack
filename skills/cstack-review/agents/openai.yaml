@@ -1,4 +1,0 @@
-interface:
-  display_name: "CStack Review"
-  short_description: "审查改动或 PR 里的缺陷"
-  default_prompt: "Use $cstack-review to review the current change for actionable defects."

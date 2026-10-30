@@ -1,7 +1,7 @@
 # CStack Agent 角色设计（提案）
 
 > 日期：2026-10-30
-> 状态：已确认采用 5 核心 + 3 可选，角色定义落在 [`skills/cstack-core/ROLES.md`](../skills/cstack-core/ROLES.md)；Claude Code 可直接派发的实现见插件根 [`agents/`](../agents/README.md)。
+> 状态：已确认采用 5 核心 + 3 可选，角色定义落在 [`skills/core/ROLES.md`](../skills/core/ROLES.md)；Claude Code 可直接派发的实现见插件根 [`agents/`](../agents/README.md)。
 > 关联：[CStack Skills 提升方案](skill-upgrade-2026-10-29.md)、[产物链与独立性设计](artifact-spine-2026-10-29.md)。
 
 ## 0. 结论
@@ -9,13 +9,13 @@
 1. **需要角色，但不需要默认的多 Agent 编排。** 角色是“谁以什么边界执行哪个判断”的责任契约，不是人格、模型或进程。
 2. 采用 **5 个核心角色**：Explorer、Implementer、Verifier、Reviewer、Simplifier。
 3. 保留 **3 个可选专业角色**：Researcher、Architect、Orchestrator。
-4. 角色定义放在 `cstack-core/ROLES.md`，由 `SKILL.md` 索引；各 Skill 只引用自己需要的角色。默认单上下文执行；只有收益明确或独立性要求时才派独立实例。
+4. 角色定义放在 `core/ROLES.md`，由 `SKILL.md` 索引；各 Skill 只引用自己需要的角色。默认单上下文执行；只有收益明确或独立性要求时才派独立实例。
 
 ## 1. 先分清四件事
 
 | 概念 | 例子 | 说明 |
 | --- | --- | --- |
-| **Skill（方法）** | `cstack-verify` | 一套判断程序：输入、步骤、停止条件、输出槽位 |
+| **Skill（方法）** | `verify` | 一套判断程序：输入、步骤、停止条件、输出槽位 |
 | **Role（责任）** | Verifier | 谁负责这项判断，允许做什么、禁止做什么、产出什么 |
 | **Agent instance（执行实例）** | 一个 subagent / 独立上下文 | 角色的一次具体执行；可以同上下文，也可以独立 |
 | **Invocation policy（调用策略）** | `allow_implicit_invocation: false` | 谁能启动：用户、调用方、模型自动发现 |
@@ -46,10 +46,10 @@ CStack 现有 Skill 已经定义了“方法”，缺的是方法的**执行身�
 | 角色 | 用途 | 何时启用 | 不做什么 |
 | --- | --- | --- | --- |
 | **Researcher** | 查仓库以外的资料：官方文档、版本、发行说明、基准、社区报告 | 技术选型、版本/兼容性判断、外部 API 行为 | 不做代码事实调查（交给 Explorer），不替用户选型 |
-| **Architect** | 设计有争议时，产出 2–3 个结构不同的候选并比较 | 需要 design-it-twice、接口方案有明显分歧 | 不替代 `cstack-design` 的最终决策；不默认组评审团 |
+| **Architect** | 设计有争议时，产出 2–3 个结构不同的候选并比较 | 需要 design-it-twice、接口方案有明显分歧 | 不替代 `design` 的最终决策；不默认组评审团 |
 | **Orchestrator** | 多切片/多任务时负责派发、等待与收尾编排 | 存在 `SLICES` 且有真实依赖，Runtime 支持隔离 | 不做技术判断、不验收、不改代码；不是默认角色 |
 
-**Diagnostician 不单列。** 诊断是 `cstack-diagnose` 这套方法；执行时通常由 Implementer 承担，调查部分可派 Explorer。只有疑难、非确定性 bug 需要独立专注时，才临时按“Explorer + Implementer”组合，而不是新增常驻角色。
+**Diagnostician 不单列。** 诊断是 `diagnose` 这套方法；执行时通常由 Implementer 承担，调查部分可派 Explorer。只有疑难、非确定性 bug 需要独立专注时，才临时按“Explorer + Implementer”组合，而不是新增常驻角色。
 
 ## 5. 角色与产物槽位的所有权
 
@@ -114,7 +114,7 @@ Escalation: <什么情况交回调用方或用户>
 
 ## 10. 落地方式
 
-1. 新增 `skills/cstack-core/ROLES.md`，并在 `cstack-core/SKILL.md` 的索引表加入它。
+1. 新增 `skills/core/ROLES.md`，并在 `core/SKILL.md` 的索引表加入它。
 2. `clarify/references/fact-finder.md` 保留派发细节，角色定义改为引用 `ROLES.md` 的 Explorer。
 3. `implement` 的收尾段引用 Verifier / Reviewer / Simplifier；`verify` / `review` / `simplify` 在开头标明自己就是对应角色。
 4. `design` 在需要 design-it-twice 时可选 Architect；`research` 对应 Researcher。
@@ -125,4 +125,4 @@ Escalation: <什么情况交回调用方或用户>
 
 1. 是否采用 **5 核心 + 3 可选** 这套角色集？还是先只做 5 个核心，Researcher / Architect / Orchestrator 等真实需求出现再加？
 2. Verifier 在什么风险级别下必须用**独立执行实例**？当前建议：默认同上下文但预期先行；高风险、权限/数据/迁移、或项目明确要求时用独立实例。
-3. Orchestrator 是否进入 `cstack-core`？当前建议：**不进入**，等有真实的多切片执行需求再说。
+3. Orchestrator 是否进入 `core`？当前建议：**不进入**，等有真实的多切片执行需求再说。

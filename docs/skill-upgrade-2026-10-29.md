@@ -265,7 +265,7 @@ PROFILE ──► DECISIONS ──► SPEC(R/AC) ──► TECH(D)? ──► SL
 
 | 能力 | 形态 | 作用 |
 | --- | --- | --- |
-| Kernel | `cstack-core` Skill（不自动触发，`SKILL.md` 只索引 `PRINCIPLES.md` / `ARTIFACTS.md`） | 稳定不变量与产物词汇，防越界与证据造假 |
+| Kernel | `core` Skill（不自动触发，`SKILL.md` 只索引 `PRINCIPLES.md` / `ARTIFACTS.md`） | 稳定不变量与产物词汇，防越界与证据造假 |
 | Task Contract | 独立文档 | 目标/范围/验收/决策边界/证据/恢复的六类边界，跨 Skill 交接的依据 |
 | Ownership & Invocation | 独立文档 | 事实与产物归属、调用模型、三种写法（方法引用/角色派发/Skill 调用） |
 | Workflow Policy | 独立文档 | 风险选择，避免每个 Skill 各自解释 |
@@ -313,43 +313,43 @@ PROFILE ──► DECISIONS ──► SPEC(R/AC) ──► TECH(D)? ──► SL
 ## 8. 取舍与风险
 
 - **长度 vs 加载成本**：不用“砍概念”解决，用“分层加载”解决——主 `SKILL.md` 只放判断结构与完成判据，细节放 `references/`，按需读取。参考体系正是这么做的。CStack 现在没有 references，是把所有东西都塞进 22 行，结果两头都受损。
-- **独立安装 vs 共享 kernel/契约**：已定：唯一共享层是 `cstack-core` Skill（不自动触发，`SKILL.md` 只索引 `PRINCIPLES.md` / `ARTIFACTS.md`）；每个 Skill 内嵌本 Skill 需要的“底线 + 产物”要点，未装 `cstack-core` 时也能独立运行；详见[产物链与独立性设计](artifact-spine-2026-10-29.md#3-独立性principles--内嵌底线)。不能既宣称“单目录独立”，又依赖根目录共享文件而无内嵌兜底。
+- **独立安装 vs 共享 kernel/契约**：已定：唯一共享层是 `core` Skill（不自动触发，`SKILL.md` 只索引 `PRINCIPLES.md` / `ARTIFACTS.md`）；每个 Skill 内嵌本 Skill 需要的“底线 + 产物”要点，未装 `core` 时也能独立运行；详见[产物链与独立性设计](artifact-spine-2026-10-29.md#3-独立性principles--内嵌底线)。不能既宣称“单目录独立”，又依赖根目录共享文件而无内嵌兜底。
 - **过度流程化**：门槛是“是否改变行为/风险”，不是“每次全跑六阶段”。简单任务继续直接做；产物按需创建。
 - **照抄风险**：参考体系里绑定 issue tracker、Runtime、多 Agent 派发、脚本状态机的部分不要进 CStack；只吸收可迁移的判断结构。
 
 ## 9. 建议的下一步
 
 1. 拍板 §8 的安装策略（打包 or 内嵌）。
-2. 先写 `cstack-core`（`SKILL.md` 索引 + `PRINCIPLES.md` + `ARTIFACTS.md`）。
-3. 用新结构重写 `cstack-clarify` 作为样板（保留 design tree / frontier / rounds / 完成判据），评审后再重写 specify / design / slice。
-4. 重写 `cstack-diagnose`（feedback loop 优先）作为 BUILD 的第二个样板。
+2. 先写 `core`（`SKILL.md` 索引 + `PRINCIPLES.md` + `ARTIFACTS.md`）。
+3. 用新结构重写 `clarify` 作为样板（保留 design tree / frontier / rounds / 完成判据），评审后再重写 specify / design / slice。
+4. 重写 `diagnose`（feedback loop 优先）作为 BUILD 的第二个样板。
 5. 再动其余 Skill，每批配套 eval。
 
 ## 附录 A：Skill 处置一览
 
 | Skill | 处置 | 优先级 | 说明 |
 | --- | --- | --- | --- |
-| cstack-clarify | 重写 | P0 | 补 design tree / frontier / rounds / 决策分类 / DECISIONS |
-| cstack-specify | 重写 | P0 | 补 R/AC、Acceptance Seam、Create/Amendment、交接 |
-| cstack-design | 重写 | P0 | 补何时必须、依据顺序、Design Gate、D-ID、Verification Seam |
-| cstack-slice | 重写 | P0 | 补 tracer bullet、blocking edges、covers、宽重构例外 |
-| cstack-diagnose | 重写 | P1 | feedback loop 优先、最小化、可证伪假设 |
-| cstack-verification-setup | 升级 | P1 | Launch/Doctor/Drive/Observe/Isolate/Cleanup、Feature Map |
-| cstack-implement | 升级 | P1 | 契约继承、证据计划、收尾角色、receipt |
-| cstack-verify | 小修 | P2 | Acceptance/Verification Seam 区分 |
-| cstack-review | 升级 | P2 | P0–P3、两轴、报告契约 |
-| cstack-ship | 小修 | P2 | 就绪词汇、EVIDENCE 绑定、权限分组 |
-| cstack-test-first | 升级 | P2 | 纵向循环、测试价值判据 |
-| cstack-test-audit | 小修 | P3 | 与 review 的测试发现边界对齐 |
-| cstack-domain-model | 大升级 | P2 | 术语格式、ADR 门、权威发现 |
-| cstack-retro | 升级 | P2 | 知识编码阶梯、两次才立规则 |
-| cstack-project-setup | 新增 | P2 | PROFILE，稳定项目事实 |
-| cstack-codebase-design | 新增 | P1 | 深模块 / Seam / 删除测试 / design-it-twice |
-| cstack-wayfinding | 新增（可选） | P3 | 地图 + 迷雾 + 决策 ticket |
-| cstack-challenge | 新增（可选） | P3 | 对抗审查 |
-| cstack-research / impact / simplify / prototype | 小修 | P3 | 补结构，不改方向 |
-| cstack-architecture-review / ui-review / handoff / pr-feedback / performance | 保留/小修 | P3 | 方向成立 |
-| cstack-bro / restate-goal / how / why / visual-explain | 保留/小修 | P4 | 沟通与解释类，按需 |
+| clarify | 重写 | P0 | 补 design tree / frontier / rounds / 决策分类 / DECISIONS |
+| specify | 重写 | P0 | 补 R/AC、Acceptance Seam、Create/Amendment、交接 |
+| design | 重写 | P0 | 补何时必须、依据顺序、Design Gate、D-ID、Verification Seam |
+| slice | 重写 | P0 | 补 tracer bullet、blocking edges、covers、宽重构例外 |
+| diagnose | 重写 | P1 | feedback loop 优先、最小化、可证伪假设 |
+| verification-setup | 升级 | P1 | Launch/Doctor/Drive/Observe/Isolate/Cleanup、Feature Map |
+| implement | 升级 | P1 | 契约继承、证据计划、收尾角色、receipt |
+| verify | 小修 | P2 | Acceptance/Verification Seam 区分 |
+| review | 升级 | P2 | P0–P3、两轴、报告契约 |
+| ship | 小修 | P2 | 就绪词汇、EVIDENCE 绑定、权限分组 |
+| test-first | 升级 | P2 | 纵向循环、测试价值判据 |
+| test-audit | 小修 | P3 | 与 review 的测试发现边界对齐 |
+| domain-model | 大升级 | P2 | 术语格式、ADR 门、权威发现 |
+| retro | 升级 | P2 | 知识编码阶梯、两次才立规则 |
+| project-setup | 新增 | P2 | PROFILE，稳定项目事实 |
+| codebase-design | 新增 | P1 | 深模块 / Seam / 删除测试 / design-it-twice |
+| wayfinding | 新增（可选） | P3 | 地图 + 迷雾 + 决策 ticket |
+| challenge | 新增（可选） | P3 | 对抗审查 |
+| research / impact / simplify / prototype | 小修 | P3 | 补结构，不改方向 |
+| architecture-review / ui-review / handoff / pr-feedback / performance | 保留/小修 | P3 | 方向成立 |
+| bro / restate-goal / how / why / visual-explain | 保留/小修 | P4 | 沟通与解释类，按需 |
 | report-style | 保留 | — | 汇报风格，不动 |
 
 ## 附录 B：概念来源对照（只列可迁移的）

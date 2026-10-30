@@ -1,0 +1,4 @@
+interface:
+  display_name: "CStack Visual Explain"
+  short_description: "要求用图或交互来讲"
+  default_prompt: "Use $visual-explain to explain this engineering topic or change visually."
