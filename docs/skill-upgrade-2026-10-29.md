@@ -10,7 +10,7 @@
 1. **问题不是 SKILL 写得太少，而是三类东西被压平了**：方法的控制结构（决策树、前沿、循环、门槛）、中间表示（PROFILE / decisions / SPEC / SOLUTION / tickets / evidence）、交接契约（谁拥有哪个事实、谁授权、谁收尾）。
 2. **CStack 的“后半程”很硬，“前半程”很软，链条从中间断开。** VERIFY / REVIEW / SHIP 保留了相当严谨的证据观，但它们要消费的 SPEC 的 R/AC、SOLUTION 的 D、tickets 的 delivery AC 在 CStack 里根本不存在。下游只能读散文、凭理解，也就无法做到它自己在提案 §5 里写的 `Contract → Candidate → Evidence → Decision`。
 3. **提升的方向是分层的 CStack v2**：Kernel（不变量）+ Workflow Policy（风险选择）+ Artifact Chain（产物链）+ Method Skills（各有形态的方法），而不是继续给一批同构散文各加几句话。
-4. **落地分批推进**：先补产物链和 DEFINE/PLAN，再补 BUILD 的机制，最后补知识层与可选能力（含评测）。每一项都要用 eval 证明“加了确实改变行为”，否则删掉。
+4. **落地分批推进**：先补产物链和 DEFINE/PLAN，再补 BUILD 的机制，最后补知识层与可选能力。每一项都要能用真实任务观察证明“加了确实改变行为”，否则删掉。
 
 ## 1. 诊断：CStack 到底丢了什么
 
@@ -293,13 +293,13 @@ PROFILE ──► DECISIONS ──► SPEC(R/AC) ──► TECH(D)? ──► SL
 | **第 1 批 · 补链条** | kernel + task-contract + workflow-policy；clarify / specify / design / slice 重写；artifact 命名对齐 | 一个真实任务能从 clarify → specify → design? → slice 产出互相按 ID 引用的文件 | 需要先定“独立安装 vs 共享引用”策略（见 §8） |
 | **第 2 批 · 补机制** | diagnose 重写（feedback loop）；verification-setup 补 harness；implement 补契约 + 收尾；verify/review 小修 | 注入“错误业务断言但单测绿”“伪验证（跳测试）”“候选变化后旧证据”三类样例能被拦住 | 依赖第 1 批的 SPEC AC 与 EVIDENCE |
 | **第 3 批 · 补知识层** | project-setup/profile、codebase-design、domain-model、retro/knowledge-protocol；ship 词汇 | 设计与审查能用深模块语言；术语/ADR 有落点；复盘能产出被执行的规则 | 依赖第 2 批的稳定性 |
-| **第 4 批 · 可选与评测** | wayfinding、challenge、triage；补 evals | 正反路由、产物链一致、失败注入、跨 Runtime 均有记录 | 需要真实任务样例 |
+| **第 4 批 · 可选能力** | wayfinding、challenge、triage | 真实任务中正反路由、产物链引用闭合、失败注入可被发现 | 需要真实任务样例 |
 
 不建议一次性全改。先把 `clarify` 按新结构重写成**样板**，评审通过后再批量，否则很容易把“补结构”做成“加长版散文”。
 
-## 7. 如何判断改对了（evals）
+## 7. 如何判断改对了
 
-现有 `evals/example-v0` 是规则预实验（五条最小判断规则、24 次任务），未显示增量收益，可继续作为历史基线。新增评测至少要覆盖：
+用真实任务人工核验，至少覆盖：
 
 1. **路由**：该触发 clarify 时触发、简单任务不触发；该做 design 时不跳过、局部改动不硬造设计。
 2. **产物链**：从 DECISIONS 到 SPEC 的 R/AC，到 tickets 的 covers，到 EVIDENCE 的逐 AC，能否按 ID 对上；断链要能被发现。
@@ -323,7 +323,7 @@ PROFILE ──► DECISIONS ──► SPEC(R/AC) ──► TECH(D)? ──► SL
 2. 先写 `core`（`SKILL.md` 索引 + `PRINCIPLES.md` + `ARTIFACTS.md`）。
 3. 用新结构重写 `clarify` 作为样板（保留 design tree / frontier / rounds / 完成判据），评审后再重写 specify / design / slice。
 4. 重写 `diagnose`（feedback loop 优先）作为 BUILD 的第二个样板。
-5. 再动其余 Skill，每批配套 eval。
+5. 再动其余 Skill，每批用真实任务人工核验。
 
 ## 附录 A：Skill 处置一览
 

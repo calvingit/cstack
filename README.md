@@ -2,7 +2,7 @@
 
 面向 AI Coding Agent 的工程方法 Skills 包。六阶段 `DEFINE → PLAN → BUILD → VERIFY → REVIEW → SHIP` 用于理解工程工作，不是必须按顺序执行的流水线。
 
-**状态：待用户评测的首版方法集。** 这些 Skill 的触发、跨 Runtime 兼容性及相对原生 Agent 的收益尚未验证。
+**状态：待用户验证的首版方法集。** 这些 Skill 的触发、跨 Runtime 兼容性及相对原生 Agent 的收益尚未验证。
 
 ## 方法选择
 
@@ -123,4 +123,3 @@ cp -R "$CSTACK_ROOT"/skills/* .agents/skills/
 
 - [研究提案](docs/proposal-2026-10-28.md)和[首轮架构审查](docs/architecture-review-2026-10-28.md)记录设计依据与开放问题。
 - [六个阶段 Skill 的旧原型](docs/base-skills-2026-10-29.md)是历史快照，已由本方法集替代。
-- [规则预实验](evals/example-v0/README.md)及 [v0 冒烟记录](evals/base-v0/smoke.json)属于历史资料，不能证明当前 Skill 的 Harness 兼容性或效果。
