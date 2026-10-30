@@ -55,7 +55,7 @@ CStack 现有 Skill 已经定义了“方法”，缺的是方法的**执行身�
 
 | 产物槽位 | 写入者 |
 | --- | --- |
-| `PROFILE` | setup（项目档案） |
+| `PROFILE` | project-setup（项目档案） |
 | `DECISIONS` | clarifier（主 Agent，clarify 方法） |
 | `SPEC` | specifier（主 Agent，specify 方法） |
 | `TECH` | designer（主 Agent，design 方法；可选 Architect 提供候选） |

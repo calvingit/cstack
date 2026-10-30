@@ -1,6 +1,6 @@
 interface:
   display_name: "CStack Wayfinding"
-  short_description: "跨会话的地图与决策票据"
+  short_description: "跨会话的地图与决策工单"
   default_prompt: "Use $wayfinding to chart this large effort as a map and work its decision tickets."
 policy:
   allow_implicit_invocation: false

@@ -30,8 +30,8 @@
 | [research](skills/research/SKILL.md) | 基于来源调查技术事实、比较方案 | 提供决策依据，不代替具体技术设计 |
 | [impact](skills/impact/SKILL.md) | 追踪变更对调用方、数据和关键不变量的影响 | 可用于计划或审查，不代替验收与代码审查 |
 | [architecture-review](skills/architecture-review/SKILL.md) | 审查现有架构的结构问题及实际代价 | 判断当前架构，不自行设计或实施重构 |
-| [codebase-design](skills/codebase-design/SKILL.md) | 用深模块、Seam、删除测试等词汇设计单个模块 | 回答单点怎么成形，不判断整体架构 |
-| [wayfinding](skills/wayfinding/SKILL.md) | 跨会话大工程的地图、战争迷雾与决策票据 | 规划，不直接实现；目的地清楚后交给 specify / design / slice |
+| [codebase-design](skills/codebase-design/SKILL.md) | 用深模块、Seam、删除检验等词汇设计单个模块 | 回答单点怎么成形，不判断整体架构 |
+| [wayfinding](skills/wayfinding/SKILL.md) | 跨会话大工程的地图、战争迷雾与决策工单 | 规划，不直接实现；目的地清楚后交给 specify / design / slice |
 | [challenge](skills/challenge/SKILL.md) | 对已成形方案做有边界的对抗审查 | 只报告问题，不重新设计或修改实现 |
 | [project-setup](skills/project-setup/SKILL.md) | 记录稳定的项目工程档案（PROFILE） | 只放位置与策略，不存任务状态 |
 | [core](skills/core/SKILL.md) | 共享判断底线与产物槽位词汇 | 只做索引，不执行任务；不自动触发，供其他 Skill 调用 |
@@ -63,7 +63,7 @@
 | [bro](skills/bro/SKILL.md) | 用更通俗的话重述上一条答复或指定片段，保留原有条件和不确定性 |
 | [restate-goal](skills/restate-goal/SKILL.md) | 重述对用户当前目标和边界的理解，不启动访谈 |
 | [how](skills/how/SKILL.md) | 追踪并解释当前代码怎样运行 |
-| [why](skills/why/SKILL.md) | 根据历史和项目证据调查某项设计或约束为什么存在 |
+| [why](skills/why/SKILL.md) | 根据历史和项目证据调查某项设计、约束或改动为什么存在 |
 
 四个 Skill 的 OpenAI 元数据声明 `allow_implicit_invocation: false`；其他 Runtime 可能不识别该设置，实际调用行为仍需在对应 Harness 中验证。
 
@@ -99,7 +99,7 @@ Skill 按任务需要组合；同一方法可以跨阶段使用。例如验证�
 
 ## 在测试项目中使用
 
-`skills/core/` 是一个**不自动触发**的共享 Skill：`SKILL.md` 只索引 `PRINCIPLES.md` 与 `ARTIFACTS.md`，由其他 Skill 通过 Skill tool 调用，或由用户显式调用。其余每个目录都是一个完整 Skill。导入时建议连同 `core` 一起复制，供各 Skill 对齐槽位名与字段。每个 `SKILL.md` 内嵌自己需要的「底线 / 产物」要点，缺少 `core` 时仍可单独运行；装了时在需要对齐词汇处调用它。`agents/openai.yaml` 是可选的 OpenAI 元数据，部分 Skill 在其中声明调用策略。其他 Runtime 的发现和调用行为需要各自验证。
+`skills/core/` 是一个**不自动触发**的共享 Skill：`SKILL.md` 只索引 `PRINCIPLES.md` 与 `ARTIFACTS.md`，由其他 Skill 通过 Skill tool 调用，或由用户显式调用。其余每个目录都是一个完整 Skill。导入时建议连同 `core` 一起复制，供各 Skill 统一槽位名与字段。每个 `SKILL.md` 内嵌自己需要的「底线 / 产物」要点，缺少 `core` 时仍可单独运行；装了时在需要统一词汇处调用它。`agents/openai.yaml` 是可选的 OpenAI 元数据，部分 Skill 在其中声明调用策略。其他 Runtime 的发现和调用行为需要各自验证。
 
 例如，在**准备好的临时 Codex 测试项目根目录**中，将下面的路径改成你的 CStack 本地克隆路径后运行：
 

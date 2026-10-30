@@ -2,7 +2,7 @@
 
 > 由 [SKILL.md](SKILL.md) 索引，供其他 Skill 引用。角色是**责任契约**，不是人格、模型或进程。
 > 默认单上下文执行；只有上下文隔离、独立性或并行带来实际收益时，才派独立实例。
-> 插件根 `agents/` 提供 Claude Code 可直接派发的实现；其他 Runtime 按本契约实现等价定义。
+> 插件根目录下的 `agents/` 提供 Claude Code 可直接派发的实现；其他 Runtime 按本契约给出等价的角色定义或实现。
 
 ## 使用方式
 
@@ -40,7 +40,7 @@
 - **Allowed**：选择并运行检查、建隔离探针和临时测试、保存证据。
 - **Forbidden**：改产品代码、仓库测试、需求或任务状态；把实现者自检当独立证据。
 - **Output**：`EVIDENCE`——逐 `AC#` 的 PASS / FAIL / NOT VERIFIED、候选、方法、环境、执行者、覆盖限制、证据位置。
-- **Independence**：预期必须先来自确认的 AC；默认同上下文也可以，但高风险、权限/数据/迁移或项目要求时用独立执行实例。
+- **Independence**：预期必须先来自确认的 AC；默认可以在同一上下文执行，但高风险、涉及权限 / 数据 / 迁移，或项目有明确要求时，才要求独立执行实例。
 - **Escalation**：缺陷、契约冲突、能力缺口交回调用方。
 
 ### Reviewer
@@ -59,7 +59,7 @@
 - **Inputs**：最终改动集、已确认行为与约束。
 - **Allowed**：只读审查、给出简化候选与理由。
 - **Forbidden**：无授权改代码、扩大范围、把“行数更少”当目标。
-- **Output**：简化候选（责任、删除后如何保住、预期维护收益）或 `no_change`。
+- **Output**：简化候选（它承担什么责任、删除或合并后如何保住这份责任、预期维护收益）或 `no_change`。
 - **Independence**：作为收尾的一个独立判断；与 Verifier、Reviewer 分开，不能互相替代。
 - **Escalation**：新需求或架构问题交回调用方。
 
@@ -80,16 +80,16 @@
 - **Purpose**：设计有争议时，产出 2–3 个结构不同的候选并比较。
 - **Inputs**：SPEC、相关代码事实、约束、现有架构。
 - **Allowed**：提出候选接口、模块边界、数据形态与权衡。
-- **Forbidden**：替代 `design` 的最终决策、默认组评审团、改需求。
+- **Forbidden**：替代 `design` 的最终决策、默认组织评审团、改需求。
 - **Output**：候选、收益/成本、迁移影响、测试 seam、推荐与理由。
 - **Independence**：只在 design-it-twice 或方案有明显分歧时启用；普通设计由 Designer 自行完成。
 - **Escalation**：需求冲突回 `specify`。
 
 ### Orchestrator
 
-- **Purpose**：多切片或多任务时负责派发、等待、收尾编排。
+- **Purpose**：多切片或多任务时负责派发、等待和收尾。
 - **Inputs**：`SLICES` 与依赖、授权范围、Runtime 能力。
-- **Allowed**：派发角色、收集报告、推进切片状态。
+- **Allowed**：派发角色、收集报告、更新切片状态。
 - **Forbidden**：做技术判断、验收、改代码、改写上游契约。
 - **Output**：执行与收尾记录；不产出判断性结论。
 - **Independence**：不是默认角色；只在有真实依赖且 Runtime 支持隔离时启用。
@@ -109,7 +109,7 @@
 
 | 槽位 / 产出 | 写入角色 |
 | --- | --- |
-| `PROFILE` | setup（主 Agent） |
+| `PROFILE` | 主 Agent（project-setup） |
 | `DECISIONS` | Clarifier |
 | `SPEC` | Specifier |
 | `TECH` | Designer（可选 Architect 提供候选） |
@@ -124,10 +124,10 @@
 ## 独立性规则
 
 - **作者 ≠ 批评者**：Implementer 在要求独立时不能同时是 Verifier 或 Reviewer。
-- **Verifier 与 Reviewer 是两种判断**：AC 是否满足 vs 变更引入了什么缺陷，不合并。
-- **预期来源独立 ≠ 执行者独立**：Verifier 可同上下文，但必须先独立得出预期；高风险时才要求独立实例。
-- **模型一致不是证据**：多模型一致只提高置信度。
-- **Orchestrator 不裁定**：分歧按代码、需求、测试和可观察事实验证。
+- **Verifier 与 Reviewer 是两种判断**：一条是 AC 是否满足，另一条是变更引入了什么缺陷；两者不能合并。
+- **预期来源独立 ≠ 执行者独立**：Verifier 可以在同一上下文执行，但必须先独立得出预期；高风险、涉及权限 / 数据 / 迁移，或项目有明确要求时，才要求独立实例。
+- **模型结论一致不是证据**：多个模型得出相同结论，只提高置信度。
+- **Orchestrator 不裁定**：分歧按代码、需求、测试和可观察事实来裁定。
 
 ## Skill 与角色对应
 
@@ -144,7 +144,7 @@
 | review | Reviewer |
 | simplify | Simplifier（审查模式） |
 | test-audit | Reviewer（测试审计） |
-| verification-setup | Explorer + 项目维护者 |
+| verification-setup | Explorer + 主 Agent（项目维护） |
 | impact | Explorer |
 | architecture-review | Explorer + Reviewer（架构面） |
 | ui-review | Verifier / Reviewer（视觉面） |

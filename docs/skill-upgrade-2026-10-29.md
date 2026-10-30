@@ -191,7 +191,7 @@ PROFILE ──► DECISIONS ──► SPEC(R/AC) ──► TECH(D)? ──► SL
 - **Verification Seam**：技术正确性在哪一层可被检查（如集成测试、契约测试），与 SPEC 的 Acceptance Seam（公开观察）分开。
 - **Amendment**：SPEC 含义不变时只改受影响 D，保留不相关 D。
 
-**新增 codebase-design（独立 Skill）。** 这是 CStack 现在缺失、但影响设计质量最深的一块词汇：深模块、Interface（不只是签名）、Implementation、Depth、Seam、Adapter、Leverage、Locality、删除测试、design-it-twice。它回答“一个已知设计点该怎么成形”，不替代 design（是否要做方案）和 architecture-review（整体架构是否成立）。没有这套语言，design 和 review 只能用“接口设计得好不好”这种空话。
+**新增 codebase-design（独立 Skill）。** 这是 CStack 现在缺失、但影响设计质量最深的一块词汇：深模块、Interface（不只是签名）、Implementation、Depth、Seam、Adapter、Leverage、Locality、删除检验、design-it-twice。它回答“一个已知设计点该怎么成形”，不替代 design（是否要做方案）和 architecture-review（整体架构是否成立）。没有这套语言，design 和 review 只能用“接口设计得好不好”这种空话。
 
 **slice ← to-tickets。** 要恢复：
 
@@ -201,7 +201,7 @@ PROFILE ──► DECISIONS ──► SPEC(R/AC) ──► TECH(D)? ──► SL
 - **共享契约落在第一个真正使用它的切片上**；只有真实阻塞（schema 生成、expand–contract、兼容层）才设准备型 ticket。
 - **宽重构例外**：一次机械改动横扫全仓、无法独立变绿时，用 expand → migrate（按包/目录分批）→ contract，而不是硬塞纵向切片。
 - **校验拆分**：标题、blocked by、交付什么、设计依据；普通拆分不需要用户逐项确认，暴露了产品/范围/优先级/兼容/共享设计选择才回上游。
-- 对于大而模糊、跨会话的工程，再考虑可选的 **wayfinding**（地图 + 战争迷雾 + 决策 ticket），不要用 slice 硬扛。
+- 对于大而模糊、跨会话的工程，再考虑可选的 **wayfinding**（地图 + 战争迷雾 + 决策工单），不要用 slice 硬扛。
 
 ### 4.3 BUILD
 
@@ -276,7 +276,7 @@ PROFILE ──► DECISIONS ──► SPEC(R/AC) ──► TECH(D)? ──► SL
 
 - **codebase-design**（深模块词汇，见 4.2）；
 - **project-setup / profile**（稳定项目事实，见 4.1）；
-- **wayfinding**（跨会话大工程的地图 + 战争迷雾 + 决策 ticket，见 4.2）；
+- **wayfinding**（跨会话大工程的地图 + 战争迷雾 + 决策工单，见 4.2）；
 - **challenge**（对已成形的方案做有边界的对抗审查）；
 - **triage**（issue/PR 的 intake 状态机，可选，视是否使用 issue tracker）。
 
@@ -344,8 +344,8 @@ PROFILE ──► DECISIONS ──► SPEC(R/AC) ──► TECH(D)? ──► SL
 | domain-model | 大升级 | P2 | 术语格式、ADR 门、权威发现 |
 | retro | 升级 | P2 | 知识编码阶梯、两次才立规则 |
 | project-setup | 新增 | P2 | PROFILE，稳定项目事实 |
-| codebase-design | 新增 | P1 | 深模块 / Seam / 删除测试 / design-it-twice |
-| wayfinding | 新增（可选） | P3 | 地图 + 迷雾 + 决策 ticket |
+| codebase-design | 新增 | P1 | 深模块 / Seam / 删除检验 / design-it-twice |
+| wayfinding | 新增（可选） | P3 | 地图 + 迷雾 + 决策工单 |
 | challenge | 新增（可选） | P3 | 对抗审查 |
 | research / impact / simplify / prototype | 小修 | P3 | 补结构，不改方向 |
 | architecture-review / ui-review / handoff / pr-feedback / performance | 保留/小修 | P3 | 方向成立 |
