@@ -1,0 +1,6 @@
+interface:
+  display_name: "CStack 第二遍重写"
+  short_description: "手动触发：从基线重写更简洁的第二遍"
+  default_prompt: "使用 $cstack-second-pass 在第一遍实现已经能跑之后，从变更前基线重写更简洁的版本，并比较两个版本。"
+policy:
+  allow_implicit_invocation: false
