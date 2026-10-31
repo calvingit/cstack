@@ -6,7 +6,7 @@
 
 | 层 | 产物 | 回答的问题 | 唯一写入者 | 主要使用方 |
 | --- | --- | --- | --- | --- |
-| 项目基座 | `PROFILE` | 这个项目长期怎么运作？ | cstack-project-setup | 所有 Skill |
+| 项目基座 | `PROFILE` | 这个项目长期怎么运作？ | cstack-create-project-profile | 所有 Skill |
 | 需求契约 | `DECISIONS` | 哪些需求选择已经由用户确认？ | cstack-clarify | cstack-specify |
 | 需求契约 | `SPEC` | 要做什么，怎么算完成？ | cstack-specify | cstack-design / cstack-slice / cstack-implement / cstack-verify / cstack-review |
 | 交付计划 | `TECH` | 哪些共享或难逆的技术选择已定？ | cstack-design | cstack-slice / cstack-implement / cstack-verify / cstack-review |
@@ -26,6 +26,8 @@
 - 需求权威来源（仓库内、外部系统或当前任务快照）
 - 既有架构决策（ADR）位置
 - 任务文档存放约定
+
+字段名与顺序固定，填充示例见 `cstack-create-project-profile`。
 
 ### DECISIONS
 

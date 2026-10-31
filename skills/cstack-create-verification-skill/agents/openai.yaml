@@ -1,0 +1,6 @@
+interface:
+  display_name: "CStack 验证方法"
+  short_description: "建立或更新可重复的验证方法"
+  default_prompt: "使用 $cstack-create-verification-skill 建立、修好或更新可重复的验证方法。"
+policy:
+  allow_implicit_invocation: true

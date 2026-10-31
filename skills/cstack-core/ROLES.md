@@ -110,7 +110,7 @@
 
 | 产物 / 产出 | 写入角色 |
 | --- | --- |
-| `PROFILE` | 主 Agent（cstack-project-setup） |
+| `PROFILE` | 主 Agent（cstack-create-project-profile） |
 | `DECISIONS` | Clarifier |
 | `SPEC` | Specifier |
 | `TECH` | Designer（可选 Architect 提供候选） |
@@ -146,7 +146,7 @@
 | cstack-review | Reviewer |
 | cstack-simplify | Simplifier（审查模式） |
 | cstack-test-audit | Reviewer（测试审计） |
-| cstack-verification-setup | Explorer + 主 Agent（项目维护） |
+| cstack-create-verification-skill | Explorer + 主 Agent（项目维护） |
 | cstack-impact | Explorer |
 | cstack-architecture-review | Explorer + Reviewer（架构面） |
 | cstack-ui-review | Reviewer（视觉面）；视觉类 `AC` 的 `PASS` / `FAIL` 归 Verifier |
@@ -156,7 +156,7 @@
 | cstack-pr-feedback | Implementer + Reviewer（按需） |
 | cstack-challenge | Reviewer（对抗审查） |
 | cstack-wayfinding | Planner + Orchestrator（可选） |
-| cstack-project-setup / cstack-handoff / cstack-retro / cstack-rewrite | 主 Agent |
+| cstack-create-project-profile / cstack-handoff / cstack-retro / cstack-rewrite | 主 Agent |
 
 ## 任务收尾
 

@@ -6,7 +6,7 @@ CStack 是面向 AI Coding Agent 的工程方法 Skills 包，帮助你从需求
 flowchart LR
     DEFINE["DEFINE · 明确需求<br/>cstack-clarify · cstack-specify"] --> PLAN["PLAN · 规划方案<br/>cstack-design · cstack-slice"]
     PLAN --> BUILD["BUILD · 实现与诊断<br/>cstack-implement · cstack-diagnose · cstack-test-first"]
-    BUILD --> VERIFY["VERIFY · 验收<br/>cstack-verification-setup · cstack-verify"]
+    BUILD --> VERIFY["VERIFY · 验收<br/>cstack-create-verification-skill · cstack-verify"]
     VERIFY --> REVIEW["REVIEW · 审查<br/>cstack-review · cstack-test-audit"]
     REVIEW --> SHIP["SHIP · 交付<br/>cstack-ship"]
     VERIFY -. 发现问题 .-> BUILD
@@ -55,7 +55,7 @@ cp -R "$CSTACK_ROOT"/skills/* .agents/skills/
 | **DEFINE · 明确需求** | 要做什么，如何判断完成？ | [cstack-clarify](skills/cstack-clarify/SKILL.md)：澄清未决选择；[cstack-specify](skills/cstack-specify/SKILL.md)：整理需求与验收条件 |
 | **PLAN · 规划方案** | 哪些技术决策需要确定，如何分步交付？ | [cstack-design](skills/cstack-design/SKILL.md)：确定共享或难以回退的技术选择；[cstack-slice](skills/cstack-slice/SKILL.md)：拆分可验证的纵向切片 |
 | **BUILD · 实现与诊断** | 如何实现需求或定位故障？ | [cstack-implement](skills/cstack-implement/SKILL.md)：在授权范围内实现；[cstack-diagnose](skills/cstack-diagnose/SKILL.md)：建立反馈回路并定位根因；[cstack-test-first](skills/cstack-test-first/SKILL.md)：按行为进行测试先行循环 |
-| **VERIFY · 验收** | 实际行为是否满足已确认需求？ | [cstack-verification-setup](skills/cstack-verification-setup/SKILL.md)：建立可重复的验证方法；[cstack-verify](skills/cstack-verify/SKILL.md)：按验收条件核验候选变更 |
+| **VERIFY · 验收** | 实际行为是否满足已确认需求？ | [cstack-create-verification-skill](skills/cstack-create-verification-skill/SKILL.md)：建立或更新可重复的验证方法；[cstack-verify](skills/cstack-verify/SKILL.md)：按验收条件核验候选变更 |
 | **REVIEW · 审查** | 变更或测试中有哪些可证实的问题？ | [cstack-review](skills/cstack-review/SKILL.md)：审查变更及相关路径；[cstack-test-audit](skills/cstack-test-audit/SKILL.md)：在有疑点时审计测试有效性 |
 | **SHIP · 交付** | 当前交付候选是否就绪，授权范围允许做什么？ | [cstack-ship](skills/cstack-ship/SKILL.md)：判断并在授权范围内执行交付 |
 
@@ -78,7 +78,7 @@ cp -R "$CSTACK_ROOT"/skills/* .agents/skills/
 
 | Skill | 用途 |
 | --- | --- |
-| [cstack-project-setup](skills/cstack-project-setup/SKILL.md) | 记录稳定的项目工程档案（PROFILE） |
+| [cstack-create-project-profile](skills/cstack-create-project-profile/SKILL.md) | 建立或更新稳定的项目工程档案（PROFILE） |
 | [cstack-simplify](skills/cstack-simplify/SKILL.md) | 在请求范围内识别或移除当前已无职责的复杂度 |
 | [cstack-ui-review](skills/cstack-ui-review/SKILL.md) | 根据实际界面与交互检查视觉和可用性 |
 | [cstack-performance](skills/cstack-performance/SKILL.md) | 测量性能、定位瓶颈并按授权优化 |
@@ -116,8 +116,8 @@ cp -R "$CSTACK_ROOT"/skills/* .agents/skills/
 
 | 触发方式 | Skill |
 | --- | --- |
-| 手动触发 | [cstack-rewrite](skills/cstack-rewrite/SKILL.md)<br>[cstack-core](skills/cstack-core/SKILL.md)<br>[cstack-how](skills/cstack-how/SKILL.md)<br>[cstack-impact](skills/cstack-impact/SKILL.md)<br>[cstack-project-setup](skills/cstack-project-setup/SKILL.md)<br>[cstack-restate-goal](skills/cstack-restate-goal/SKILL.md)<br>[cstack-wayfinding](skills/cstack-wayfinding/SKILL.md)<br>[cstack-why](skills/cstack-why/SKILL.md) |
-| 可自动触发 | [cstack-architecture-review](skills/cstack-architecture-review/SKILL.md)<br>[cstack-challenge](skills/cstack-challenge/SKILL.md)<br>[cstack-clarify](skills/cstack-clarify/SKILL.md)<br>[cstack-codebase-design](skills/cstack-codebase-design/SKILL.md)<br>[cstack-design](skills/cstack-design/SKILL.md)<br>[cstack-diagnose](skills/cstack-diagnose/SKILL.md)<br>[cstack-domain-model](skills/cstack-domain-model/SKILL.md)<br>[cstack-handoff](skills/cstack-handoff/SKILL.md)<br>[cstack-implement](skills/cstack-implement/SKILL.md)<br>[cstack-performance](skills/cstack-performance/SKILL.md)<br>[cstack-pr-feedback](skills/cstack-pr-feedback/SKILL.md)<br>[cstack-prototype](skills/cstack-prototype/SKILL.md)<br>[cstack-research](skills/cstack-research/SKILL.md)<br>[cstack-retro](skills/cstack-retro/SKILL.md)<br>[cstack-review](skills/cstack-review/SKILL.md)<br>[cstack-ship](skills/cstack-ship/SKILL.md)<br>[cstack-simplify](skills/cstack-simplify/SKILL.md)<br>[cstack-slice](skills/cstack-slice/SKILL.md)<br>[cstack-specify](skills/cstack-specify/SKILL.md)<br>[cstack-test-audit](skills/cstack-test-audit/SKILL.md)<br>[cstack-test-first](skills/cstack-test-first/SKILL.md)<br>[cstack-ui-review](skills/cstack-ui-review/SKILL.md)<br>[cstack-verification-setup](skills/cstack-verification-setup/SKILL.md)<br>[cstack-verify](skills/cstack-verify/SKILL.md)<br>[cstack-visual-explain](skills/cstack-visual-explain/SKILL.md) |
+| 手动触发 | [cstack-rewrite](skills/cstack-rewrite/SKILL.md)<br>[cstack-core](skills/cstack-core/SKILL.md)<br>[cstack-create-project-profile](skills/cstack-create-project-profile/SKILL.md)<br>[cstack-how](skills/cstack-how/SKILL.md)<br>[cstack-impact](skills/cstack-impact/SKILL.md)<br>[cstack-restate-goal](skills/cstack-restate-goal/SKILL.md)<br>[cstack-wayfinding](skills/cstack-wayfinding/SKILL.md)<br>[cstack-why](skills/cstack-why/SKILL.md) |
+| 可自动触发 | [cstack-architecture-review](skills/cstack-architecture-review/SKILL.md)<br>[cstack-challenge](skills/cstack-challenge/SKILL.md)<br>[cstack-clarify](skills/cstack-clarify/SKILL.md)<br>[cstack-codebase-design](skills/cstack-codebase-design/SKILL.md)<br>[cstack-create-verification-skill](skills/cstack-create-verification-skill/SKILL.md)<br>[cstack-design](skills/cstack-design/SKILL.md)<br>[cstack-diagnose](skills/cstack-diagnose/SKILL.md)<br>[cstack-domain-model](skills/cstack-domain-model/SKILL.md)<br>[cstack-handoff](skills/cstack-handoff/SKILL.md)<br>[cstack-implement](skills/cstack-implement/SKILL.md)<br>[cstack-performance](skills/cstack-performance/SKILL.md)<br>[cstack-pr-feedback](skills/cstack-pr-feedback/SKILL.md)<br>[cstack-prototype](skills/cstack-prototype/SKILL.md)<br>[cstack-research](skills/cstack-research/SKILL.md)<br>[cstack-retro](skills/cstack-retro/SKILL.md)<br>[cstack-review](skills/cstack-review/SKILL.md)<br>[cstack-ship](skills/cstack-ship/SKILL.md)<br>[cstack-simplify](skills/cstack-simplify/SKILL.md)<br>[cstack-slice](skills/cstack-slice/SKILL.md)<br>[cstack-specify](skills/cstack-specify/SKILL.md)<br>[cstack-test-audit](skills/cstack-test-audit/SKILL.md)<br>[cstack-test-first](skills/cstack-test-first/SKILL.md)<br>[cstack-ui-review](skills/cstack-ui-review/SKILL.md)<br>[cstack-verify](skills/cstack-verify/SKILL.md)<br>[cstack-visual-explain](skills/cstack-visual-explain/SKILL.md) |
 
 ## 工作原则
 

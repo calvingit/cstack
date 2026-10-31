@@ -1,6 +1,0 @@
-interface:
-  display_name: "CStack 验证方法"
-  short_description: "验收还没有可重复的跑法"
-  default_prompt: "使用 $cstack-verification-setup 建立或修好可重复的验证方法。"
-policy:
-  allow_implicit_invocation: true

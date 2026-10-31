@@ -1,0 +1,6 @@
+interface:
+  display_name: "CStack 工程档案"
+  short_description: "手动触发：建立或更新项目工程档案"
+  default_prompt: "使用 $cstack-create-project-profile 建立或更新这个项目的工程档案。"
+policy:
+  allow_implicit_invocation: false
