@@ -33,4 +33,4 @@ description: 当用户要求核对或处理某个 PR 上的评审意见时使用
 ## 停止与交接
 
 - 不合并、不关闭 PR，除非另有明确授权。
-- 修复后重跑受影响的检查；代码审查与逐 AC 验收仍分别由 `cstack-review` 和 `cstack-verify` 负责。
+- 修复后重跑受影响的检查；代码审查与逐个 AC 验收仍分别由 `cstack-review` 和 `cstack-verify` 负责。

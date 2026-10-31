@@ -23,4 +23,4 @@ SPEC 的 `R#`/`AC#`、TECH 的 Verification Seam（若存在）、候选与工�
 
 ## 输出
 
-逐 `AC#` 给出 `PASS` / `FAIL` / `NOT VERIFIED`，附候选、方法、环境、执行者、覆盖限制、证据位置。缺陷、契约冲突和能力缺口交回调用方。
+逐个 `AC#` 给出 `PASS` / `FAIL` / `NOT VERIFIED`，附候选、方法、环境、执行者、覆盖限制、证据位置。缺陷、契约冲突和能力缺口交回调用方。

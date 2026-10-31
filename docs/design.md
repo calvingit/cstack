@@ -23,7 +23,7 @@ CStack 是面向 AI Coding Agent 的工程方法 Skills 包，Markdown-first，�
 | DEFINE | 要实现什么，范围与验收是什么？ | 已确认目标、边界、AC |
 | PLAN | 技术选择与交付顺序是否成立？ | 必要技术决策、可验证工作单元 |
 | BUILD | 当前范围是否正确实现？ | 候选变更及开发检查 |
-| VERIFY | 实际行为是否满足已确认 AC？ | 逐 AC 的 PASS / FAIL / NOT VERIFIED 与证据 |
+| VERIFY | 实际行为是否满足已确认 AC？ | 逐个 AC 的 PASS / FAIL / NOT VERIFIED 与证据 |
 | REVIEW | 变更引入了哪些可证明的缺陷或风险？ | 按影响排序的发现及限制 |
 | SHIP | 是否可以合并或发布？ | 就绪结论、阻塞、已接受风险 |
 
@@ -34,7 +34,7 @@ CStack 是面向 AI Coding Agent 的工程方法 Skills 包，Markdown-first，�
 这是 CStack 的核心机制。每条验证结论必须能回答五个问题：观察对象、环境、执行者、覆盖内容、未覆盖内容。
 
 - **候选绑定**：记录 HEAD、提交范围或工作树状态；工作树有未提交内容时，不能用 HEAD SHA 代表候选状态。
-- **结论词汇**：逐 AC 给 PASS / FAIL / NOT VERIFIED。证据不足写 NOT VERIFIED，不写 PASS；环境失败不是产品失败；实现者的自检记录不算证据，独立判断只能由 Verifier 给出。
+- **结论词汇**：逐个 AC 给 PASS / FAIL / NOT VERIFIED。证据不足写 NOT VERIFIED，不写 PASS；环境失败不是产品失败；实现者的自检记录不算证据，独立判断只能由 Verifier 给出。
 - **失效重判**：功能代码、测试、验证配置、验收条件、依赖、基线或环境变化后，重新判断受影响的证据是否仍然适用——只重判受影响部分，不全量重跑；判断不了影响就补验或保留 NOT VERIFIED。
 - **风险接受留痕**：FAIL 或 NOT VERIFIED 不得改写成 PASS；接受风险要记录依据和接受者。
 - **证明层级**：判断风险或安全事实是否成立时按 [CRITERIA.md](../skills/cstack-core/CRITERIA.md) 的层级；只列调用方或搜索没结果都到不了证明。

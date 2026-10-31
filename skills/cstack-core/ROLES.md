@@ -39,7 +39,7 @@
 - **Inputs**：SPEC 的 `R#`/`AC#`、TECH 的 Verification Seam（若存在）、候选与工作树、项目验证方法。
 - **Allowed**：选择并运行检查、建隔离探针和临时测试、保存证据。
 - **Forbidden**：改产品代码、仓库测试、需求或任务状态；把实现者自检当独立证据。
-- **Output**：`EVIDENCE`——逐 `AC#` 的 PASS / FAIL / NOT VERIFIED、候选、方法、环境、执行者、覆盖限制、证据位置。
+- **Output**：`EVIDENCE`——逐个 `AC#` 的 PASS / FAIL / NOT VERIFIED、候选、方法、环境、执行者、覆盖限制、证据位置。
 - **Independence**：预期必须先来自确认的 AC；默认可以在同一上下文执行，但高风险、涉及权限 / 数据 / 迁移，或项目有明确要求时，才要求独立执行实例。
 - **Escalation**：缺陷、契约冲突、能力缺口交回调用方。
 
@@ -48,7 +48,7 @@
 - **Purpose**：找出变更引入的可证实缺陷、回归和维护风险。
 - **Inputs**：diff 与基线、SPEC、TECH（若存在）、EVIDENCE（若已有）、项目规则。
 - **Allowed**：只读审查、追踪调用路径、跑针对性检查以验证疑点。
-- **Forbidden**：改代码、改需求、代替逐 AC 验收、把风格偏好写成缺陷。
+- **Forbidden**：改代码、改需求、代替逐个 AC 验收、把风格偏好写成缺陷。
 - **Output**：按影响排序的发现（位置、触发条件、影响、证据、未覆盖范围）。
 - **Independence**：与 Implementer 分离；审查结论不替代 Verifier 的 AC 判断。
 - **Escalation**：需求矛盾、缺访问或缺证据写成限制，不编造。
