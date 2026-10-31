@@ -7,7 +7,7 @@ description: 当用户要求建立、修好或更新项目的验证方法，或�
 
 ## 目标
 
-让后续执行者知道怎样安全启动、操作并观察项目的相关行为。项目里已有测试、脚本、CI 和文档时，优先复用；不要默认生成新 Skill，也不强制安装框架。验证方法会随代码、依赖、端口和认证变化失效，所以除了首次建立，还要核对并更新已有的方法。
+让后续执行者知道怎样安全启动、操作并观察项目的相关行为。项目里已有测试、脚本、CI 和文档时优先复用，不默认生成新 Skill，也不强制安装框架；确需新建方法时，按「建立项目验证 Skill」调用 `$skill-creator`。验证方法会随代码、依赖、端口和认证变化失效，因此首次建立之后，仍要核对并更新同一份方法。
 
 ## 强制约束
 
@@ -20,8 +20,8 @@ description: 当用户要求建立、修好或更新项目的验证方法，或�
 ## 产物
 
 - **读**：项目指令、依赖、脚本、CI、测试、PROFILE 的验证入口，以及现有的验证方法。
-- **写**：项目验证方法（可复用入口、Launch / Doctor / Drive / Observe / Isolate / Cleanup、Feature Map、限制）。首次建立时写成项目本地验证 Skill 或放进已有位置；更新时按同一结构改同一份方法。
-- 验证方法放在项目已有位置或本地验证 Skill；需要更新 PROFILE 时，产出待并入的链接与摘要片段交回。PROFILE 由 `cstack-create-project-profile` 写入，该 Skill 需用户手动触发，本 Skill 不代其写入。
+- **写**：项目验证方法（可复用入口、Launch / Doctor / Drive / Observe / Isolate / Cleanup、Feature Map、限制）。首次建立时按「建立项目验证 Skill」写成项目本地 Skill，更新时沿用同一结构改同一份方法。
+- 验证方法写进项目已有位置，或写进 `.agents/skills/` 下新建的项目验证 Skill 子目录（例如 `verify-web/`）；PROFILE 需要更新时，把待并入的链接与摘要片段交回。PROFILE 由 `cstack-create-project-profile` 写入，该 Skill 需用户手动触发，本 Skill 不代其写入。
 - 不写 SPEC / TECH / SLICES / EVIDENCE，也不判定某个候选是否通过——那是 `cstack-verify` 的事。
 - 需要与其他 Skill 统一产物命名、字段或共享判据时，读取 `cstack-core` 的 `ARTIFACTS.md`、`PRINCIPLES.md`、`CRITERIA.md` 对应小节；未安装时以本节作为最小可用版本。
 
@@ -45,6 +45,17 @@ description: 当用户要求建立、修好或更新项目的验证方法，或�
 - **Helpers**：附带脚本必须可执行，调用方式写在方法里。
 - **Feature Map**：功能 → 验证入口 → 证据类型 → 限制。
 
+## 建立项目验证 Skill
+
+盘点后确认需要新方法、项目里又没有合适位置时，调用 `$skill-creator` 创建项目专属的验证 Skill，把验证方法写进去，不要散落在临时文档或对话里。
+
+- **位置**：项目本地的 Skill 都放在项目根目录下的 `.agents/skills/`，每个 Skill 占一个子目录，入口文件是该子目录里的 `SKILL.md`；新的验证 Skill 也建在这里，例如 `.agents/skills/verify-web/`。
+- **命名**：子目录名即 frontmatter 的 `name`，`verify-` 加范围或入口类型，全小写、以短横线连接，例如 `verify-web`、`verify-api`、`verify-cli`；一个验证入口对应一个 Skill，入口不止一个就分别建。
+- **description**：写清覆盖哪些入口、能观察到什么，并写明不判定候选是否通过——逐个 `AC#` 的结论由 `cstack-verify` 给出。
+- **正文**：写入本次盘点得到的 Launch / Doctor / Drive / Observe / Isolate / Cleanup / Helpers、Feature Map 和已知限制，每项都写实际内容。
+- 环境里没有 `$skill-creator` 时，按同样结构手写 `SKILL.md`（frontmatter 含 `name`、`description`，后接正文），这一步不能省。
+- 生成后按「就绪判据」跑一遍最小但代表性的路径；跑不通标为草稿。
+
 ## 就绪判据
 
 - 若项目有数据层或迁移，从空数据目录启动，跑完迁移和种子数据，再用一个真实读请求确认可用。
@@ -53,7 +64,7 @@ description: 当用户要求建立、修好或更新项目的验证方法，或�
 
 ## 停止与交接
 
-- 报告可复用方法、前置条件、观察范围、试运行结果、清理情况和还缺的部分；更新已有方法时，说明改了哪几项、旧记录为什么不再适用。
+- 报告可复用方法、前置条件、观察范围、试运行结果、清理情况和缺口。新建了项目验证 Skill 时给出路径和 `name`；更新已有方法时，说明改了哪几项、旧记录为什么不再适用。
 - 已有位置够用时不另造 `PROFILE` 或能力索引。
 - 方法能跑只说明能观察到东西，不代表哪个任务候选已经通过验收。
 - 不修改产品代码或测试断言来掩盖失败；不擅自提交或推送。
