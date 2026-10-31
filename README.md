@@ -72,7 +72,7 @@ cp -R "$CSTACK_ROOT"/skills/* .agents/skills/
 | [cstack-wayfinding](skills/cstack-wayfinding/SKILL.md) | 为跨会话的大工程整理地图、未知区域和决策工单 |
 | [cstack-challenge](skills/cstack-challenge/SKILL.md) | 对已成形方案做有边界的对抗审查 |
 | [cstack-domain-model](skills/cstack-domain-model/SKILL.md) | 梳理业务概念、关系和规则 |
-| [cstack-prototype](skills/cstack-prototype/SKILL.md) | 用一次性原型拍板说不清的行为、界面或可行性问题 |
+| [cstack-prototype](skills/cstack-prototype/SKILL.md) | 用一次性原型拍板说不清的行为、状态、界面或可行性问题 |
 
 ### 改进与协作
 
@@ -111,7 +111,7 @@ cp -R "$CSTACK_ROOT"/skills/* .agents/skills/
 | 这个方案有没有问题 | [cstack-challenge](skills/cstack-challenge/SKILL.md) | [cstack-review](skills/cstack-review/SKILL.md)（审的是变更） |
 | 这些测试是不是假的 | [cstack-test-audit](skills/cstack-test-audit/SKILL.md) | [cstack-verify](skills/cstack-verify/SKILL.md)（判 AC） |
 | 第一遍已经能跑，要从变更前基线重写得更简洁 | [cstack-second-pass](skills/cstack-second-pass/SKILL.md) | [cstack-simplify](skills/cstack-simplify/SKILL.md)（在现有代码上减复杂度） |
-| 行为、界面或可行性还说不清，要对照实物拍板 | [cstack-prototype](skills/cstack-prototype/SKILL.md) | [cstack-implement](skills/cstack-implement/SKILL.md)（答案已经清楚就直接做）；[cstack-second-pass](skills/cstack-second-pass/SKILL.md)（已能跑之后从基线重写）；[cstack-simplify](skills/cstack-simplify/SKILL.md)（局部减复杂度） |
+| 行为、状态、界面或可行性还说不清，要对照实物拍板 | [cstack-prototype](skills/cstack-prototype/SKILL.md) | [cstack-implement](skills/cstack-implement/SKILL.md)（答案已经清楚就直接做）；[cstack-second-pass](skills/cstack-second-pass/SKILL.md)（已能跑之后从基线重写）；[cstack-simplify](skills/cstack-simplify/SKILL.md)（局部减复杂度） |
 
 ## 触发方式
 
