@@ -33,7 +33,7 @@ description: 当用户要求简化指定代码，或只想看这块有没有多�
 - 过期的兼容路径或死代码。
 - 只为测试方便而加进生产代码的复杂度。
 
-本 Skill 是可移除复杂度的唯一归属：`cstack-review`、`cstack-test-audit`、`cstack-codebase-design` 或 `cstack-challenge` 发现后转入这里判断价值、授权和改动；其他 Skill 不重复给简化方案。
+本 Skill 是可移除复杂度的唯一归属：`cstack-review`、`cstack-test-audit`、`cstack-codebase-design` 或 `cstack-challenge` 发现后转入这里判断价值、授权和改动；其他 Skill 不重复给简化方案。`cstack-second-pass` 从变更前基线重写时自带一次减复杂度，重写后残留的可删复杂度仍回到这里判断。
 
 ## 候选判断
 
