@@ -33,6 +33,7 @@ OLD_SKILLS = [
     "restate-goal",
     "retro",
     "review",
+    "rewrite",
     "ship",
     "simplify",
     "slice",
@@ -40,6 +41,7 @@ OLD_SKILLS = [
     "test-audit",
     "test-first",
     "ui-review",
+    "unslop",
     "verification-setup",
     "verify",
     "visual-explain",
@@ -62,7 +64,10 @@ OLD_NAME_RE = re.compile(
 )
 LINK_RE = re.compile(r"\[[^\]]*\]\(([^)]+)\)")
 FENCE_RE = re.compile(r"```.*?```", re.S)
-EXPLICIT_PHRASES = ("仅当用户点名", "不自动触发")
+EXPLICIT_PHRASES = ("仅当用户手动触发", "不自动触发")
+EXCLUSION_MARKERS = ("不用于", "不判断", "不记录", "不决定", "不负责", "不要", "不做")
+CORE_INVOCATION_PHRASE = "调用 `cstack-core`"
+ALLOWED_DESCRIPTION_TOKENS = ("PR", "Seam", "API", "ID", "Agent", "Skill", "R#", "AC#", "diff")
 
 
 class Report:
@@ -154,9 +159,16 @@ def check_skill(directory: Path, report: Report) -> None:
     if not description:
         report.add(f"{rel(skill_md)}: 缺少 description")
     else:
-        # Trigger descriptions stay Chinese. "diff" is the one allowed technical token.
-        if re.search(r"[A-Za-z]", re.sub(r"(?<![A-Za-z])diff(?![A-Za-z])", "", description)):
-            report.add(f"{rel(skill_md)}: description 含英文字母: {description}")
+        # Trigger descriptions are Chinese-first; allow a small set of established terms.
+        description_for_check = description
+        for token in sorted(ALLOWED_DESCRIPTION_TOKENS, key=len, reverse=True):
+            description_for_check = re.sub(
+                rf"(?<![A-Za-z0-9_-]){re.escape(token)}(?![A-Za-z0-9_-])",
+                "",
+                description_for_check,
+            )
+        if re.search(r"[A-Za-z]", description_for_check):
+            report.add(f"{rel(skill_md)}: description 含未列入白名单的英文字母: {description}")
         if "时使用" not in description:
             report.add(f"{rel(skill_md)}: description 不是触发语句（应包含「时使用」）")
     disable = field(frontmatter, "disable-model-invocation")
@@ -164,6 +176,13 @@ def check_skill(directory: Path, report: Report) -> None:
     disabled = disable == "true"
     if disable not in (None, "true", "false"):
         report.add(f"{rel(skill_md)}: disable-model-invocation 只能是 true 或 false")
+    if description and not disabled:
+        if not any(marker in description for marker in EXCLUSION_MARKERS):
+            report.add(
+                f"{rel(skill_md)}: 自动触发的 description 要写明排除条件（不用于 / 不判断 / 不决定 …）"
+            )
+    if name != "cstack-core" and CORE_INVOCATION_PHRASE in text:
+        report.add(f"{rel(skill_md)}: 共享层是文件索引，应写成读取文件，不写成「调用 Skill」")
 
     if not openai.is_file():
         report.add(f"{rel(directory)}: 缺少 agents/openai.yaml")
@@ -192,9 +211,9 @@ def check_skill(directory: Path, report: Report) -> None:
     if disable != "true" and allow is False:
         report.add(f"{rel(skill_md)}: Claude 允许自动调用，但 Codex allow_implicit_invocation 为 false")
     if explicit_by_text and not disabled:
-        report.add(f"{rel(skill_md)}: 描述要求点名或不自动触发，但未设置 disable-model-invocation: true")
+        report.add(f"{rel(skill_md)}: 描述要求手动触发或不自动触发，但未设置 disable-model-invocation: true")
     if explicit_by_text and allow is not False:
-        report.add(f"{rel(skill_md)}: 描述要求点名或不自动触发，但 Codex 未关闭隐式调用")
+        report.add(f"{rel(skill_md)}: 描述要求手动触发或不自动触发，但 Codex 未关闭隐式调用")
     if description and not explicit_by_text and disabled:
         report.add(f"{rel(skill_md)}: 描述像可自动触发，但设置了 disable-model-invocation: true")
     if description and not explicit_by_text and allow is False:

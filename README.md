@@ -13,7 +13,7 @@ flowchart LR
     REVIEW -. 需要修改 .-> BUILD
 ```
 
-六个阶段是一张工程工作的地图，不是必须按顺序执行的流水线。可以从当前问题进入，按需跳过上游阶段或返回；例如，目标和验收依据已经清楚的局部修改，可以直接从实现开始。辅助 Skill 不绑定阶段，可跨阶段使用。任何要声明完成的任务，收尾都必须跑 [cstack-verify](skills/cstack-verify/SKILL.md) 和 [cstack-review](skills/cstack-review/SKILL.md)；[cstack-simplify](skills/cstack-simplify/SKILL.md) 可以跳过。验收或审查记为未运行，不等于通过。
+六个阶段是一张工程工作的地图，不是必须按顺序执行的流水线。可以从当前问题进入，按需跳过上游阶段或返回；例如，目标和验收依据已经清楚的局部修改，可以直接从实现开始。辅助 Skill 不绑定阶段，可跨阶段使用。任何要声明完成的任务，收尾都必须实际运行 [cstack-verify](skills/cstack-verify/SKILL.md) 和 [cstack-review](skills/cstack-review/SKILL.md)；[cstack-simplify](skills/cstack-simplify/SKILL.md) 可以跳过。验收或审查记为未运行的，不等于通过。
 
 **状态：首版 Skill 集，等待用户验证。** Skill 的触发、跨 Runtime 兼容性与相对原生 Agent 的收益均未验证。
 
@@ -93,31 +93,43 @@ cp -R "$CSTACK_ROOT"/skills/* .agents/skills/
 
 | Skill | 用途 |
 | --- | --- |
-| [cstack-bro](skills/cstack-bro/SKILL.md) | 用更通俗的话重述答复或指定片段 |
-| [cstack-unslop](skills/cstack-unslop/SKILL.md) | 删减冗余，把已有内容写得更精准简练；不扩大任务范围 |
+| [cstack-rewrite](skills/cstack-rewrite/SKILL.md) | 把答复或指定片段写得更通俗或更精炼，只改写法，不改结论 |
 | [cstack-restate-goal](skills/cstack-restate-goal/SKILL.md) | 重述当前目标和边界，不启动访谈 |
 | [cstack-how](skills/cstack-how/SKILL.md) | 追踪并解释当前代码怎样运行 |
 | [cstack-why](skills/cstack-why/SKILL.md) | 根据项目证据调查设计、约束或改动的原因 |
 
+## 容易选错的场景
+
+| 用户的问题 | 用哪个 | 不用哪个 |
+| --- | --- | --- |
+| 这个模块的接口设计得合不合理 | [cstack-codebase-design](skills/cstack-codebase-design/SKILL.md) | [cstack-architecture-review](skills/cstack-architecture-review/SKILL.md)（除非跨模块） |
+| 这套结构整体有没有问题 | [cstack-architecture-review](skills/cstack-architecture-review/SKILL.md) | [cstack-codebase-design](skills/cstack-codebase-design/SKILL.md) |
+| 这个改动会不会在别处打破东西 | [cstack-impact](skills/cstack-impact/SKILL.md)；审查时用 [cstack-review](skills/cstack-review/SKILL.md) 的同一套证明层级 | [cstack-verify](skills/cstack-verify/SKILL.md)（判 AC，不判风险） |
+| 应用好慢 | [cstack-performance](skills/cstack-performance/SKILL.md) | [cstack-diagnose](skills/cstack-diagnose/SKILL.md)（除非是明确故障） |
+| 这段太啰嗦，或者看不懂 | [cstack-rewrite](skills/cstack-rewrite/SKILL.md) | [cstack-restate-goal](skills/cstack-restate-goal/SKILL.md)（不重述目标） |
+| 这个方案有没有问题 | [cstack-challenge](skills/cstack-challenge/SKILL.md) | [cstack-review](skills/cstack-review/SKILL.md)（审的是变更） |
+| 这些测试是不是假的 | [cstack-test-audit](skills/cstack-test-audit/SKILL.md) | [cstack-verify](skills/cstack-verify/SKILL.md)（判 AC） |
+
 ## 触发方式
 
-同一个 Skill 在 Claude Code 与 Codex 上使用同一触发方式。点名后才使用的 Skill，Claude Code 在 frontmatter 写 `disable-model-invocation: true`，Codex 在 `agents/openai.yaml` 写 `policy.allow_implicit_invocation: false`。可自动触发的 Skill 两边都允许按描述选用（Claude Code 不禁用模型调用，Codex 为 `allow_implicit_invocation: true`）。描述与配置一致：点名 Skill 写明「仅当用户点名」或「不自动触发」，其余写成可匹配的触发语句。
+同一个 Skill 在 Claude Code 与 Codex 上的触发方式一致。手动触发的 Skill，在 Claude Code 的 frontmatter 中写 `disable-model-invocation: true`，在 Codex 的 `agents/openai.yaml` 中写 `policy.allow_implicit_invocation: false`；可自动触发的 Skill 两端都允许按描述选用（Claude Code 不禁用模型调用，Codex 为 `allow_implicit_invocation: true`）。描述要与配置一致：手动触发的 Skill 在 description 中写明需要用户显式调用，其余 Skill 的描述要写出可被自动匹配的使用场景。
 
 | 触发方式 | Skill |
 | --- | --- |
-| 点名后才使用 | [cstack-bro](skills/cstack-bro/SKILL.md)<br>[cstack-core](skills/cstack-core/SKILL.md)<br>[cstack-how](skills/cstack-how/SKILL.md)<br>[cstack-impact](skills/cstack-impact/SKILL.md)<br>[cstack-project-setup](skills/cstack-project-setup/SKILL.md)<br>[cstack-restate-goal](skills/cstack-restate-goal/SKILL.md)<br>[cstack-unslop](skills/cstack-unslop/SKILL.md)<br>[cstack-wayfinding](skills/cstack-wayfinding/SKILL.md)<br>[cstack-why](skills/cstack-why/SKILL.md) |
+| 手动触发 | [cstack-rewrite](skills/cstack-rewrite/SKILL.md)<br>[cstack-core](skills/cstack-core/SKILL.md)<br>[cstack-how](skills/cstack-how/SKILL.md)<br>[cstack-impact](skills/cstack-impact/SKILL.md)<br>[cstack-project-setup](skills/cstack-project-setup/SKILL.md)<br>[cstack-restate-goal](skills/cstack-restate-goal/SKILL.md)<br>[cstack-wayfinding](skills/cstack-wayfinding/SKILL.md)<br>[cstack-why](skills/cstack-why/SKILL.md) |
 | 可自动触发 | [cstack-architecture-review](skills/cstack-architecture-review/SKILL.md)<br>[cstack-challenge](skills/cstack-challenge/SKILL.md)<br>[cstack-clarify](skills/cstack-clarify/SKILL.md)<br>[cstack-codebase-design](skills/cstack-codebase-design/SKILL.md)<br>[cstack-design](skills/cstack-design/SKILL.md)<br>[cstack-diagnose](skills/cstack-diagnose/SKILL.md)<br>[cstack-domain-model](skills/cstack-domain-model/SKILL.md)<br>[cstack-handoff](skills/cstack-handoff/SKILL.md)<br>[cstack-implement](skills/cstack-implement/SKILL.md)<br>[cstack-performance](skills/cstack-performance/SKILL.md)<br>[cstack-pr-feedback](skills/cstack-pr-feedback/SKILL.md)<br>[cstack-prototype](skills/cstack-prototype/SKILL.md)<br>[cstack-research](skills/cstack-research/SKILL.md)<br>[cstack-retro](skills/cstack-retro/SKILL.md)<br>[cstack-review](skills/cstack-review/SKILL.md)<br>[cstack-ship](skills/cstack-ship/SKILL.md)<br>[cstack-simplify](skills/cstack-simplify/SKILL.md)<br>[cstack-slice](skills/cstack-slice/SKILL.md)<br>[cstack-specify](skills/cstack-specify/SKILL.md)<br>[cstack-test-audit](skills/cstack-test-audit/SKILL.md)<br>[cstack-test-first](skills/cstack-test-first/SKILL.md)<br>[cstack-ui-review](skills/cstack-ui-review/SKILL.md)<br>[cstack-verification-setup](skills/cstack-verification-setup/SKILL.md)<br>[cstack-verify](skills/cstack-verify/SKILL.md)<br>[cstack-visual-explain](skills/cstack-visual-explain/SKILL.md) |
 
 ## 工作原则
 
 - **验收、审查和交付各有职责**：验收依据已确认需求判断实际行为；审查寻找变更引入的缺陷；交付综合有效证据、项目门禁和授权。验证方法能够运行，也不代表候选变更已经通过验收。
-- **收尾必须验收并审查**：任务要声明完成，就必须实际运行验收和审查。二者记为未运行不等于通过。简化可以跳过，跳过也不等于验收或审查已通过。改动小不能作为省掉验收或审查的理由。
+- **收尾必须验收并审查**：要声明任务完成，就必须实际运行验收和审查；验收或审查记为未运行，不等于通过。简化可以跳过，跳过也不等于验收或审查已通过。改动小不能作为省掉验收或审查的理由。
 - **证据对应实际对象**：实现、验证和审查需要识别候选变更及相关工作树状态。证据要写明实际受测对象、环境、观察结果和限制条件；条件变化后需重新判断是否适用。
+- **辅助判断不产出验收结论**：影响半径、界面、性能、测试审计和对抗审查只提供观察与发现；逐 `AC#` 的 `PASS` / `FAIL` 只由验收给出。
 - **就绪不等于授权或执行**：合并就绪、发布就绪、执行授权和实际结果需分别说明。合并会触发自动部署时，副作用也必须在授权范围内；入队不等于已合并。
 - **产物按需使用**：需求确认（DECISIONS）、规格（SPEC）、技术决定（TECH）、切片（SLICES）与证据（EVIDENCE）可以逐级衔接，也可以省略。下游按 ID 引用，不复制内容；缺少可引用的依据时，不得凭空假设。
 - **深度与任务相称**：不要求固定文档、独立执行者、全量检查、任务图或新的 Runtime。具体做法由任务风险、项目约束和用户要求决定。
 
-[cstack-core](skills/cstack-core/SKILL.md) 是不自动触发的共享 Skill，供其他 Skill 或用户按需调用；调用不会扩大授权。它索引共享判断约束 [PRINCIPLES.md](skills/cstack-core/PRINCIPLES.md)，并约定产物字段与 ID 的写法（[ARTIFACTS.md](skills/cstack-core/ARTIFACTS.md)）和角色契约（[ROLES.md](skills/cstack-core/ROLES.md)）。安装单个 Skill 时可以不安装 `cstack-core`；各 Skill 内嵌了独立运行所需的约束和产物要点。
+[cstack-core](skills/cstack-core/SKILL.md) 是不自动触发的共享 Skill，供其他 Skill 按需读取文件；读取不会扩大授权。它索引共享判断约束 [PRINCIPLES.md](skills/cstack-core/PRINCIPLES.md)，约定产物字段与 ID 的写法（[ARTIFACTS.md](skills/cstack-core/ARTIFACTS.md)）、共享判据（[CRITERIA.md](skills/cstack-core/CRITERIA.md)）和角色契约（[ROLES.md](skills/cstack-core/ROLES.md)）。安装单个 Skill 时可以不安装 `cstack-core`；各 Skill 内嵌了独立运行所需的约束、产物和判据要点。
 
 ## Agent 角色
 
@@ -137,7 +149,7 @@ cp -R "$CSTACK_ROOT"/skills/* .agents/skills/
 
 Claude Code 的 subagent 不支持嵌套派发，因此 Orchestrator 只保留角色契约，不提供可执行定义；多切片编排由主 Agent 配合 `cstack-slice` / `cstack-wayfinding` 承担。其他 Runtime 可按角色契约使用等价机制；没有独立实例能力时按契约降级，不能伪造独立验证。
 
-Implementer 不写 `EVIDENCE`；Verifier 与 Reviewer 是两种判断，审查不替代逐条验收。任务收尾必须实际跑过 Verifier 和 Reviewer；未运行不等于通过。Simplifier 可以不派。Verifier 必须先依据已确认的验收条件独立得出预期，再看实现；默认允许在同一上下文完成验证，涉及高风险、权限、数据或迁移，或项目明确提出要求时，须使用独立实例。Reviewer 与 Implementer 分离；要求独立执行者时，Implementer 不能同时担任 Verifier 或 Reviewer。只读 Agent 不得修改产品代码、仓库测试或需求。
+Implementer 不写 `EVIDENCE`；Verifier 与 Reviewer 是两种判断，审查不替代逐条验收。任务收尾必须实际执行 Verifier 的验收和 Reviewer 的审查；未运行不等于通过。Simplifier 可以不派。Verifier 必须先依据已确认的验收条件独立得出预期，再看实现；默认允许在同一上下文完成验证，涉及高风险、权限、数据或迁移，或项目明确提出要求时，须使用独立实例。Reviewer 与 Implementer 分离；要求独立执行者时，Implementer 不能同时担任 Verifier 或 Reviewer。只读 Agent 不得修改产品代码、仓库测试或需求。
 
 更多工作流机制和设计取舍见 [设计思想](docs/design.md)。
 
@@ -149,5 +161,4 @@ Implementer 不写 `EVIDENCE`；Verifier 与 Reviewer 是两种判断，审查�
 python3 scripts/check_repo.py
 ```
 
-脚本检查 Skill 名与目录一致、描述存在且为中文触发语句、相对链接有效、`plugin.json` 与 `marketplace.json` 版本一致、`openai.yaml` 存在且触发策略与 frontmatter 对齐，以及 Skill 和子代理都使用 `cstack-` 前缀。GitHub Actions 在推送和拉取请求上运行同一脚本。
-
+脚本检查 Skill 名与目录一致、描述存在且以中文为主（只允许少量既有技术术语）、自动触发的描述写明排除条件、相对链接有效、`plugin.json` 与 `marketplace.json` 版本一致、`openai.yaml` 存在且触发策略与 frontmatter 对齐、共享层以读取文件而不是调用 Skill 的方式引用，以及 Skill 和子代理都使用 `cstack-` 前缀。GitHub Actions 在推送和 PR 事件上运行同一脚本。

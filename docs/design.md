@@ -27,7 +27,7 @@ CStack 是面向 AI Coding Agent 的工程方法 Skills 包，Markdown-first，�
 | REVIEW | 变更引入了哪些可证明的缺陷或风险？ | 按影响排序的发现及限制 |
 | SHIP | 是否可以合并或发布？ | 就绪结论、阻塞、已接受风险 |
 
-简单任务（目标清楚、影响局部、现有检查足够）可以直接实现，不经过上游中间产物。深度由风险决定，不由流程决定。即使改动很小，收尾仍须实际运行 `cstack-verify` 和 `cstack-review`；`cstack-simplify` 可以跳过。验收或审查记为未运行不等于通过。
+简单任务（目标清楚、影响局部、现有检查足够）可以直接实现，不经过上游中间产物。深度由风险决定，不由流程决定。即使改动很小，收尾仍须实际运行 `cstack-verify` 和 `cstack-review`；`cstack-simplify` 可以跳过。验收或审查记为未运行的，不等于通过。
 
 ## 3. 证据：候选绑定与失效
 
@@ -37,6 +37,7 @@ CStack 是面向 AI Coding Agent 的工程方法 Skills 包，Markdown-first，�
 - **结论词汇**：逐 AC 给 PASS / FAIL / NOT VERIFIED。证据不足写 NOT VERIFIED，不写 PASS；环境失败不是产品失败；实现者的自检记录不算证据，独立判断只能由 Verifier 给出。
 - **失效重判**：功能代码、测试、验证配置、验收条件、依赖、基线或环境变化后，重新判断受影响的证据是否仍然适用——只重判受影响部分，不全量重跑；判断不了影响就补验或保留 NOT VERIFIED。
 - **风险接受留痕**：FAIL 或 NOT VERIFIED 不得改写成 PASS；接受风险要记录依据和接受者。
+- **证明层级**：判断风险或安全事实是否成立时按 [CRITERIA.md](../skills/cstack-core/CRITERIA.md) 的层级；只列调用方或搜索没结果都到不了证明。
 
 ## 4. 产物链：6 类权威产物
 
@@ -57,6 +58,8 @@ CStack 是面向 AI Coding Agent 的工程方法 Skills 包，Markdown-first，�
 2. **产物可以省略**；省略表示没有单独形成文档，但这不等于没有要求，更不等于可以凭空假设。缺少可引用的依据时，只能保留 NOT VERIFIED，不得补一个假设。
 3. **变化只改负责的产物**，再重判受影响的下游产物：需求变改 DECISIONS/SPEC，设计变改 TECH，拆分变改 SLICES，候选或环境变改 EVIDENCE。
 
+`ADR` 不是第 7 类产物，而是 `TECH` 中 `D#` 的长期形态：跨任务仍成立时提升为 ADR，`TECH` 保留 ID 与摘要。`EVIDENCE` 的粒度是一份交付候选一份，切片记录汇总进去，不单独成篇。
+
 字段定义与 ID 约定见 [cstack-core/ARTIFACTS.md](../skills/cstack-core/ARTIFACTS.md)。
 
 ## 5. 风险自适应与权限
@@ -76,8 +79,8 @@ CStack 是面向 AI Coding Agent 的工程方法 Skills 包，Markdown-first，�
 
 独立性设计：
 
-- `cstack-core` 是**唯一共享层**，不自动触发，只提供共享词汇与不变量；其他 Skill 需要对齐产物命名与字段时调用它。
-- 每个 Skill 内嵌自己需要的「强制约束 / 产物」要点，**没有硬依赖**：只装单个 Skill 也能独立运行。
+- `cstack-core` 是**唯一共享层**，不自动触发，只提供共享词汇、不变量、产物字段与共享判据；其他 Skill 通过读取它的文件对齐命名、字段和判据，不需要调用 Skill。
+- 每个 Skill 内嵌自己需要的「强制约束 / 产物 / 判据」要点，**没有硬依赖**：只装单个 Skill 也能独立运行。
 - 不能既宣称"单目录独立"，又要求读取根目录共享文件而无内嵌兜底。
 
 ## 7. 角色模型
@@ -87,9 +90,10 @@ CStack 是面向 AI Coding Agent 的工程方法 Skills 包，Markdown-first，�
 采用 5 个核心角色（Explorer、Implementer、Verifier、Reviewer、Simplifier）与 3 个可选专业角色（Researcher、Architect、Orchestrator）。关键规则：
 
 - **Implementer 永远不写 `EVIDENCE`**；自检只是候选记录。
-- **Verifier 与 Reviewer 是两种判断**（验收条件是否满足 vs 变更引入了什么缺陷），不能合并成一份结论。任务收尾两者都必须实际运行；记为未运行不等于通过。Simplifier 可以跳过。
+- **Verifier 与 Reviewer 是两种判断**（验收条件是否满足 vs 变更引入了什么缺陷），不能合并成一份结论。任务收尾两者都必须实际运行；记为未运行的，不等于通过。Simplifier 可以跳过。
 - **预期来源独立 ≠ 执行者独立**：默认同上下文执行，但预期先行；高风险时才要求独立实例。
 - **角色不是越多越好**：默认单 Agent，只有隔离、独立性或并行有实际收益时才派独立实例。
+- **辅助判断不产出 AC 结论**：界面、性能、影响半径、测试审计和对抗审查只提供观察与发现，`PASS` / `FAIL` 只由 Verifier 下。
 
 角色契约见 [cstack-core/ROLES.md](../skills/cstack-core/ROLES.md)；Claude Code 可直接派发的定义见 [agents/](../agents/)，使用说明见 [Agent 角色](../README.md#agent-角色)。
 

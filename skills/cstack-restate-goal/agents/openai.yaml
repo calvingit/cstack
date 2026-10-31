@@ -1,6 +1,6 @@
 interface:
-  display_name: "CStack 复述目标"
-  short_description: "点名复述当前目标和边界"
-  default_prompt: "使用 $cstack-restate-goal 复述当前目标、约束和边界。"
+  display_name: "CStack 重述目标"
+  short_description: "手动触发：重述当前目标和边界"
+  default_prompt: "使用 $cstack-restate-goal 重述当前目标、约束和边界。"
 policy:
   allow_implicit_invocation: false

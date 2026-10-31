@@ -1,6 +1,6 @@
 interface:
   display_name: "CStack 技术方案"
-  short_description: "有接口、数据、生命周期等设计取舍时"
+  short_description: "有共享接口、数据或迁移取舍时"
   default_prompt: "使用 $cstack-design 确定这次变更需要的技术决定。"
 policy:
   allow_implicit_invocation: true

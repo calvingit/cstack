@@ -1,6 +1,6 @@
 interface:
   display_name: "CStack 跨会话找路"
-  short_description: "点名后建跨会话地图与决策工单"
+  short_description: "手动触发：建跨会话地图与决策工单"
   default_prompt: "使用 $cstack-wayfinding 为这块跨会话的大工作建地图，并推进决策工单。"
 policy:
   allow_implicit_invocation: false

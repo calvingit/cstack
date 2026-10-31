@@ -82,7 +82,7 @@
 - **Allowed**：提出候选接口、模块边界、数据形态与权衡。
 - **Forbidden**：替代 `cstack-design` 的最终决策、默认组织评审团、改需求。
 - **Output**：候选、收益/成本、迁移影响、测试 seam、推荐与理由。
-- **Independence**：只在 design-it-twice 或方案有明显分歧时启用；普通设计由 Designer 自行完成。
+- **Independence**：只在需要对比 2–3 个结构候选（design-it-twice）或方案有明显分歧时启用；普通设计由 Designer 自行完成。
 - **Escalation**：需求冲突回 `cstack-specify`。
 
 ### Orchestrator
@@ -104,6 +104,7 @@
 - **Designer**（`cstack-design`）
 - **Planner**（`cstack-slice`）
 - **Shipper**（`cstack-ship`，负责就绪与授权判断）
+- **Rewriter**（`cstack-rewrite`，只改写法，不改事实与结论）
 
 ## 产物与角色
 
@@ -125,8 +126,9 @@
 
 - **作者 ≠ 批评者**：Implementer 在要求独立时不能同时是 Verifier 或 Reviewer。
 - **Verifier 与 Reviewer 是两种判断**：一条是 AC 是否满足，另一条是变更引入了什么缺陷；两者不能合并。
-- **预期来源独立 ≠ 执行者独立**：Verifier 可以在同一上下文执行，但必须先独立得出预期；高风险、涉及权限 / 数据 / 迁移，或项目有明确要求时，才要求独立实例。
+- **预期来源独立 ≠ 执行者独立**：Verifier 可以在同一上下文执行，但预期必须先独立得出；独立实例要求见 Verifier 的 Independence 契约。
 - **模型结论一致不是证据**：多个模型得出相同结论，只提高置信度。
+- **辅助判断不产出 AC 结论**：影响半径、界面、性能、测试审计和对抗审查只提供观察与发现；`PASS` / `FAIL` / `NOT VERIFIED` 只由 Verifier 下。
 - **Orchestrator 不裁定**：分歧按代码、需求、测试和可观察事实来裁定。
 
 ## Skill 与角色对应
@@ -147,14 +149,14 @@
 | cstack-verification-setup | Explorer + 主 Agent（项目维护） |
 | cstack-impact | Explorer |
 | cstack-architecture-review | Explorer + Reviewer（架构面） |
-| cstack-ui-review | Verifier / Reviewer（视觉面） |
+| cstack-ui-review | Reviewer（视觉面）；视觉类 `AC` 的 `PASS` / `FAIL` 归 Verifier |
 | cstack-research | Researcher |
 | cstack-performance | Explorer + Implementer |
 | cstack-prototype | Explorer + Implementer |
 | cstack-pr-feedback | Implementer + Reviewer（按需） |
 | cstack-challenge | Reviewer（对抗审查） |
 | cstack-wayfinding | Planner + Orchestrator（可选） |
-| cstack-project-setup / cstack-handoff / cstack-retro | 主 Agent |
+| cstack-project-setup / cstack-handoff / cstack-retro / cstack-rewrite | 主 Agent |
 
 ## 任务收尾
 

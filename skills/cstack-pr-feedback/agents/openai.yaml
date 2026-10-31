@@ -1,6 +1,6 @@
 interface:
   display_name: "CStack 评审意见"
-  short_description: "要处理拉取请求上的评审意见"
+  short_description: "要处理 PR 上的评审意见"
   default_prompt: "使用 $cstack-pr-feedback 核对这条评审意见，并在授权范围内处理。"
 policy:
   allow_implicit_invocation: true

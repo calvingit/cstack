@@ -1,6 +1,6 @@
 interface:
   display_name: "CStack 影响半径"
-  short_description: "点名后查变更影响半径"
+  short_description: "手动触发：查变更影响半径"
   default_prompt: "使用 $cstack-impact 查这项变更的影响半径，并证明决定其是否安全的关键事实。"
 policy:
   allow_implicit_invocation: false

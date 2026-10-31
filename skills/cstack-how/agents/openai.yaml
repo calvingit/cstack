@@ -1,6 +1,6 @@
 interface:
   display_name: "CStack 代码怎么跑"
-  short_description: "点名讲解代码现在怎么跑"
+  short_description: "手动触发：讲解代码现在怎么运行"
   default_prompt: "使用 $cstack-how 顺着当前代码讲它现在怎么运行。"
 policy:
   allow_implicit_invocation: false

@@ -1,6 +1,0 @@
-interface:
-  display_name: "CStack 人话重说"
-  short_description: "把已有答复说得更通俗"
-  default_prompt: "使用 $cstack-bro 把上一条答复说得更通俗。"
-policy:
-  allow_implicit_invocation: false

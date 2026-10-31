@@ -1,0 +1,6 @@
+interface:
+  display_name: "CStack 改写表达"
+  short_description: "手动触发：把答复写得更通俗或更精炼"
+  default_prompt: "使用 $cstack-rewrite 把上一条答复改写得更加通俗或精炼。"
+policy:
+  allow_implicit_invocation: false
