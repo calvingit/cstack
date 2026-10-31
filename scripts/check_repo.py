@@ -154,7 +154,8 @@ def check_skill(directory: Path, report: Report) -> None:
     if not description:
         report.add(f"{rel(skill_md)}: 缺少 description")
     else:
-        if re.search(r"[A-Za-z]", description):
+        # Trigger descriptions stay Chinese. "diff" is the one allowed technical token.
+        if re.search(r"[A-Za-z]", re.sub(r"(?<![A-Za-z])diff(?![A-Za-z])", "", description)):
             report.add(f"{rel(skill_md)}: description 含英文字母: {description}")
         if "时使用" not in description:
             report.add(f"{rel(skill_md)}: description 不是触发语句（应包含「时使用」）")
