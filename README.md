@@ -110,7 +110,7 @@ cp -R "$CSTACK_ROOT"/skills/* .agents/skills/
 | 这段太啰嗦，或者看不懂 | [cstack-rewrite](skills/cstack-rewrite/SKILL.md) | [cstack-restate-goal](skills/cstack-restate-goal/SKILL.md)（不重述目标） |
 | 这个方案有没有问题 | [cstack-challenge](skills/cstack-challenge/SKILL.md) | [cstack-review](skills/cstack-review/SKILL.md)（审的是变更） |
 | 这些测试是不是假的 | [cstack-test-audit](skills/cstack-test-audit/SKILL.md) | [cstack-verify](skills/cstack-verify/SKILL.md)（判 AC） |
-| 第一遍已经能跑，要从基线重写得更简洁 | [cstack-second-pass](skills/cstack-second-pass/SKILL.md) | [cstack-simplify](skills/cstack-simplify/SKILL.md)（在现有代码上减复杂度） |
+| 第一遍已经能跑，要从变更前基线重写得更简洁 | [cstack-second-pass](skills/cstack-second-pass/SKILL.md) | [cstack-simplify](skills/cstack-simplify/SKILL.md)（在现有代码上减复杂度） |
 
 ## 触发方式
 
