@@ -145,6 +145,7 @@
 | cstack-verify | Verifier |
 | cstack-review | Reviewer |
 | cstack-simplify | Simplifier（审查模式） |
+| cstack-second-pass | Implementer + Simplifier（从基线重写） |
 | cstack-test-audit | Reviewer（测试审计） |
 | cstack-create-verification-skill | Explorer + 主 Agent（项目维护） |
 | cstack-impact | Explorer |
