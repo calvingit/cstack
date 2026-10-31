@@ -1,6 +1,6 @@
 interface:
   display_name: "CStack 原型"
-  short_description: "要用最小原型做决定"
-  default_prompt: "使用 $cstack-prototype 做一个最小原型，用来决定这个设计问题。"
+  short_description: "用一次性原型拍板说不清的问题"
+  default_prompt: "使用 $cstack-prototype 先写出要决定的问题和判据，再做一次性原型来拍板。"
 policy:
   allow_implicit_invocation: true
