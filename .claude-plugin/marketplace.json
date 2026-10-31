@@ -10,7 +10,7 @@
     {
       "name": "cstack",
       "source": "./",
-      "version": "0.5.1",
+      "version": "0.5.2",
       "description": "六阶段工程方法 Skills、共享产物链，以及 cstack-explorer / cstack-implementer / cstack-verifier / cstack-reviewer / cstack-simplifier / cstack-researcher / cstack-architect 的可直接派发定义。"
     }
   ]
