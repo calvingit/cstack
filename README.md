@@ -113,9 +113,9 @@ cp -R "$CSTACK_ROOT"/skills/* .agents/skills/
 | 这些测试是不是假的 | [cstack-test-audit](skills/cstack-test-audit/SKILL.md) | [cstack-verify](skills/cstack-verify/SKILL.md)（判 AC） |
 | 第一遍已经能跑，要从变更前基线重写得更简洁 | [cstack-second-pass](skills/cstack-second-pass/SKILL.md) | [cstack-simplify](skills/cstack-simplify/SKILL.md)（在现有代码上减复杂度） |
 | 行为、状态、界面或可行性还说不清，要对照实物拍板 | [cstack-prototype](skills/cstack-prototype/SKILL.md) | [cstack-implement](skills/cstack-implement/SKILL.md)（答案已经清楚就直接做）；[cstack-second-pass](skills/cstack-second-pass/SKILL.md)（已能跑之后从基线重写）；[cstack-simplify](skills/cstack-simplify/SKILL.md)（局部减复杂度） |
-| 要一份界面的颜色、字体和组件规范 | [cstack-create-design-md](skills/cstack-create-design-md/SKILL.md) | [cstack-tech-design](skills/cstack-tech-design/SKILL.md)（那是技术方案） |
+| 要定界面的颜色、字体和组件规范 | [cstack-create-design-md](skills/cstack-create-design-md/SKILL.md) | [cstack-tech-design](skills/cstack-tech-design/SKILL.md)（那是技术方案） |
 | 当前页面好不好看、交互有没有问题 | [cstack-ui-review](skills/cstack-ui-review/SKILL.md) | [cstack-create-design-md](skills/cstack-create-design-md/SKILL.md)（写的是规范，不审页面） |
-| 共享接口、数据模型或迁移怎么定 | [cstack-tech-design](skills/cstack-tech-design/SKILL.md) | [cstack-create-design-md](skills/cstack-create-design-md/SKILL.md) |
+| 共享接口、数据模型或迁移怎么定 | [cstack-tech-design](skills/cstack-tech-design/SKILL.md) | [cstack-create-design-md](skills/cstack-create-design-md/SKILL.md)（不写视觉规范） |
 
 ## 触发方式
 
