@@ -25,9 +25,9 @@ description: 当一件工作要拆成多个能分别交付的单元，或要排�
 ## 输入
 
 1. 读完 SPEC 的 Goal、范围、`R#`、`AC#`、非目标与依据，不从头猜范围。
-2. 若存在 TECH，读受影响的 `D#` 与集成 / 迁移约束；没有 TECH 时，先判断是否满足 `cstack-design` 的“何时必须做”，需要就先做。
+2. 若存在 TECH，读受影响的 `D#` 与集成 / 迁移约束；没有 TECH 时，先判断是否满足 `cstack-tech-design` 的“何时必须做”，需要就先做。
 3. 只在会改变切片结果、粒度或依赖时才调查仓库、AGENTS、术语与现有任务约定。
-4. 需求、公共契约、范围或验收未定 → 回 `cstack-clarify` / `cstack-specify`；共享技术决定未定 → 回 `cstack-design`。不要把假设写成切片。
+4. 需求、公共契约、范围或验收未定 → 回 `cstack-clarify` / `cstack-specify`；共享技术决定未定 → 回 `cstack-tech-design`。不要把假设写成切片。
 
 ## 拆分规则
 

@@ -19,7 +19,7 @@ description: 当要设计或判断一个具体模块的接口、Seam、依赖方
 ## 产物
 
 - **读**：目标模块、代表性生产调用方、组装 / 配置入口、下游依赖、相关测试、SPEC / TECH（若存在）。
-- **写**：局部设计判断——当前行为、归属、不变量、候选、推荐与理由，并标注观察 / 推断 / 未知。它不是正式产物；需要多个实现共享的设计决定仍交回 `cstack-design` 写 `TECH`。
+- **写**：局部设计判断——当前行为、归属、不变量、候选、推荐与理由，并标注观察 / 推断 / 未知。它不是正式产物；需要多个实现共享的设计决定仍交回 `cstack-tech-design` 写 `TECH`。
 
 ## 术语
 
@@ -58,7 +58,7 @@ description: 当要设计或判断一个具体模块的接口、Seam、依赖方
 ## 边界
 
 - 整体架构是否成立、是否符合项目约束：`cstack-architecture-review`。
-- 需要写 `TECH` 的共享设计：`cstack-design`。
+- 需要写 `TECH` 的共享设计：`cstack-tech-design`。
 - 需求或行为未定：`cstack-clarify` / `cstack-specify`。
 - 缺陷根因：`cstack-diagnose`。
 - 行为不变地缩小 diff、或删除已无必要的复杂度：`cstack-simplify`。

@@ -59,7 +59,7 @@ description: 当故障已经出现、原因还不清楚，需要先复现再定�
 
 - 按根因做最小修改；同一模式在别处也存在时指出，但不顺手扩大。
 - 有正确 seam，就把最小复现按 `cstack-test-first` 的红绿循环转成回归测试；循环细节以该 Skill 为准，不在诊断里重复。
-- 没有正确 seam 本身就是发现：架构导致无法用测试锁定缺陷时，不要为了测试而暴露内部实现，必要时交 `cstack-design` / `cstack-codebase-design`。
+- 没有正确 seam 本身就是发现：架构导致无法用测试锁定缺陷时，不要为了测试而暴露内部实现，必要时交 `cstack-tech-design` / `cstack-codebase-design`。
 - 修复后复跑原始（未最小化的）场景，不能只跑新测试。
 
 ## Phase 6：清理与报告

@@ -80,7 +80,7 @@
 - **Purpose**：设计有争议时，产出 2–3 个结构不同的候选并比较。
 - **Inputs**：SPEC、相关代码事实、约束、现有架构。
 - **Allowed**：提出候选接口、模块边界、数据形态与权衡。
-- **Forbidden**：替代 `cstack-design` 的最终决策、默认组织评审团、改需求。
+- **Forbidden**：替代 `cstack-tech-design` 的最终决策、默认组织评审团、改需求。
 - **Output**：候选、收益/成本、迁移影响、测试 seam、推荐与理由。
 - **Independence**：只在需要对比 2–3 个结构候选（design-it-twice）或方案有明显分歧时启用；普通设计由 Designer 自行完成。
 - **Escalation**：需求冲突回 `cstack-specify`。
@@ -101,7 +101,7 @@
 
 - **Clarifier**（`cstack-clarify`）
 - **Specifier**（`cstack-specify`）
-- **Designer**（`cstack-design`）
+- **Designer**（`cstack-tech-design`）
 - **Planner**（`cstack-slice`）
 - **Shipper**（`cstack-ship`，负责就绪与授权判断）
 - **Rewriter**（`cstack-rewrite`，只改写法，不改事实与结论）
@@ -137,7 +137,7 @@
 | --- | --- |
 | cstack-clarify | Clarifier + Explorer |
 | cstack-specify | Specifier |
-| cstack-design | Designer + Explorer / Architect（可选） |
+| cstack-tech-design | Designer + Explorer / Architect（可选） |
 | cstack-slice | Planner |
 | cstack-implement | Implementer |
 | cstack-diagnose | Explorer + Implementer（诊断方法，不单列角色） |

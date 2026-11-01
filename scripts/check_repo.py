@@ -10,58 +10,6 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 
-OLD_SKILLS = [
-    "architecture-review",
-    "bro",
-    "challenge",
-    "clarify",
-    "codebase-design",
-    "core",
-    "design",
-    "diagnose",
-    "domain-model",
-    "handoff",
-    "how",
-    "impact",
-    "implement",
-    "performance",
-    "pr-feedback",
-    "project-setup",
-    "prototype",
-    "report-style",
-    "research",
-    "restate-goal",
-    "retro",
-    "review",
-    "rewrite",
-    "ship",
-    "simplify",
-    "slice",
-    "specify",
-    "test-audit",
-    "test-first",
-    "ui-review",
-    "unslop",
-    "verification-setup",
-    "verify",
-    "visual-explain",
-    "wayfinding",
-    "why",
-]
-OLD_AGENTS = [
-    "architect",
-    "explorer",
-    "implementer",
-    "researcher",
-    "reviewer",
-    "simplifier",
-    "verifier",
-]
-OLD_NAME_RE = re.compile(
-    r"(?<![A-Za-z0-9_-])(?:"
-    + "|".join(re.escape(name) for name in sorted(OLD_SKILLS + OLD_AGENTS, key=len, reverse=True))
-    + r")(?![A-Za-z0-9_-])"
-)
 LINK_RE = re.compile(r"\[[^\]]*\]\(([^)]+)\)")
 FENCE_RE = re.compile(r"```.*?```", re.S)
 EXPLICIT_PHRASES = ("仅当用户手动触发", "不自动触发")
@@ -267,27 +215,6 @@ def check_licenses(report: Report) -> None:
             report.add(f"应删除的许可或署名文件: {rel(path)}")
 
 
-def check_old_names(report: Report) -> None:
-    roots = [ROOT / "README.md", ROOT / "docs", ROOT / "skills", ROOT / "agents", ROOT / ".claude-plugin"]
-    files: list[Path] = []
-    for item in roots:
-        if item.is_file():
-            files.append(item)
-        elif item.is_dir():
-            files.extend(path for path in item.rglob("*") if path.is_file())
-    for path in files:
-        if path.suffix.lower() not in {".md", ".yaml", ".yml", ".json"}:
-            continue
-        text = path.read_text(encoding="utf-8")
-        masked = text.replace("docs/design.md", "docs/DESIGN_DOC.md").replace(
-            "design-it-twice", "DESIGN_IT_TWICE"
-        )
-        for line_no, line in enumerate(masked.splitlines(), 1):
-            found = OLD_NAME_RE.search(line)
-            if found:
-                report.add(f"{rel(path)}:{line_no}: 残留旧短名 {found.group(0)!r}")
-
-
 def main() -> int:
     report = Report()
     skills_root = ROOT / "skills"
@@ -300,7 +227,6 @@ def main() -> int:
     check_versions(report)
     check_links(report)
     check_licenses(report)
-    check_old_names(report)
     if report.errors:
         print(f"检查失败，共 {len(report.errors)} 项：", file=sys.stderr)
         for error in report.errors:

@@ -59,6 +59,6 @@ disable-model-invocation: true
 
 ## 停止与交接
 
-- 规划本身不授权实现；目的地到达后交给 `cstack-specify` / `cstack-design` / `cstack-slice`。
+- 规划本身不授权实现；目的地到达后交给 `cstack-specify` / `cstack-tech-design` / `cstack-slice`。
 - 会话中断需要交接时用 `cstack-handoff` 引用地图与工单，不重画。
 - 不建立与项目 issue / tracker 并行的持久状态。

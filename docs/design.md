@@ -47,8 +47,8 @@ CStack 是面向 AI Coding Agent 的工程方法 Skills 包，Markdown-first，�
 | --- | --- | --- | --- | --- |
 | 项目基座 | `PROFILE` | 这个项目长期怎么运作？ | cstack-create-project-profile | 所有 Skill |
 | 需求契约 | `DECISIONS` | 哪些需求选择已由用户确认？ | cstack-clarify | cstack-specify |
-| 需求契约 | `SPEC` | 要做什么，怎么算完成？ | cstack-specify | cstack-design / cstack-slice / cstack-implement / cstack-verify / cstack-review |
-| 交付计划 | `TECH` | 哪些共享或难以撤回的技术选择已定？ | cstack-design | cstack-slice / cstack-implement / cstack-verify / cstack-review |
+| 需求契约 | `SPEC` | 要做什么，怎么算完成？ | cstack-specify | cstack-tech-design / cstack-slice / cstack-implement / cstack-verify / cstack-review |
+| 交付计划 | `TECH` | 哪些共享或难以撤回的技术选择已定？ | cstack-tech-design | cstack-slice / cstack-implement / cstack-verify / cstack-review |
 | 交付计划 | `SLICES` | 怎么分步交付，谁阻塞谁？ | cstack-slice | cstack-implement / cstack-verify |
 | 结果 | `EVIDENCE` | 实际做到什么程度？ | cstack-verify | cstack-review / cstack-ship |
 
