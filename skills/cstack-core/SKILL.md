@@ -15,7 +15,7 @@ disable-model-invocation: true
 | 文档 | 何时读 | 内容 |
 | --- | --- | --- |
 | [PRINCIPLES.md](PRINCIPLES.md) | 需要确认判断边界、越权、证据或恢复的强制约束时 | 范围、认知、决策、授权、证据、恢复 6 组不变量；含工作状态与验证状态的区分 |
-| [ARTIFACTS.md](ARTIFACTS.md) | 需要写 / 读产物、字段、ID 或交接规则时 | `PROFILE` / `DECISIONS` / `SPEC` / `TECH` / `SLICES` / `EVIDENCE` 的字段、所有权与变化规则；`ADR` 与 `EVIDENCE` 的粒度 |
+| [ARTIFACTS.md](ARTIFACTS.md) | 需要写 / 读产物、字段、ID 或交接规则时 | `PROFILE` / `DECISIONS` / `SPEC` / `TECH` / `SLICES` / `EVIDENCE` 的字段、所有权与变化规则；`ADR`、界面设计系统与 `EVIDENCE` 的粒度 |
 | [CRITERIA.md](CRITERIA.md) | 需要判断证据是否够、测量是否可比、测试是否有效、发现如何分级时 | 证明层级、可比基线、测试有效性、发现分级与处置 |
 | [ROLES.md](ROLES.md) | 需要确定谁执行、是否用独立实例、角色能做什么时 | 5 个核心角色与 3 个可选专业角色的责任契约、产物所有权与独立性规则 |
 

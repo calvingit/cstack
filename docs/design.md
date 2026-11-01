@@ -58,7 +58,7 @@ CStack 是面向 AI Coding Agent 的工程方法 Skills 包，Markdown-first，�
 2. **产物可以省略**；省略表示没有单独形成文档，但这不等于没有要求，更不等于可以凭空假设。缺少可引用的依据时，只能保留 NOT VERIFIED，不得补一个假设。
 3. **变化只改负责的产物**，再重判受影响的下游产物：需求变改 DECISIONS/SPEC，设计变改 TECH，拆分变改 SLICES，候选或环境变改 EVIDENCE。
 
-`ADR` 不是第 7 类产物，而是 `TECH` 中 `D#` 的长期形态：跨任务仍成立时提升为 ADR，`TECH` 保留 ID 与摘要。`EVIDENCE` 的粒度是一份交付候选一份，切片记录汇总进去，不单独成篇。
+`ADR` 不是第 7 类产物，而是 `TECH` 中 `D#` 的长期形态：跨任务仍成立时提升为 ADR，`TECH` 保留 ID 与摘要。界面设计系统（通常是 `DESIGN.md`）同样不是第 7 类产物，位置记在 `PROFILE`，由 `cstack-create-design-md` 写入。`EVIDENCE` 的粒度是一份交付候选一份，切片记录汇总进去，不单独成篇。
 
 字段定义与 ID 约定见 [cstack-core/ARTIFACTS.md](../skills/cstack-core/ARTIFACTS.md)。
 

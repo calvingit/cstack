@@ -1,0 +1,6 @@
+interface:
+  display_name: "CStack 界面设计文档"
+  short_description: "手动触发：建立或更新界面设计文档"
+  default_prompt: "使用 $cstack-create-design-md 建立或更新这个项目的界面设计系统文档 DESIGN.md。"
+policy:
+  allow_implicit_invocation: false

@@ -157,7 +157,7 @@
 | cstack-pr-feedback | Implementer + Reviewer（按需） |
 | cstack-challenge | Reviewer（对抗审查） |
 | cstack-wayfinding | Planner + Orchestrator（可选） |
-| cstack-create-project-profile / cstack-handoff / cstack-retro / cstack-rewrite | 主 Agent |
+| cstack-create-design-md / cstack-create-project-profile / cstack-handoff / cstack-retro / cstack-rewrite | 主 Agent |
 
 ## 任务收尾
 
