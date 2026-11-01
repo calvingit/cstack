@@ -34,7 +34,7 @@ disable-model-invocation: true
 ## 决策工单类型
 
 - **`cstack-research`**（AFK）：查阅资料，查清决策所依赖的事实。
-- **`cstack-prototype`**（HITL）：做一个粗糙但具体的原型，让讨论更接近实际。
+- **`cstack-prototype`**（HITL）：做一个能回答当前问题的一次性原型，让人对照实物做决定。
 - **grilling**（HITL）：通过对话达成决策，调用 `cstack-clarify`。
 - **task**（HITL / AFK）：为解锁决策必须先做的手工工作。
 
