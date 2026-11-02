@@ -9,6 +9,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+PLUGIN_ROOT = ROOT / "plugins" / "cstack"
 
 LINK_RE = re.compile(r"\[[^\]]*\]\(([^)]+)\)")
 FENCE_RE = re.compile(r"```.*?```", re.S)
@@ -60,8 +61,38 @@ def load_json(path: Path, report: Report) -> dict | None:
         return None
 
 
+def check_marketplace_source(report: Report) -> None:
+    market_path = ROOT / ".claude-plugin" / "marketplace.json"
+    market = load_json(market_path, report)
+    if not market:
+        return
+    plugins = market.get("plugins") or []
+    if not isinstance(plugins, list) or not plugins:
+        report.add(f"{rel(market_path)}: plugins 为空")
+        return
+    for item in plugins:
+        if not isinstance(item, dict):
+            report.add(f"{rel(market_path)}: 插件条目不是对象")
+            continue
+        source = item.get("source")
+        name = item.get("name", "<未命名>")
+        if not isinstance(source, str):
+            report.add(f"{rel(market_path)}: 插件 {name} 的 source 必须是相对路径字符串")
+            continue
+        relative = source[2:] if source.startswith("./") else source
+        parts = Path(relative).parts
+        if not relative or relative == "." or ".." in parts or Path(relative).is_absolute():
+            report.add(
+                f"{rel(market_path)}: 插件 {name} 的 source {source!r} 不能是仓库根或越出仓库"
+            )
+            continue
+        resolved = (ROOT / relative).resolve()
+        if resolved == ROOT.resolve() or ROOT.resolve() not in resolved.parents or not resolved.is_dir():
+            report.add(f"{rel(market_path)}: 插件 {name} 的 source {source!r} 不是仓库内目录")
+
+
 def check_versions(report: Report) -> None:
-    plugin_path = ROOT / ".claude-plugin" / "plugin.json"
+    plugin_path = PLUGIN_ROOT / ".claude-plugin" / "plugin.json"
     market_path = ROOT / ".claude-plugin" / "marketplace.json"
     plugin = load_json(plugin_path, report)
     market = load_json(market_path, report)
@@ -169,7 +200,7 @@ def check_skill(directory: Path, report: Report) -> None:
 
 
 def check_agents(report: Report) -> None:
-    agents = ROOT / "agents"
+    agents = PLUGIN_ROOT / "agents"
     files = sorted(path for path in agents.glob("*.md") if path.is_file())
     if not files:
         report.add("agents/: 没有子代理定义")
@@ -217,7 +248,7 @@ def check_licenses(report: Report) -> None:
 
 def main() -> int:
     report = Report()
-    skills_root = ROOT / "skills"
+    skills_root = PLUGIN_ROOT / "skills"
     skill_dirs = sorted(path for path in skills_root.iterdir() if path.is_dir())
     if not skill_dirs:
         report.add("skills/: 没有 Skill 目录")
@@ -225,6 +256,7 @@ def main() -> int:
         check_skill(directory, report)
     check_agents(report)
     check_versions(report)
+    check_marketplace_source(report)
     check_links(report)
     check_licenses(report)
     if report.errors:
