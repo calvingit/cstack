@@ -54,7 +54,7 @@ cp -R "$CSTACK_ROOT"/plugins/cstack/skills/* .agents/skills/
 | --- | --- | --- |
 | **DEFINE · 明确需求** | 要做什么，如何判断完成？ | [cstack-clarify](plugins/cstack/skills/cstack-clarify/SKILL.md)：澄清未决选择；[cstack-specify](plugins/cstack/skills/cstack-specify/SKILL.md)：整理需求与验收条件 |
 | **PLAN · 规划方案** | 哪些技术决策需要确定，如何分步交付？ | [cstack-tech-design](plugins/cstack/skills/cstack-tech-design/SKILL.md)：确定共享或难以回退的技术选择；[cstack-slice](plugins/cstack/skills/cstack-slice/SKILL.md)：拆分可验证的纵向切片 |
-| **BUILD · 实现与诊断** | 如何实现需求或定位故障？ | [cstack-implement](plugins/cstack/skills/cstack-implement/SKILL.md)：在授权范围内实现；[cstack-diagnose](plugins/cstack/skills/cstack-diagnose/SKILL.md)：建立反馈回路并定位根因；[cstack-test-first](plugins/cstack/skills/cstack-test-first/SKILL.md)：按行为进行测试先行循环 |
+| **BUILD · 实现与诊断** | 如何实现需求或定位故障？ | [cstack-implement](plugins/cstack/skills/cstack-implement/SKILL.md)：在授权范围内实现；[cstack-orchestrate](plugins/cstack/skills/cstack-orchestrate/SKILL.md)：用 `git worktree` 并行实现互不阻塞的切片；[cstack-diagnose](plugins/cstack/skills/cstack-diagnose/SKILL.md)：建立反馈回路并定位根因；[cstack-test-first](plugins/cstack/skills/cstack-test-first/SKILL.md)：按行为进行测试先行循环 |
 | **VERIFY · 验收** | 实际行为是否满足已确认需求？ | [cstack-create-verification-skill](plugins/cstack/skills/cstack-create-verification-skill/SKILL.md)：建立或更新可重复的验证方法；[cstack-verify](plugins/cstack/skills/cstack-verify/SKILL.md)：按验收条件核验候选变更 |
 | **REVIEW · 审查** | 变更或测试中有哪些可证实的问题？ | [cstack-review](plugins/cstack/skills/cstack-review/SKILL.md)：审查变更及相关路径；[cstack-test-audit](plugins/cstack/skills/cstack-test-audit/SKILL.md)：在有疑点时审计测试有效性 |
 | **SHIP · 交付** | 当前交付候选是否就绪，授权范围允许做什么？ | [cstack-ship](plugins/cstack/skills/cstack-ship/SKILL.md)：判断并在授权范围内执行交付 |
@@ -123,7 +123,7 @@ cp -R "$CSTACK_ROOT"/plugins/cstack/skills/* .agents/skills/
 
 | 触发方式 | Skill |
 | --- | --- |
-| 手动触发 | [cstack-rewrite](plugins/cstack/skills/cstack-rewrite/SKILL.md)<br>[cstack-core](plugins/cstack/skills/cstack-core/SKILL.md)<br>[cstack-create-project-profile](plugins/cstack/skills/cstack-create-project-profile/SKILL.md)<br>[cstack-create-design-md](plugins/cstack/skills/cstack-create-design-md/SKILL.md)<br>[cstack-how](plugins/cstack/skills/cstack-how/SKILL.md)<br>[cstack-impact](plugins/cstack/skills/cstack-impact/SKILL.md)<br>[cstack-restate-goal](plugins/cstack/skills/cstack-restate-goal/SKILL.md)<br>[cstack-second-pass](plugins/cstack/skills/cstack-second-pass/SKILL.md)<br>[cstack-wayfinding](plugins/cstack/skills/cstack-wayfinding/SKILL.md)<br>[cstack-why](plugins/cstack/skills/cstack-why/SKILL.md) |
+| 手动触发 | [cstack-rewrite](plugins/cstack/skills/cstack-rewrite/SKILL.md)<br>[cstack-core](plugins/cstack/skills/cstack-core/SKILL.md)<br>[cstack-create-project-profile](plugins/cstack/skills/cstack-create-project-profile/SKILL.md)<br>[cstack-create-design-md](plugins/cstack/skills/cstack-create-design-md/SKILL.md)<br>[cstack-how](plugins/cstack/skills/cstack-how/SKILL.md)<br>[cstack-impact](plugins/cstack/skills/cstack-impact/SKILL.md)<br>[cstack-orchestrate](plugins/cstack/skills/cstack-orchestrate/SKILL.md)<br>[cstack-restate-goal](plugins/cstack/skills/cstack-restate-goal/SKILL.md)<br>[cstack-second-pass](plugins/cstack/skills/cstack-second-pass/SKILL.md)<br>[cstack-wayfinding](plugins/cstack/skills/cstack-wayfinding/SKILL.md)<br>[cstack-why](plugins/cstack/skills/cstack-why/SKILL.md) |
 | 可自动触发 | [cstack-architecture-review](plugins/cstack/skills/cstack-architecture-review/SKILL.md)<br>[cstack-challenge](plugins/cstack/skills/cstack-challenge/SKILL.md)<br>[cstack-clarify](plugins/cstack/skills/cstack-clarify/SKILL.md)<br>[cstack-codebase-design](plugins/cstack/skills/cstack-codebase-design/SKILL.md)<br>[cstack-create-verification-skill](plugins/cstack/skills/cstack-create-verification-skill/SKILL.md)<br>[cstack-diagnose](plugins/cstack/skills/cstack-diagnose/SKILL.md)<br>[cstack-domain-model](plugins/cstack/skills/cstack-domain-model/SKILL.md)<br>[cstack-handoff](plugins/cstack/skills/cstack-handoff/SKILL.md)<br>[cstack-implement](plugins/cstack/skills/cstack-implement/SKILL.md)<br>[cstack-performance](plugins/cstack/skills/cstack-performance/SKILL.md)<br>[cstack-pr-feedback](plugins/cstack/skills/cstack-pr-feedback/SKILL.md)<br>[cstack-prototype](plugins/cstack/skills/cstack-prototype/SKILL.md)<br>[cstack-research](plugins/cstack/skills/cstack-research/SKILL.md)<br>[cstack-retro](plugins/cstack/skills/cstack-retro/SKILL.md)<br>[cstack-review](plugins/cstack/skills/cstack-review/SKILL.md)<br>[cstack-ship](plugins/cstack/skills/cstack-ship/SKILL.md)<br>[cstack-simplify](plugins/cstack/skills/cstack-simplify/SKILL.md)<br>[cstack-slice](plugins/cstack/skills/cstack-slice/SKILL.md)<br>[cstack-specify](plugins/cstack/skills/cstack-specify/SKILL.md)<br>[cstack-tech-design](plugins/cstack/skills/cstack-tech-design/SKILL.md)<br>[cstack-test-audit](plugins/cstack/skills/cstack-test-audit/SKILL.md)<br>[cstack-test-first](plugins/cstack/skills/cstack-test-first/SKILL.md)<br>[cstack-ui-review](plugins/cstack/skills/cstack-ui-review/SKILL.md)<br>[cstack-verify](plugins/cstack/skills/cstack-verify/SKILL.md)<br>[cstack-visual-explain](plugins/cstack/skills/cstack-visual-explain/SKILL.md) |
 
 ## 工作原则
@@ -132,6 +132,8 @@ cp -R "$CSTACK_ROOT"/plugins/cstack/skills/* .agents/skills/
 - **收尾必须验收并审查**：要声明任务完成，就必须实际运行验收和审查；验收或审查记为未运行，不等于通过。简化可以跳过，跳过也不等于验收或审查已通过。改动小不能作为省掉验收或审查的理由。
 - **证据对应实际对象**：实现、验证和审查需要识别候选变更及相关工作树状态。证据要写明实际受测对象、环境、观察结果和限制条件；条件变化后需重新判断是否适用。
 - **辅助判断不产出验收结论**：影响半径、界面、性能、测试审计和对抗审查只提供观察与发现；逐个 `AC#` 的 `PASS` / `FAIL` 只由验收给出。
+- **并行、冻结与收口有明确边界**：并行只发生在实现阶段，且切片互不阻塞、写入可隔离；切片通过门禁并提交后冻结，修正靠追加新切片；`N` 个切片各自通过也不能推出候选通过。完整表述见[设计思想 · 角色模型](docs/design.md#7-角色模型)。
+- **不收敛就交回，不无限修**：收口按轮次设上限，到达上限仍未收敛就停，交回相应上游，不继续追加轮次；实现没到位就在冻结前继续修，只有 `AC#` 本身判不清才退回需求侧重新确认。简化不定义完成。
 - **就绪不等于授权或执行**：合并就绪、发布就绪、执行授权和实际结果需分别说明。合并会触发自动部署时，副作用也必须在授权范围内；入队不等于已合并。
 - **产物按需使用**：需求确认（DECISIONS）、规格（SPEC）、技术决定（TECH）、切片（SLICES）与证据（EVIDENCE）可以逐级衔接，也可以省略。下游按 ID 引用，不复制内容；缺少可引用的依据时，不得凭空假设。
 - **深度与任务相称**：不要求固定文档、独立执行者、全量检查、任务图或新的 Runtime。具体做法由任务风险、项目约束和用户要求决定。
@@ -154,7 +156,7 @@ cp -R "$CSTACK_ROOT"/plugins/cstack/skills/* .agents/skills/
 | `cstack-researcher` | 查阅仓库外的官方资料与版本信息 | 读 + Web + Bash |
 | `cstack-architect` | 对设计提出 2–3 个结构候选 | 只读 + Bash |
 
-Claude Code 的 subagent 不支持嵌套派发，因此 Orchestrator 只保留角色契约，不提供可执行定义；多切片编排由主 Agent 配合 `cstack-slice` / `cstack-wayfinding` 承担。其他 Runtime 可按角色契约使用等价机制；没有独立实例能力时按契约降级，不能伪造独立验证。
+Claude Code 的 subagent 不支持嵌套派发，因此 Orchestrator 由主会话承担，不提供可执行 Agent 定义；多切片并行实现由 [cstack-orchestrate](plugins/cstack/skills/cstack-orchestrate/SKILL.md) 规定主会话如何派发 Implementer、Verifier、Reviewer 和 Simplifier 并按依赖合并收口。其他 Runtime 可按角色契约使用等价机制；没有独立实例能力时按契约降级，不能伪造独立验证。
 
 Implementer 不写 `EVIDENCE`；Verifier 与 Reviewer 是两种判断，审查不替代逐条验收。任务收尾必须实际执行 Verifier 的验收和 Reviewer 的审查；未运行不等于通过。Simplifier 可以不派。Verifier 必须先依据已确认的验收条件独立得出预期，再看实现；默认允许在同一上下文完成验证，涉及高风险、权限、数据或迁移，或项目明确提出要求时，须使用独立实例。Reviewer 与 Implementer 分离；要求独立执行者时，Implementer 不能同时担任 Verifier 或 Reviewer。只读 Agent 不得修改产品代码、仓库测试或需求。
 

@@ -90,7 +90,7 @@
 - **Purpose**：多切片或多任务时负责派发、等待和收尾。
 - **Inputs**：`SLICES` 与依赖、授权范围、Runtime 能力。
 - **Allowed**：派发角色、收集报告、更新切片状态。
-- **Forbidden**：做技术判断、验收、改代码、改写上游契约。
+- **Forbidden**：做技术判断、验收、改代码、改写上游契约。唯一例外是 `SLICES`：按 `cstack-orchestrate` 追加修正切片（只追加，既有条目一律不改）。
 - **Output**：执行与收尾记录；不产出判断性结论。
 - **Independence**：不是默认角色；只在有真实依赖且 Runtime 支持隔离时启用。
 - **Escalation**：冲突交回负责方，不按票数裁定。
@@ -140,6 +140,7 @@
 | cstack-tech-design | Designer + Explorer / Architect（可选） |
 | cstack-slice | Planner |
 | cstack-implement | Implementer |
+| cstack-orchestrate | Orchestrator（主会话）；由它派发 Implementer / Verifier / Reviewer / Simplifier |
 | cstack-diagnose | Explorer + Implementer（诊断方法，不单列角色） |
 | cstack-test-first | Implementer（方法） |
 | cstack-verify | Verifier |

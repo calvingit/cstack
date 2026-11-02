@@ -1,0 +1,6 @@
+interface:
+  display_name: "CStack 并行实现"
+  short_description: "手动触发：用 git worktree 并行实现互不阻塞的切片"
+  default_prompt: "使用 $cstack-orchestrate 并行实现这些互不阻塞的切片。"
+policy:
+  allow_implicit_invocation: false

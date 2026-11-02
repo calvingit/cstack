@@ -10,7 +10,7 @@
 | 需求契约 | `DECISIONS` | 哪些需求选择已经由用户确认？ | cstack-clarify | cstack-specify |
 | 需求契约 | `SPEC` | 要做什么，怎么算完成？ | cstack-specify | cstack-tech-design / cstack-slice / cstack-implement / cstack-verify / cstack-review |
 | 交付计划 | `TECH` | 哪些共享或难以撤回的技术选择已定？ | cstack-tech-design | cstack-slice / cstack-implement / cstack-verify / cstack-review |
-| 交付计划 | `SLICES` | 怎么分步交付，谁阻塞谁？ | cstack-slice | cstack-implement / cstack-verify |
+| 交付计划 | `SLICES` | 怎么分步交付，谁阻塞谁？ | cstack-slice；cstack-orchestrate（仅追加修正切片） | cstack-implement / cstack-verify / cstack-orchestrate |
 | 结果 | `EVIDENCE` | 实际做到什么程度？ | cstack-verify | cstack-review / cstack-ship |
 
 `ADR` 不是第 7 类产物：它是 `D#` 的长期形态，存放位置由 `PROFILE` 的「既有架构决策（ADR）位置」给出。任务内决定写 `D#`；跨任务仍然成立时才提升为 `ADR`，`TECH` 保留 `D#` 与一行摘要，不复制内容，也不另立第二份权威。
@@ -77,6 +77,9 @@
 - blocked-by：真正阻止本切片开始的其他 `S#`；没有就写“无”
 - 本地 AC：`S#-AC#`，与 SPEC 的 `AC#` 分属不同命名空间
 - 约束：继承自 SPEC 或 TECH 的相关约束
+- `fixes`：修正切片指向被修正的 `S#`；只出现在追加的切片上，普通切片不写
+
+已冻结切片的条目不改：修正通过追加新切片承载，编号接续，不复用已冻结的编号。尚未实现的切片仍可按上表调整依赖或改切法。
 
 ### EVIDENCE
 
