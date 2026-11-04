@@ -82,7 +82,7 @@ description: 当共享接口、跨模块归属、数据模型、生命周期、�
 
 - 技术正确性在哪一层检查：仓储集成测试、事件契约测试、迁移验证等。
 - 每条 seam 关联到 `D#` 与技术不变量，并说明检查层级和预期证据。
-- 与 SPEC 的 Acceptance Seam（公开观察）分开；具体跑哪些检查由 `cstack-verify` 决定，证据要到哪一层见 `cstack-core` 的 `CRITERIA.md`「证明层级」。
+- 与 SPEC 的 Acceptance Seam（公开观察）分开；具体执行哪些检查由 `cstack-verify` 决定，证据要到哪一层见 `cstack-core` 的 `CRITERIA.md`「证明层级」。
 
 ## Amendment
 

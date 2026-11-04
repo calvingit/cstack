@@ -77,7 +77,7 @@ glab api "merge_requests?scope=assigned_to_me&state=opened&per_page=100" | jq -r
 
 ## 实例探测步骤
 
-换环境后先跑这三条，再决定哪些命令可用：
+换环境后先执行这三条，再决定哪些命令可用：
 
 ```bash
 # 1. 版本与订阅

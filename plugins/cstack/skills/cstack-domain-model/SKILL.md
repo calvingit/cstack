@@ -71,5 +71,5 @@ _Avoid_: Customer, Buyer, User
 
 ## 验证与停止
 
-- 只跑目标仓库已有的轻量检查（Markdown / lint / link check 或 `git diff --check`），不发明特定技术栈的检查。
+- 只执行目标仓库已有的轻量检查（Markdown / lint / link check 或 `git diff --check`），不发明特定技术栈的检查。
 - 只做建模时，不自动改代码；后续实现按已有授权继续。

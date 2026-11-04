@@ -77,7 +77,7 @@ glab api "projects/<encoded-path>/repository/tree?path=.gitlab/merge_request_tem
 
 ## 怎么验证
 
-<评审者可以照做的步骤，或已跑过的检查及结果。>
+<评审者可以照做的步骤，或已执行过的检查及结果。>
 
 ## 注意事项
 
@@ -88,7 +88,7 @@ glab api "projects/<encoded-path>/repository/tree?path=.gitlab/merge_request_tem
 
 - 标题讲行为和意图，不讲文件名。「修复订单同步在重试时重复写入」比「修改 OrderService.java」有用。
 - 具体改动按关注点组织，不按文件罗列。
-- 验证一节写实际跑过的检查和观察结果，不写「应该没问题」。
+- 验证一节写实际执行过的检查和观察结果，不写「应该没问题」。
 - 有数据库迁移、接口变更、配置项新增时，单独点出来，这类内容评审者最容易漏。
 
 ### 4. 自检后交付

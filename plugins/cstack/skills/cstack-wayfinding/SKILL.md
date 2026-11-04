@@ -50,7 +50,7 @@ disable-model-invocation: true
   1. 命名目的地（用 `cstack-clarify` / `cstack-domain-model`）。
   2. 广度扫描，找出尚未说清的项。
   3. 建地图，把现在能说清的问题建成工单，并标出依赖关系。
-  4. 并行跑 `cstack-research` 类工单后停止。
+  4. 并行执行 `cstack-research` 类工单后停止。
 - **推进**：
   1. 先看地图概览。
   2. 选一张前沿工单并认领。
