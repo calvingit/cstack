@@ -1,6 +1,6 @@
 # CStack 设计思想
 
-> 本文说明这套 Skills 的工作流与设计取舍。方法清单与安装方式见 [README](../README.md)；共享词汇与不变量见 [cstack-core](../plugins/cstack/skills/cstack-core/SKILL.md)。
+> 本文说明这套 Skills 的工作流与设计取舍。安装方式见 [README](../README.md)，方法清单见 [Skill 参考](skills.md)；共享词汇与不变量见 [cstack-core](../plugins/cstack/skills/cstack-core/SKILL.md)。
 
 ## 1. 定位
 
@@ -99,7 +99,7 @@ CStack 是面向 AI Coding Agent 的工程方法 Skills 包，Markdown-first，�
 - **简化可以派，但不定义完成**：简化没有自然终止点，"还能更简单"永远可辩；让它参与退出条件，循环就退不出来。简化的发现进入修复队列，实现者可以带理由不改，但简化不得替代或掩盖验收与审查。切片级门禁不派简化——单个 slice 视角下常把合并后才成立的抽象误判为多余。
 - **辅助判断不产出 AC 结论**：界面、性能、影响半径、测试审计和对抗审查只提供观察与发现，`PASS` / `FAIL` 只由 Verifier 下。
 
-角色契约见 [cstack-core/ROLES.md](../plugins/cstack/skills/cstack-core/ROLES.md)；Claude Code 可直接派发的定义见 [agents/](../plugins/cstack/agents/)，使用说明见 [Agent 角色](../README.md#agent-角色)。
+角色契约见 [cstack-core/ROLES.md](../plugins/cstack/skills/cstack-core/ROLES.md)；Claude Code 可直接派发的定义见 [agents/](../plugins/cstack/agents/)，使用说明见 [Agent 角色](agents.md)。
 
 ## 8. 方法形态
 
