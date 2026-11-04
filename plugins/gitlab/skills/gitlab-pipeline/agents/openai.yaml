@@ -1,0 +1,6 @@
+interface:
+  display_name: "GitLab 流水线"
+  short_description: "编写、诊断与优化 GitLab CI 配置"
+  default_prompt: "使用 $gitlab-pipeline 编写或修改这份 GitLab CI 配置，并用 glab 完成分级校验。"
+policy:
+  allow_implicit_invocation: true

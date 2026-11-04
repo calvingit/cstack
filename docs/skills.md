@@ -37,7 +37,7 @@
 | [cstack-create-project-profile](../plugins/cstack/skills/cstack-create-project-profile/SKILL.md) | 建立或更新稳定的项目工程档案（PROFILE） |
 | [cstack-create-design-md](../plugins/cstack/skills/cstack-create-design-md/SKILL.md) | 建立或更新项目的界面设计系统文档（DESIGN.md） |
 | [cstack-simplify](../plugins/cstack/skills/cstack-simplify/SKILL.md) | 在请求范围内识别或移除当前已无职责的复杂度 |
-| [cstack-second-pass](../plugins/cstack/skills/cstack-second-pass/SKILL.md) | 第一遍已能跑时，用已学到的知识从变更前基线重写更简洁的版本 |
+| [cstack-second-pass](../plugins/cstack/skills/cstack-second-pass/SKILL.md) | 第一遍已能运行时，用已学到的知识从变更前基线重写更简洁的版本 |
 | [cstack-ui-review](../plugins/cstack/skills/cstack-ui-review/SKILL.md) | 根据实际界面与交互检查视觉和可用性 |
 | [cstack-performance](../plugins/cstack/skills/cstack-performance/SKILL.md) | 测量性能、定位瓶颈并按授权优化 |
 | [cstack-pr-feedback](../plugins/cstack/skills/cstack-pr-feedback/SKILL.md) | 核实并处理 PR 评审意见，区分判断、修改和回复的授权 |
@@ -67,8 +67,8 @@
 | 这段太啰嗦，或者看不懂 | [cstack-rewrite](../plugins/cstack/skills/cstack-rewrite/SKILL.md) | [cstack-restate-goal](../plugins/cstack/skills/cstack-restate-goal/SKILL.md)（不重述目标） |
 | 这个方案有没有问题 | [cstack-challenge](../plugins/cstack/skills/cstack-challenge/SKILL.md) | [cstack-review](../plugins/cstack/skills/cstack-review/SKILL.md)（审的是变更） |
 | 这些测试是不是假的 | [cstack-test-audit](../plugins/cstack/skills/cstack-test-audit/SKILL.md) | [cstack-verify](../plugins/cstack/skills/cstack-verify/SKILL.md)（判 AC） |
-| 第一遍已经能跑，要从变更前基线重写得更简洁 | [cstack-second-pass](../plugins/cstack/skills/cstack-second-pass/SKILL.md) | [cstack-simplify](../plugins/cstack/skills/cstack-simplify/SKILL.md)（在现有代码上减复杂度） |
-| 行为、状态、界面或可行性还说不清，要对照实物拍板 | [cstack-prototype](../plugins/cstack/skills/cstack-prototype/SKILL.md) | [cstack-implement](../plugins/cstack/skills/cstack-implement/SKILL.md)（答案已经清楚就直接做）；[cstack-second-pass](../plugins/cstack/skills/cstack-second-pass/SKILL.md)（已能跑之后从基线重写）；[cstack-simplify](../plugins/cstack/skills/cstack-simplify/SKILL.md)（局部减复杂度） |
+| 第一遍已经能运行，要从变更前基线重写得更简洁 | [cstack-second-pass](../plugins/cstack/skills/cstack-second-pass/SKILL.md) | [cstack-simplify](../plugins/cstack/skills/cstack-simplify/SKILL.md)（在现有代码上减复杂度） |
+| 行为、状态、界面或可行性还说不清，要对照实物拍板 | [cstack-prototype](../plugins/cstack/skills/cstack-prototype/SKILL.md) | [cstack-implement](../plugins/cstack/skills/cstack-implement/SKILL.md)（答案已经清楚就直接做）；[cstack-second-pass](../plugins/cstack/skills/cstack-second-pass/SKILL.md)（已能运行之后从基线重写）；[cstack-simplify](../plugins/cstack/skills/cstack-simplify/SKILL.md)（局部减复杂度） |
 | 要定界面的颜色、字体和组件规范 | [cstack-create-design-md](../plugins/cstack/skills/cstack-create-design-md/SKILL.md) | [cstack-tech-design](../plugins/cstack/skills/cstack-tech-design/SKILL.md)（那是技术方案） |
 | 当前页面好不好看、交互有没有问题 | [cstack-ui-review](../plugins/cstack/skills/cstack-ui-review/SKILL.md) | [cstack-create-design-md](../plugins/cstack/skills/cstack-create-design-md/SKILL.md)（写的是规范，不审页面） |
 | 共享接口、数据模型或迁移怎么定 | [cstack-tech-design](../plugins/cstack/skills/cstack-tech-design/SKILL.md) | [cstack-create-design-md](../plugins/cstack/skills/cstack-create-design-md/SKILL.md)（不写视觉规范） |
@@ -82,7 +82,7 @@
 | 触发方式 | Skill |
 | --- | --- |
 | 手动触发 | [cstack-core](../plugins/cstack/skills/cstack-core/SKILL.md)、[cstack-rewrite](../plugins/cstack/skills/cstack-rewrite/SKILL.md)、[cstack-create-project-profile](../plugins/cstack/skills/cstack-create-project-profile/SKILL.md)、[cstack-create-design-md](../plugins/cstack/skills/cstack-create-design-md/SKILL.md)、[cstack-how](../plugins/cstack/skills/cstack-how/SKILL.md)、[cstack-impact](../plugins/cstack/skills/cstack-impact/SKILL.md)、[cstack-orchestrate](../plugins/cstack/skills/cstack-orchestrate/SKILL.md)、[cstack-restate-goal](../plugins/cstack/skills/cstack-restate-goal/SKILL.md)、[cstack-second-pass](../plugins/cstack/skills/cstack-second-pass/SKILL.md)、[cstack-wayfinding](../plugins/cstack/skills/cstack-wayfinding/SKILL.md)、[cstack-why](../plugins/cstack/skills/cstack-why/SKILL.md)、[gitlab-core](gitlab.md) |
-| 可自动触发 | 上表「工作流 Skill」与「辅助 Skill」中的其余全部 Skill，以及 GitLab 插件的六个自动触发技能（见 [GitLab 插件](gitlab.md)） |
+| 可自动触发 | 上表「工作流 Skill」与「辅助 Skill」中的其余全部 Skill，以及 GitLab 插件的七个自动触发技能（见 [GitLab 插件](gitlab.md)） |
 
 ## 共享层
 

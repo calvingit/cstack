@@ -51,7 +51,7 @@ flowchart LR
 | --- | --- |
 | [设计思想](docs/design.md) | 定位、六阶段的边界、证据的候选绑定与失效、6 类权威产物、风险自适应与权限分组、强制约束与独立性、角色模型、方法形态 |
 | [Skill 参考](docs/skills.md) | 全部 Skill 清单、辅助 Skill 分组、容易选错的场景、触发方式 |
-| [GitLab 插件](docs/gitlab.md) | 适用场景、七个技能的分工、glab 陷阱、实例能力矩阵、写操作安全约束 |
+| [GitLab 插件](docs/gitlab.md) | 适用场景、八个技能的分工、glab 陷阱、实例能力矩阵、流水线校验边界、写操作安全约束 |
 | [Agent 角色](docs/agents.md) | 角色契约、可派发的子代理、独立性的判断 |
 
 ## 仓库校验

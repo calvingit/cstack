@@ -10,7 +10,7 @@
 | 用 `glab` 完成提交、MR、评审、变基 | 依赖 GitLab 内部系统的工作流（Sentry、GDK 本地库、on-call） |
 | 团队协作中的评审与自查 | 依赖 Premium 及以上订阅的功能（Epic、复杂审批规则） |
 
-## 七个技能的分工
+## 八个技能的分工
 
 | Skill | 用途 | 触发 |
 | --- | --- | --- |
@@ -21,6 +21,7 @@
 | [gitlab-commit](../plugins/gitlab/skills/gitlab-commit/SKILL.md) | 写提交信息，把改动拆成原子提交 | 自动 |
 | [gitlab-rebase](../plugins/gitlab/skills/gitlab-rebase/SKILL.md) | 把特性分支安全对齐到前进的 release 或主干分支 | 自动 |
 | [gitlab-stack](../plugins/gitlab/skills/gitlab-stack/SKILL.md) | 把大改动拆成可独立评审的 MR 链 | 自动 |
+| [gitlab-pipeline](../plugins/gitlab/skills/gitlab-pipeline/SKILL.md) | 编写、诊断与优化 CI 配置，校验结论按三种状态报告 | 自动 |
 
 子代理 [gitlab-reviewer](../plugins/gitlab/agents/gitlab-reviewer.md) 提供只读评审，可独立派发。
 
@@ -29,6 +30,7 @@
 - **提交前**：`gitlab-commit` 写提交信息 → `gitlab-self-review` 自查 → 需要时 `gitlab-rebase` 对齐目标分支。
 - **开 MR**：`gitlab-mr-describe` 生成描述 → `gitlab-stack` 挑太大的先拆。
 - **评审**：`gitlab-mr-review` 两阶段，或派 `gitlab-reviewer` 做独立只读评审。
+- **改 CI 配置或流水线失败**：`gitlab-pipeline` 写配置、读日志定位、按三级阶梯校验。
 - **命令细节**：随时读 `gitlab-core`，它不自动触发。
 
 ## 三条硬规则
@@ -55,6 +57,21 @@
 | `/work_items` REST | 不可用 | 用同一 IID 的 issues 端点 |
 
 对照表与排查顺序见 [SERVER-MATRIX.md](../plugins/gitlab/skills/gitlab-core/references/SERVER-MATRIX.md)。
+
+## 流水线的校验边界
+
+`gitlab-pipeline` 只依赖 `glab`，不引入本地流水线模拟器。静态校验分三级，越往下越接近真实，代价也越大；真实执行单列在最后一行。
+
+| 级别 | 命令 | 能确认什么 |
+| --- | --- | --- |
+| 语法与引用 | `glab ci lint <file>` | YAML 有效、`include: local:` 文件存在、job 名不重复、stage 名已定义、`needs:` 指向的 job 存在 |
+| 合并后的配置 | `glab ci config compile <file>` | `include`、`extends`、`!reference`、`default:` 合并后的完整配置 |
+| 展开后的 job | `POST /projects/:id/ci/lint` 带 `include_jobs=true` | 每个 job 的 stage、script、needs、when |
+| 真实执行 | 推送后流水线 | 镜像拉取、脚本退出码、产物传递、runner 匹配 |
+
+第 1、2 级要求当前仓库能对应到一个 GitLab 项目，在 GitHub remote 的仓库里执行会直接报 remote 无法对应；第 3 级可以显式指定项目 ID。`--dry-run` 在本实例不可靠——保护分支报权限不足，非默认 ref 报引用不存在，不要当默认手段。
+
+静态校验无法捕获的事情要单独说明，不能拿 lint 通过冒充流水线可用：`tags:` 是否匹配到 runner、保护分支规则、只有服务端才有的变量、子流水线、`retry:` 与 `timeout:` 的实际行为。
 
 ## 写操作安全
 
