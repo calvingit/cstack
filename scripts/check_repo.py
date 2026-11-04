@@ -1,5 +1,12 @@
 #!/usr/bin/env python3
-"""Lightweight checks for CStack skill layout, names, links, and trigger policy."""
+"""Lightweight checks for skill layout, names, links, and trigger policy.
+
+The repository ships more than one plugin under ``plugins/``. Each plugin owns a
+``.claude-plugin/plugin.json``, a version declared in both that manifest and the
+root ``.claude-plugin/marketplace.json``, and its own skill prefix (``cstack-``
+for ``plugins/cstack``, ``gitlab-`` for ``plugins/gitlab``). Every rule below is
+applied per plugin.
+"""
 
 from __future__ import annotations
 
@@ -9,22 +16,76 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-PLUGIN_ROOT = ROOT / "plugins" / "cstack"
+PLUGINS_ROOT = ROOT / "plugins"
 
 LINK_RE = re.compile(r"\[[^\]]*\]\(([^)]+)\)")
 FENCE_RE = re.compile(r"```.*?```", re.S)
 EXPLICIT_PHRASES = ("仅当用户手动触发", "不自动触发")
 EXCLUSION_MARKERS = ("不用于", "不判断", "不记录", "不决定", "不负责", "不要", "不做")
-CORE_INVOCATION_PHRASE = "调用 `cstack-core`"
-ALLOWED_DESCRIPTION_TOKENS = ("PR", "Seam", "API", "ID", "Agent", "Skill", "R#", "AC#", "diff")
+ALLOWED_DESCRIPTION_TOKENS = (
+    "PR",
+    "MR",
+    "Seam",
+    "API",
+    "ID",
+    "IID",
+    "Agent",
+    "Skill",
+    "R#",
+    "AC#",
+    "diff",
+    "GitLab",
+    "glab",
+    "CLI",
+    "CI",
+    "JSON",
+    "YAML",
+    "REST",
+    "URL",
+    "SHA",
+    "HTTP",
+    "SQL",
+    "MCP",
+    "LLM",
+    "release",
+)
 
 
 class Report:
     def __init__(self) -> None:
         self.errors: list[str] = []
+        self.plugin_count = 0
+        self.skill_count = 0
 
     def add(self, message: str) -> None:
         self.errors.append(message)
+
+
+class Plugin:
+    """One plugin directory under ``plugins/`` and its naming contract."""
+
+    def __init__(self, root: Path, name: str, prefix: str) -> None:
+        self.root = root
+        self.name = name
+        self.prefix = prefix
+        self.core_skill = f"{prefix}core"
+
+    @property
+    def manifest_path(self) -> Path:
+        return self.root / ".claude-plugin" / "plugin.json"
+
+    @property
+    def skills_root(self) -> Path:
+        return self.root / "skills"
+
+    @property
+    def agents_root(self) -> Path:
+        return self.root / "agents"
+
+    def skill_dirs(self) -> list[Path]:
+        if not self.skills_root.is_dir():
+            return []
+        return sorted(path for path in self.skills_root.iterdir() if path.is_dir())
 
 
 def rel(path: Path) -> str:
@@ -61,21 +122,54 @@ def load_json(path: Path, report: Report) -> dict | None:
         return None
 
 
-def check_marketplace_source(report: Report) -> None:
+def discover_plugins(report: Report) -> list[Plugin]:
+    """Every plugin directory must declare itself via its own plugin.json."""
+    if not PLUGINS_ROOT.is_dir():
+        report.add(f"{rel(PLUGINS_ROOT)}: 目录不存在")
+        return []
+    plugins: list[Plugin] = []
+    for directory in sorted(path for path in PLUGINS_ROOT.iterdir() if path.is_dir()):
+        manifest = directory / ".claude-plugin" / "plugin.json"
+        if not manifest.is_file():
+            report.add(f"{rel(directory)}: 缺少 .claude-plugin/plugin.json")
+            continue
+        data = load_json(manifest, report)
+        if not data:
+            continue
+        name = data.get("name")
+        if not isinstance(name, str) or not name:
+            report.add(f"{rel(manifest)}: 缺少 name")
+            continue
+        if name != directory.name:
+            report.add(f"{rel(manifest)}: name {name!r} 与目录 {directory.name!r} 不一致")
+        plugins.append(Plugin(directory, name, f"{name}-"))
+    if not plugins:
+        report.add(f"{rel(PLUGINS_ROOT)}: 没有可用的插件")
+    return plugins
+
+
+def check_marketplace_sources(plugins: list[Plugin], report: Report) -> dict | None:
     market_path = ROOT / ".claude-plugin" / "marketplace.json"
     market = load_json(market_path, report)
     if not market:
-        return
-    plugins = market.get("plugins") or []
-    if not isinstance(plugins, list) or not plugins:
+        return None
+    entries = market.get("plugins") or []
+    if not isinstance(entries, list) or not entries:
         report.add(f"{rel(market_path)}: plugins 为空")
-        return
-    for item in plugins:
+        return market
+    declared: dict[str, dict] = {}
+    for item in entries:
         if not isinstance(item, dict):
             report.add(f"{rel(market_path)}: 插件条目不是对象")
             continue
         source = item.get("source")
         name = item.get("name", "<未命名>")
+        if not isinstance(name, str):
+            report.add(f"{rel(market_path)}: 插件 name 必须是字符串")
+            continue
+        if name in declared:
+            report.add(f"{rel(market_path)}: 插件 {name} 重复声明")
+        declared[name] = item
         if not isinstance(source, str):
             report.add(f"{rel(market_path)}: 插件 {name} 的 source 必须是相对路径字符串")
             continue
@@ -87,38 +181,45 @@ def check_marketplace_source(report: Report) -> None:
             )
             continue
         resolved = (ROOT / relative).resolve()
-        if resolved == ROOT.resolve() or ROOT.resolve() not in resolved.parents or not resolved.is_dir():
+        if (
+            resolved == ROOT.resolve()
+            or ROOT.resolve() not in resolved.parents
+            or not resolved.is_dir()
+        ):
             report.add(f"{rel(market_path)}: 插件 {name} 的 source {source!r} 不是仓库内目录")
+    for plugin in plugins:
+        if plugin.name not in declared:
+            report.add(f"{plugin.name}: 插件未在 marketplace.json 中声明")
+    return market
 
 
-def check_versions(report: Report) -> None:
-    plugin_path = PLUGIN_ROOT / ".claude-plugin" / "plugin.json"
+def check_versions(plugins: list[Plugin], market: dict | None, report: Report) -> None:
+    if market is None:
+        return
     market_path = ROOT / ".claude-plugin" / "marketplace.json"
-    plugin = load_json(plugin_path, report)
-    market = load_json(market_path, report)
-    if not plugin or not market:
-        return
-    plugin_version = plugin.get("version")
-    plugins = market.get("plugins") or []
-    if not isinstance(plugins, list) or not plugins:
-        report.add(f"{rel(market_path)}: plugins 为空")
-        return
-    versions = []
-    for item in plugins:
-        if not isinstance(item, dict) or "version" not in item:
-            report.add(f"{rel(market_path)}: 有插件缺少 version")
+    entries = {item.get("name"): item for item in market.get("plugins") or [] if isinstance(item, dict)}
+    for plugin in plugins:
+        data = load_json(plugin.manifest_path, report)
+        if not data:
             continue
-        versions.append(item["version"])
-    if not plugin_version:
-        report.add(f"{rel(plugin_path)}: 缺少 version")
-    for version in versions:
-        if version != plugin_version:
+        plugin_version = data.get("version")
+        if not plugin_version:
+            report.add(f"{rel(plugin.manifest_path)}: 缺少 version")
+        entry = entries.get(plugin.name)
+        if entry is None:
+            continue
+        entry_version = entry.get("version")
+        if not entry_version:
+            report.add(f"{rel(market_path)}: 插件 {plugin.name} 缺少 version")
+        elif entry_version != plugin_version:
             report.add(
-                f"版本不一致: plugin.json={plugin_version!r}，marketplace.json={version!r}"
+                f"版本不一致: {plugin.name} 的 plugin.json={plugin_version!r}，"
+                f"marketplace.json={entry_version!r}"
             )
 
 
-def check_skill(directory: Path, report: Report) -> None:
+def check_skill(directory: Path, plugin: Plugin, report: Report) -> None:
+    report.skill_count += 1
     skill_md = directory / "SKILL.md"
     openai = directory / "agents" / "openai.yaml"
     if not skill_md.is_file():
@@ -133,8 +234,10 @@ def check_skill(directory: Path, report: Report) -> None:
     description = field(frontmatter, "description")
     if name != directory.name:
         report.add(f"{rel(skill_md)}: name {name!r} 与目录 {directory.name!r} 不一致")
-    if not name or not name.startswith("cstack-") or name.startswith("cstack-cstack-"):
-        report.add(f"{rel(skill_md)}: name 必须是 cstack- 前缀，当前为 {name!r}")
+    if not name or not name.startswith(plugin.prefix) or name.startswith(f"{plugin.prefix}{plugin.prefix}"):
+        report.add(
+            f"{rel(skill_md)}: name 必须使用 {plugin.prefix} 前缀，当前为 {name!r}"
+        )
     if not description:
         report.add(f"{rel(skill_md)}: 缺少 description")
     else:
@@ -160,8 +263,11 @@ def check_skill(directory: Path, report: Report) -> None:
             report.add(
                 f"{rel(skill_md)}: 自动触发的 description 要写明排除条件（不用于 / 不判断 / 不决定 …）"
             )
-    if name != "cstack-core" and CORE_INVOCATION_PHRASE in text:
-        report.add(f"{rel(skill_md)}: 共享层是文件索引，应写成读取文件，不写成「调用 Skill」")
+    core_invocation_phrase = f"调用 `{plugin.core_skill}`"
+    if name != plugin.core_skill and core_invocation_phrase in text:
+        report.add(
+            f"{rel(skill_md)}: 共享层是文件索引，应写成读取文件，不写成「调用 Skill」"
+        )
 
     if not openai.is_file():
         report.add(f"{rel(directory)}: 缺少 agents/openai.yaml")
@@ -199,11 +305,10 @@ def check_skill(directory: Path, report: Report) -> None:
         report.add(f"{rel(skill_md)}: 描述像可自动触发，但 Codex allow_implicit_invocation 为 false")
 
 
-def check_agents(report: Report) -> None:
-    agents = PLUGIN_ROOT / "agents"
-    files = sorted(path for path in agents.glob("*.md") if path.is_file())
+def check_agents(plugin: Plugin, report: Report) -> None:
+    files = sorted(path for path in plugin.agents_root.glob("*.md") if path.is_file())
     if not files:
-        report.add("agents/: 没有子代理定义")
+        report.add(f"{rel(plugin.agents_root)}: 没有子代理定义")
     for path in files:
         text = path.read_text(encoding="utf-8")
         frontmatter, _body = split_frontmatter(text)
@@ -214,8 +319,8 @@ def check_agents(report: Report) -> None:
         description = field(frontmatter, "description")
         if name != path.stem:
             report.add(f"{rel(path)}: name {name!r} 与文件名 {path.stem!r} 不一致")
-        if not name or not name.startswith("cstack-"):
-            report.add(f"{rel(path)}: 子代理 name 必须使用 cstack- 前缀")
+        if not name or not name.startswith(plugin.prefix):
+            report.add(f"{rel(path)}: 子代理 name 必须使用 {plugin.prefix} 前缀")
         if not description:
             report.add(f"{rel(path)}: 缺少 description")
 
@@ -248,23 +353,28 @@ def check_licenses(report: Report) -> None:
 
 def main() -> int:
     report = Report()
-    skills_root = PLUGIN_ROOT / "skills"
-    skill_dirs = sorted(path for path in skills_root.iterdir() if path.is_dir())
-    if not skill_dirs:
-        report.add("skills/: 没有 Skill 目录")
-    for directory in skill_dirs:
-        check_skill(directory, report)
-    check_agents(report)
-    check_versions(report)
-    check_marketplace_source(report)
+    plugins = discover_plugins(report)
+    market = check_marketplace_sources(plugins, report)
+    for plugin in plugins:
+        skill_dirs = plugin.skill_dirs()
+        if not skill_dirs:
+            report.add(f"{rel(plugin.skills_root)}: 没有 Skill 目录")
+        for directory in skill_dirs:
+            check_skill(directory, plugin, report)
+        check_agents(plugin, report)
+    check_versions(plugins, market, report)
     check_links(report)
     check_licenses(report)
+    report.plugin_count = len(plugins)
     if report.errors:
         print(f"检查失败，共 {len(report.errors)} 项：", file=sys.stderr)
         for error in report.errors:
             print(f"- {error}", file=sys.stderr)
         return 1
-    print(f"检查通过：{len(skill_dirs)} 个 Skill，版本、触发策略、前缀、链接和许可文件均一致。")
+    print(
+        f"检查通过：{report.plugin_count} 个插件、{report.skill_count} 个 Skill，"
+        "版本、触发策略、前缀、链接和许可文件均一致。"
+    )
     return 0
 
 
