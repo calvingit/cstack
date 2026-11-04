@@ -43,14 +43,14 @@ glab api "projects/<encoded-path>/merge_requests/<iid>/diffs?per_page=100" \
 - **测试覆盖**：新增行为是否有测试，分支是否覆盖。
 - **架构契合**：是否沿用既有模式，有没有可避免的债务或范围蔓延。
 
-每条发现写成 `file:line` 加触发条件加实际后果。找不到可达场景的疑点标为不确定，不写成结论。
+每条评审意见写成 `file:line` 加触发条件加实际后果。找不到可达场景的疑点标为不确定，不写成结论。
 
 ## 输出
 
 ```markdown
 ## 评审：<MR 标题> (!<iid>)
 
-### 发现
+### 评审意见
 **[P1] <标题>**
 `path/to/file.ext:42-48` — 问题、触发条件、影响。
 
@@ -61,7 +61,7 @@ glab api "projects/<encoded-path>/merge_requests/<iid>/diffs?per_page=100" \
 <读不到或无法确认的部分；没有就写「无」>
 ```
 
-P0 到 P3 的含义见 `gitlab-self-review`。没有够格的发现就直说代码看起来没问题，不要为凑数编发现。
+P0 到 P3 的含义见 `gitlab-self-review`。确实没有值得提出的问题时，就直说代码看起来没问题，不要为凑数编意见。
 
 ## 只读验证
 
