@@ -1,0 +1,6 @@
+interface:
+  display_name: "GitLab 变基对齐"
+  short_description: "把特性分支安全对齐到前进的目标分支"
+  default_prompt: "使用 $gitlab-rebase 把这个特性分支变基到最新的目标分支，不丢弃两侧改动。"
+policy:
+  allow_implicit_invocation: true

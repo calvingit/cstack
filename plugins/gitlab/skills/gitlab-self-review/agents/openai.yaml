@@ -1,0 +1,6 @@
+interface:
+  display_name: "GitLab 提交前自查"
+  short_description: "自查改动并攒成一次批量评审"
+  default_prompt: "使用 $gitlab-self-review 在提交评审前自查这次改动，把发现攒成草稿一次性发布。"
+policy:
+  allow_implicit_invocation: true

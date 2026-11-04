@@ -1,0 +1,6 @@
+interface:
+  display_name: "GitLab MR 描述"
+  short_description: "从实际 diff 生成结构化 MR 描述"
+  default_prompt: "使用 $gitlab-mr-describe 根据当前分支的实际改动，为这个 MR 生成描述。"
+policy:
+  allow_implicit_invocation: true

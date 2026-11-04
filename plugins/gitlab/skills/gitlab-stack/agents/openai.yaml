@@ -1,0 +1,6 @@
+interface:
+  display_name: "GitLab 大改动拆分"
+  short_description: "把大改动拆成可评审的 MR 链"
+  default_prompt: "使用 $gitlab-stack 把这个大改动拆成若干可独立评审的 MR 链。"
+policy:
+  allow_implicit_invocation: true

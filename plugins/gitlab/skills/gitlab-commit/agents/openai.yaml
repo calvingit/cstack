@@ -1,0 +1,6 @@
+interface:
+  display_name: "GitLab 提交信息"
+  short_description: "写提交信息并把改动拆成原子提交"
+  default_prompt: "使用 $gitlab-commit 为这次改动写提交信息，必要时拆成多个原子提交。"
+policy:
+  allow_implicit_invocation: true

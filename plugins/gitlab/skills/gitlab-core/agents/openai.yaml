@@ -1,0 +1,6 @@
+interface:
+  display_name: "GitLab 共享知识"
+  short_description: "手动触发：glab 陷阱与实例能力矩阵"
+  default_prompt: "使用 $gitlab-core 读取 glab 陷阱手册、实例能力矩阵和写操作安全约束。"
+policy:
+  allow_implicit_invocation: false
