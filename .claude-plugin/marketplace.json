@@ -16,7 +16,7 @@
     {
       "name": "gitlab",
       "source": "./plugins/gitlab",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "description": "GitLab 自部署实例的日常协作 Skills：glab CLI 陷阱手册、MR 两阶段评审、MR 描述、提交前自查、提交信息、release 分支 rebase 与大改动拆分。经 GitLab CE 16.11 实测校准。"
     }
   ]
