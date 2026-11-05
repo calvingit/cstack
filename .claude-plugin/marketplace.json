@@ -10,13 +10,13 @@
     {
       "name": "cstack",
       "source": "./plugins/cstack",
-      "version": "0.6.1",
+      "version": "0.6.2",
       "description": "六阶段工程方法 Skills、共享产物链，以及 cstack-explorer / cstack-implementer / cstack-verifier / cstack-reviewer / cstack-simplifier / cstack-researcher / cstack-architect 的可直接派发定义。"
     },
     {
       "name": "gitlab",
       "source": "./plugins/gitlab",
-      "version": "0.2.0",
+      "version": "0.2.1",
       "description": "GitLab 自部署实例的日常协作 Skills：glab CLI 陷阱手册、MR 两阶段评审、MR 描述、提交前自查、提交信息、release 分支 rebase、大改动拆分，以及 CI 配置的编写、诊断与优化。经 GitLab CE 16.11 实测校准。"
     }
   ]
