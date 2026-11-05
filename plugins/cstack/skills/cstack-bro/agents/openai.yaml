@@ -1,0 +1,6 @@
+interface:
+  display_name: "CStack 说人话"
+  short_description: "手动触发：没听懂时换个说法重讲那件事"
+  default_prompt: "使用 $cstack-bro 把刚才那件事用更通俗的中文重讲一遍。"
+policy:
+  allow_implicit_invocation: false

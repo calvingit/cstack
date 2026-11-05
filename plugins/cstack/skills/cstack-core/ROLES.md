@@ -104,7 +104,7 @@
 - **Designer**（`cstack-tech-design`）
 - **Planner**（`cstack-slice`）
 - **Shipper**（`cstack-ship`，负责就绪与授权判断）
-- **Rewriter**（`cstack-rewrite`，只改写法，不改事实与结论）
+- **Rephraser**（`cstack-bro`，换一种说法重讲那件事，不改事实与结论）
 
 ## 产物与角色
 
@@ -158,7 +158,7 @@
 | cstack-pr-feedback | Implementer + Reviewer（按需） |
 | cstack-challenge | Reviewer（对抗审查） |
 | cstack-wayfinding | Planner + Orchestrator（可选） |
-| cstack-create-design-md / cstack-create-project-profile / cstack-handoff / cstack-retro / cstack-rewrite | 主 Agent |
+| cstack-create-design-md / cstack-create-project-profile / cstack-handoff / cstack-retro / cstack-bro | 主 Agent |
 
 ## 任务收尾
 

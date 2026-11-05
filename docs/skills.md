@@ -44,6 +44,7 @@
 | [cstack-handoff](../plugins/cstack/skills/cstack-handoff/SKILL.md) | 整理可核查的工作状态和下一步 |
 | [cstack-retro](../plugins/cstack/skills/cstack-retro/SKILL.md) | 复盘实际任务，提出有依据的改进 |
 | [cstack-visual-explain](../plugins/cstack/skills/cstack-visual-explain/SKILL.md) | 用图形解释工程概念、代码流程、方案或 PR 变更 |
+| [cstack-chinese-writing-style](../plugins/cstack/skills/cstack-chinese-writing-style/SKILL.md) | 改写或审校中文技术写作，消除英文式翻译腔 |
 
 ### 沟通与理解
 
@@ -51,7 +52,7 @@
 
 | Skill | 用途 |
 | --- | --- |
-| [cstack-rewrite](../plugins/cstack/skills/cstack-rewrite/SKILL.md) | 把答复或指定片段写得更通俗或更精炼，只改写法，不改结论 |
+| [cstack-bro](../plugins/cstack/skills/cstack-bro/SKILL.md) | 用户没听懂时换一种说法重讲那件事，补回缺失的前提，不改结论 |
 | [cstack-restate-goal](../plugins/cstack/skills/cstack-restate-goal/SKILL.md) | 重述当前目标和边界，不启动访谈 |
 | [cstack-how](../plugins/cstack/skills/cstack-how/SKILL.md) | 追踪并解释当前代码怎样运行 |
 | [cstack-why](../plugins/cstack/skills/cstack-why/SKILL.md) | 根据项目证据调查设计、约束或改动的原因 |
@@ -64,7 +65,8 @@
 | 这套结构整体有没有问题 | [cstack-architecture-review](../plugins/cstack/skills/cstack-architecture-review/SKILL.md) | [cstack-codebase-design](../plugins/cstack/skills/cstack-codebase-design/SKILL.md) |
 | 这个改动会不会在别处打破东西 | [cstack-impact](../plugins/cstack/skills/cstack-impact/SKILL.md)；审查时用 [cstack-review](../plugins/cstack/skills/cstack-review/SKILL.md) 的同一套证明层级 | [cstack-verify](../plugins/cstack/skills/cstack-verify/SKILL.md)（判 AC，不判风险） |
 | 应用好慢 | [cstack-performance](../plugins/cstack/skills/cstack-performance/SKILL.md) | [cstack-diagnose](../plugins/cstack/skills/cstack-diagnose/SKILL.md)（除非是明确故障） |
-| 这段太啰嗦，或者看不懂 | [cstack-rewrite](../plugins/cstack/skills/cstack-rewrite/SKILL.md) | [cstack-restate-goal](../plugins/cstack/skills/cstack-restate-goal/SKILL.md)（不重述目标） |
+| 没听懂，或者这段说得太绕 | [cstack-bro](../plugins/cstack/skills/cstack-bro/SKILL.md) | [cstack-restate-goal](../plugins/cstack/skills/cstack-restate-goal/SKILL.md)（不重述目标）；[cstack-visual-explain](../plugins/cstack/skills/cstack-visual-explain/SKILL.md)（要的是图） |
+| 中文读起来像机翻，句子生硬拗口 | [cstack-chinese-writing-style](../plugins/cstack/skills/cstack-chinese-writing-style/SKILL.md) | [cstack-bro](../plugins/cstack/skills/cstack-bro/SKILL.md)（不解决文风） |
 | 这个方案有没有问题 | [cstack-challenge](../plugins/cstack/skills/cstack-challenge/SKILL.md) | [cstack-review](../plugins/cstack/skills/cstack-review/SKILL.md)（审的是变更） |
 | 这些测试是不是假的 | [cstack-test-audit](../plugins/cstack/skills/cstack-test-audit/SKILL.md) | [cstack-verify](../plugins/cstack/skills/cstack-verify/SKILL.md)（判 AC） |
 | 第一遍已经能运行，要从变更前基线重写得更简洁 | [cstack-second-pass](../plugins/cstack/skills/cstack-second-pass/SKILL.md) | [cstack-simplify](../plugins/cstack/skills/cstack-simplify/SKILL.md)（在现有代码上减复杂度） |
@@ -81,7 +83,7 @@
 
 | 触发方式 | Skill |
 | --- | --- |
-| 手动触发 | [cstack-core](../plugins/cstack/skills/cstack-core/SKILL.md)、[cstack-rewrite](../plugins/cstack/skills/cstack-rewrite/SKILL.md)、[cstack-create-project-profile](../plugins/cstack/skills/cstack-create-project-profile/SKILL.md)、[cstack-create-design-md](../plugins/cstack/skills/cstack-create-design-md/SKILL.md)、[cstack-how](../plugins/cstack/skills/cstack-how/SKILL.md)、[cstack-impact](../plugins/cstack/skills/cstack-impact/SKILL.md)、[cstack-orchestrate](../plugins/cstack/skills/cstack-orchestrate/SKILL.md)、[cstack-restate-goal](../plugins/cstack/skills/cstack-restate-goal/SKILL.md)、[cstack-second-pass](../plugins/cstack/skills/cstack-second-pass/SKILL.md)、[cstack-wayfinding](../plugins/cstack/skills/cstack-wayfinding/SKILL.md)、[cstack-why](../plugins/cstack/skills/cstack-why/SKILL.md)、[gitlab-core](gitlab.md) |
+| 手动触发 | [cstack-core](../plugins/cstack/skills/cstack-core/SKILL.md)、[cstack-bro](../plugins/cstack/skills/cstack-bro/SKILL.md)、[cstack-create-project-profile](../plugins/cstack/skills/cstack-create-project-profile/SKILL.md)、[cstack-create-design-md](../plugins/cstack/skills/cstack-create-design-md/SKILL.md)、[cstack-how](../plugins/cstack/skills/cstack-how/SKILL.md)、[cstack-impact](../plugins/cstack/skills/cstack-impact/SKILL.md)、[cstack-orchestrate](../plugins/cstack/skills/cstack-orchestrate/SKILL.md)、[cstack-restate-goal](../plugins/cstack/skills/cstack-restate-goal/SKILL.md)、[cstack-second-pass](../plugins/cstack/skills/cstack-second-pass/SKILL.md)、[cstack-wayfinding](../plugins/cstack/skills/cstack-wayfinding/SKILL.md)、[cstack-why](../plugins/cstack/skills/cstack-why/SKILL.md)、[gitlab-core](gitlab.md) |
 | 可自动触发 | 上表「工作流 Skill」与「辅助 Skill」中的其余全部 Skill，以及 GitLab 插件的七个自动触发技能（见 [GitLab 插件](gitlab.md)） |
 
 ## 共享层

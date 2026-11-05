@@ -28,4 +28,4 @@ disable-model-invocation: true
 - 用户指定的问题范围优先于无关的长期背景。
 - 如果某个关键点确实无法确定，就指出是哪一点。
 - 本 Skill 不启动访谈，不修改文件，也不开始执行任务。
-- 交接场景用 `cstack-handoff`；只需要调整措辞的通俗度或密度时用 `cstack-rewrite`。
+- 交接场景用 `cstack-handoff`；没听懂、需要换个说法重讲时用 `cstack-bro`。

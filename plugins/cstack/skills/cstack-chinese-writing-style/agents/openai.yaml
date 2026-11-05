@@ -1,0 +1,6 @@
+interface:
+  display_name: "CStack 中文技术写作"
+  short_description: "改写和审校中文技术写作，消除翻译腔"
+  default_prompt: "使用 $cstack-chinese-writing-style 改写这段中文技术文本，消除翻译腔。"
+policy:
+  allow_implicit_invocation: true
