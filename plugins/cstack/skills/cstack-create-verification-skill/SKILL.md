@@ -3,7 +3,7 @@ name: cstack-create-verification-skill
 description: 当用户要求建立、修好或更新项目的验证方法，或验收还没有可靠运行方式时使用。不用于判定本次候选是否通过。
 ---
 
-# cstack-create-verification-skill · 建立与更新项目验证能力
+# cstack-create-verification-skill · 建立与更新项目验证方法
 
 ## 目标
 
@@ -25,7 +25,7 @@ description: 当用户要求建立、修好或更新项目的验证方法，或�
 - 不写 SPEC / TECH / SLICES / EVIDENCE，也不判定某个候选是否通过——那是 `cstack-verify` 的事。
 - 需要与其他 Skill 统一产物命名、字段或共享判据时，读取 `cstack-core` 的 `ARTIFACTS.md`、`PRINCIPLES.md`、`CRITERIA.md` 对应小节；未安装时以本节作为最小可用版本。
 
-## 盘点并复核现有验证能力
+## 盘点并复核现有验证方法
 
 1. 读项目指令、Git 状态、文档、manifest、scripts、CI、测试配置和相关测试。
 2. 识别验证入口类型：UI / API / CLI / library / device；怎么构建和启动、怎么驱动、能观察什么、怎么隔离和清理。查版本、认证、种子数据、端口和共享资源。

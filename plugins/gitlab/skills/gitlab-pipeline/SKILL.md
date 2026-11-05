@@ -3,7 +3,7 @@ name: gitlab-pipeline
 description: 当要新建或修改 GitLab 的 CI 配置、诊断失败的流水线或优化已有流水线时使用。不用于创建和评审 MR、不用于写提交信息、不用于分支变基，也不用于判断能否合并。
 ---
 
-# gitlab-pipeline · 流水线的编写、诊断与优化
+# gitlab-pipeline · 编写、诊断与优化流水线
 
 ## 目标
 

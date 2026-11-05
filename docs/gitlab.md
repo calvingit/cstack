@@ -17,7 +17,7 @@
 | [gitlab-core](../plugins/gitlab/skills/gitlab-core/SKILL.md) | 共享知识索引：glab 陷阱手册、实例能力矩阵、写操作安全约束 | 手动 |
 | [gitlab-mr-review](../plugins/gitlab/skills/gitlab-mr-review/SKILL.md) | 两阶段评审：先讲清 MR 想解决什么，确认后再给有证据的发现 | 自动 |
 | [gitlab-mr-describe](../plugins/gitlab/skills/gitlab-mr-describe/SKILL.md) | 从实际 diff 生成结构化 MR 描述 | 自动 |
-| [gitlab-self-review](../plugins/gitlab/skills/gitlab-self-review/SKILL.md) | 提评审前自查，把多条发现攒成草稿一次发布 | 自动 |
+| [gitlab-self-review](../plugins/gitlab/skills/gitlab-self-review/SKILL.md) | 提交评审前自查，把多条发现攒成草稿一次发布 | 自动 |
 | [gitlab-commit](../plugins/gitlab/skills/gitlab-commit/SKILL.md) | 写提交信息，把改动拆成原子提交 | 自动 |
 | [gitlab-rebase](../plugins/gitlab/skills/gitlab-rebase/SKILL.md) | 把特性分支安全对齐到前进的 release 或主干分支 | 自动 |
 | [gitlab-stack](../plugins/gitlab/skills/gitlab-stack/SKILL.md) | 把大改动拆成可独立评审的 MR 链 | 自动 |

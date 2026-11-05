@@ -4,7 +4,7 @@ description: 仅当用户手动触发，要求并行实现多个互不阻塞的�
 disable-model-invocation: true
 ---
 
-# cstack-orchestrate · 并行切片实现
+# cstack-orchestrate · 并行实现切片
 
 ## 目标
 

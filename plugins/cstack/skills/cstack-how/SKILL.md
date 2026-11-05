@@ -4,7 +4,7 @@ description: 仅当用户手动触发，要求讲当前代码或指定部分现�
 disable-model-invocation: true
 ---
 
-# cstack-how · 解释代码如何工作
+# cstack-how · 解释代码怎么运行
 
 ## 目标
 
@@ -34,4 +34,4 @@ disable-model-invocation: true
 
 ## 停止与边界
 
-回答完当前实现如何工作就停止。历史动机、故障根因和以重构为目标的工作属于其他问题。本 Skill 不修改代码、配置或状态。
+回答完当前实现怎么运行就停止。历史动机、故障根因和以重构为目标的工作属于其他问题。本 Skill 不修改代码、配置或状态。

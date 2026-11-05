@@ -1,6 +1,6 @@
 ---
 name: cstack-impact
-description: 仅当用户手动触发，要求查一项变更的影响半径、会在别处打破什么，或对看起来不大的 diff 不放心时使用。不用于逐条验收、代码审查或方案对抗式审查。
+description: 仅当用户手动触发，要求查一项变更的影响半径、会在别处打破什么，或对看起来不大的 diff 不放心时使用。不用于逐条验收、代码审查或方案对抗审查。
 disable-model-invocation: true
 ---
 

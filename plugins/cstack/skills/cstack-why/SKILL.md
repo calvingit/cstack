@@ -4,7 +4,7 @@ description: 仅当用户手动触发，要求查某项设计、约束或改动�
 disable-model-invocation: true
 ---
 
-# cstack-why · 调查为什么这样设计
+# cstack-why · 追查设计原因
 
 ## 目标
 

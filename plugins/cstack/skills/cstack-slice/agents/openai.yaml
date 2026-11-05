@@ -1,5 +1,5 @@
 interface:
-  display_name: "CStack 拆分工作"
+  display_name: "CStack 拆分切片"
   short_description: "要拆成可分别交付的单元"
   default_prompt: "使用 $cstack-slice 把这项工作拆成可以分别交付的单元。"
 policy:

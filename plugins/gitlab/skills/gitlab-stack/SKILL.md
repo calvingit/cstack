@@ -3,7 +3,7 @@ name: gitlab-stack
 description: 当一个大改动难以一次评审、需要拆成互相依赖的小 MR 链时使用。不用于把已合并的提交重新拆分、不用于处理评审意见、不用于决定能否合并。
 ---
 
-# gitlab-stack · 大改动拆成链
+# gitlab-stack · 大改动拆成 MR 链
 
 ## 目标
 

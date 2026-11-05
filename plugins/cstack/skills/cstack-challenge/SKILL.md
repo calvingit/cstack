@@ -1,9 +1,9 @@
 ---
 name: cstack-challenge
-description: 当已有技术判断或方案成形，需要做有边界的对抗式审查时使用。不用于重新设计整套方案，也不用于通用代码审查。
+description: 当已有技术判断或方案成形，需要做有边界的对抗审查时使用。不用于重新设计整套方案，也不用于通用代码审查。
 ---
 
-# cstack-challenge · 对抗式审查
+# cstack-challenge · 对抗审查
 
 ## 目标
 

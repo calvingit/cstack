@@ -3,7 +3,7 @@ name: gitlab-self-review
 description: 当要在提交评审前自查改动、或要把多条评审意见攒成一次发布时使用。不用于替代他人评审、不用于决定能否合并、不用于逐条验收需求。
 ---
 
-# gitlab-self-review · 提评审前自查
+# gitlab-self-review · 提交评审前自查
 
 ## 目标
 
