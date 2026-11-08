@@ -24,7 +24,7 @@ MR 编号或 URL、目标分支、diff。缺目标分支时先确认，不要默
 ```bash
 glab mr view <iid>
 glab mr diff <iid>
-git log --oneline <target>...<source>
+git log --oneline <target>..<source>
 ```
 
 大 MR 按文件分批读：
@@ -36,12 +36,7 @@ glab api "projects/<encoded-path>/merge_requests/<iid>/diffs?per_page=100" \
 
 ## 评审口径
 
-按影响排序，逐项过：
-
-- **正确性**：逻辑错误、边界、空值、竞态、差一错误。
-- **回归与安全**：行为变化、越权、注入、敏感信息、未处理错误、N+1、迁移风险。
-- **测试覆盖**：新增行为是否有测试，分支是否覆盖。
-- **架构契合**：是否沿用既有模式，有没有可避免的债务或范围蔓延。
+按 `gitlab-mr-review` 流程第 3 步的检查清单逐项检查，按影响排序汇报。
 
 每条评审意见写成 `file:line` 加触发条件加实际后果。找不到可达场景的疑点标为不确定，不写成结论。
 
@@ -50,9 +45,24 @@ glab api "projects/<encoded-path>/merge_requests/<iid>/diffs?per_page=100" \
 ```markdown
 ## 评审：<MR 标题> (!<iid>)
 
+### 意图概括
+- 问题：
+- 改动：
+- 机制：
+- 例子：
+- 范围：
+
 ### 评审意见
 **[P1] <标题>**
 `path/to/file.ext:42-48` — 问题、触发条件、影响。
+
+### 合并风险
+**总评：<low / medium / high>**
+- 对齐：✅ — <依据>
+- 影响面：👀 — <依据>
+- 验证：👀 — <依据>
+- 回滚成本：✅ — <依据>
+- 故障可发现性：✅ / 不适用 — <依据>
 
 ### 结论
 <可以合并 / 需要修改>，阻塞项：<有/无>
@@ -61,7 +71,7 @@ glab api "projects/<encoded-path>/merge_requests/<iid>/diffs?per_page=100" \
 <读不到或无法确认的部分；没有就写「无」>
 ```
 
-P0 到 P3 的含义见 `gitlab-self-review`。确实没有值得提出的问题时，就直说代码看起来没问题，不要为凑数编意见。
+P0 到 P3 的含义、检查清单与合并风险维度见 `gitlab-mr-review` Skill。确实没有值得提出的问题时，就直说代码看起来没问题，不要为凑数编意见。
 
 ## 只读验证
 

@@ -1,6 +1,6 @@
 interface:
-  display_name: "GitLab MR 两阶段评审"
-  short_description: "先讲清 MR 意图，再给出有证据的评审"
-  default_prompt: "使用 $gitlab-mr-review 评审这个 GitLab MR：先说清它要解决什么，等我确认后再深入评审。"
+  display_name: "GitLab MR 评审"
+  short_description: "评审 MR 或提交前自查：意图、评审意见、合并风险一次给全"
+  default_prompt: "使用 $gitlab-mr-review 评审这个 MR（或指定分支、diff）：先讲清它是什么，再给有证据的评审意见和合并风险；意见攒成草稿，发布前等我确认。"
 policy:
   allow_implicit_invocation: true

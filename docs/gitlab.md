@@ -10,14 +10,13 @@
 | 用 `glab` 完成提交、MR、评审、变基 | 依赖 GitLab 内部系统的工作流（Sentry、GDK 本地库、on-call） |
 | 团队协作中的评审与自查 | 依赖 Premium 及以上订阅的功能（Epic、复杂审批规则） |
 
-## 八个技能的分工
+## 七个技能的分工
 
 | Skill | 用途 | 触发 |
 | --- | --- | --- |
 | [gitlab-core](../plugins/gitlab/skills/gitlab-core/SKILL.md) | 共享知识索引：glab 陷阱手册、实例能力矩阵、写操作安全约束 | 手动 |
-| [gitlab-mr-review](../plugins/gitlab/skills/gitlab-mr-review/SKILL.md) | 两阶段评审：先讲清 MR 想解决什么，确认后再给有证据的发现 | 自动 |
+| [gitlab-mr-review](../plugins/gitlab/skills/gitlab-mr-review/SKILL.md) | MR 评审与提交前自查：先讲清改动是什么，再给有证据的评审意见与合并风险；意见可攒成草稿后一次发布 | 自动 |
 | [gitlab-mr-describe](../plugins/gitlab/skills/gitlab-mr-describe/SKILL.md) | 从实际 diff 生成结构化 MR 描述 | 自动 |
-| [gitlab-self-review](../plugins/gitlab/skills/gitlab-self-review/SKILL.md) | 提交评审前自查，把多条发现攒成草稿一次发布 | 自动 |
 | [gitlab-commit](../plugins/gitlab/skills/gitlab-commit/SKILL.md) | 写提交信息，把改动拆成原子提交 | 自动 |
 | [gitlab-rebase](../plugins/gitlab/skills/gitlab-rebase/SKILL.md) | 把特性分支安全对齐到前进的 release 或主干分支 | 自动 |
 | [gitlab-stack](../plugins/gitlab/skills/gitlab-stack/SKILL.md) | 把大改动拆成可独立评审的 MR 链 | 自动 |
@@ -27,9 +26,9 @@
 
 ### 怎么组合
 
-- **提交前**：`gitlab-commit` 写提交信息 → `gitlab-self-review` 自查 → 需要时 `gitlab-rebase` 对齐目标分支。
+- **提交前**：`gitlab-commit` 写提交信息 → `gitlab-mr-review` 自查改动 → 需要时 `gitlab-rebase` 对齐目标分支。
 - **开 MR**：`gitlab-mr-describe` 生成描述 → `gitlab-stack` 挑太大的先拆。
-- **评审**：`gitlab-mr-review` 两阶段，或派 `gitlab-reviewer` 做独立只读评审。
+- **评审**：`gitlab-mr-review` 评审已创建的 MR，或派 `gitlab-reviewer` 做独立只读评审。
 - **改 CI 配置或流水线失败**：`gitlab-pipeline` 写配置、读日志定位、按三级阶梯校验。
 - **命令细节**：随时读 `gitlab-core`，它不自动触发。
 
