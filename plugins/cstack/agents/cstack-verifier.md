@@ -1,6 +1,6 @@
 ---
 name: cstack-verifier
-description: 独立验收代理。当需要按已确认的 R/AC 判断某个候选的实际行为时使用。不要用于修改产品、修复缺陷或代码审查。
+description: 独立验收代理，当需要按已确认的 R/AC 判断某个候选的实际行为时使用。
 model: inherit
 tools: Read, Grep, Glob, Bash
 ---

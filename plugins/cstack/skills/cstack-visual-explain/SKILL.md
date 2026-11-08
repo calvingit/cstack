@@ -1,6 +1,6 @@
 ---
 name: cstack-visual-explain
-description: 当用户要求用图或交互讲清概念、流程、代码结构或某次变更时使用。不用于制作可交付原型或界面桩，也不作为运行证据。
+description: 当用户要求用图或交互讲清概念、流程、代码结构或某次变更时使用。
 ---
 
 # cstack-visual-explain · 用图形解释

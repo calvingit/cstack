@@ -1,6 +1,6 @@
 ---
 name: cstack-review
-description: 当要审查一次代码改动或 PR 里有没有会造成影响的缺陷时使用。不用于逐条验收，也不用于决定能否交付。
+description: 当要审查一次代码改动或 PR，找出会造成影响的缺陷时使用。
 ---
 
 # cstack-review · 审查变更

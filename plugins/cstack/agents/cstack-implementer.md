@@ -1,6 +1,6 @@
 ---
 name: cstack-implementer
-description: 在授权写范围内实现一个已确认范围的代理。当需要按 SPEC、TECH 或切片改动代码与测试，并报告真实自检结果时使用。不要用于需求澄清、独立验收或代码审查。
+description: 在授权写范围内实现已确认范围的代理，当需要按 SPEC、TECH 或切片改动代码与测试，并报告真实自检结果时使用。
 model: inherit
 tools: Read, Grep, Glob, Edit, Write, Bash
 ---

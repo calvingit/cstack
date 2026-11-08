@@ -1,6 +1,6 @@
 ---
 name: cstack-wayfinding
-description: 仅当用户手动触发，要求用一张地图和决策工单推进跨会话、方向还看不清的大块工作时使用。已经清楚的小改动不要用。
+description: 仅当用户手动触发，要求用一张地图和决策工单推进跨会话、方向未决的大块工作时使用。
 disable-model-invocation: true
 ---
 

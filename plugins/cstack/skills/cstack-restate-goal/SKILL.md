@@ -1,6 +1,6 @@
 ---
 name: cstack-restate-goal
-description: 仅当用户手动触发，要求重述当前目标、约束和边界时使用。不由此开始追问或实现。
+description: 仅当用户手动触发，要求重述当前目标、约束和边界时使用。
 disable-model-invocation: true
 ---
 

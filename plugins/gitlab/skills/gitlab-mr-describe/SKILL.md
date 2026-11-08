@@ -1,6 +1,6 @@
 ---
 name: gitlab-mr-describe
-description: 当要为 GitLab MR 写或更新描述，需要从实际 diff 提炼意图和影响面时使用。不用于评审代码质量、不用于判断能否合并、不用于生成发布说明。
+description: 当要为 GitLab MR 写或更新描述，需要从实际 diff 提炼意图和影响面时使用。
 ---
 
 # gitlab-mr-describe · 写 MR 描述

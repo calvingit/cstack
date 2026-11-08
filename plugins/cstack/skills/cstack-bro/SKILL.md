@@ -1,6 +1,6 @@
 ---
 name: cstack-bro
-description: 仅当用户手动触发，说没听懂或觉得说得绕、要求换个说法重讲时使用。不用于重述目标，也不用于改写代码、命令或界面文案。
+description: 仅当用户手动触发，要求把刚才的内容换个说法重讲时使用。
 disable-model-invocation: true
 ---
 

@@ -1,6 +1,6 @@
 ---
 name: cstack-diagnose
-description: 当故障已经出现、原因还不清楚，需要先复现再定位时使用。原因已经清楚的改动不要用。
+description: 当故障已经出现、原因待查，需要先复现再定位时使用。
 ---
 
 # cstack-diagnose · 诊断故障

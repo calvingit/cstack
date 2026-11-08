@@ -1,6 +1,6 @@
 ---
 name: gitlab-commit
-description: 当要写提交信息或把一个改动拆成多个提交时使用。不用于评审代码质量、不用于生成 MR 描述、不用于改写已有提交历史。
+description: 当要写提交信息或把一个改动拆成多个提交时使用。
 ---
 
 # gitlab-commit · 提交信息与原子拆分

@@ -1,6 +1,6 @@
 ---
 name: cstack-implement
-description: 当用户要求实现或修复，且改什么已经足够清楚时使用。原因不明的故障不要直接改。
+description: 当用户要求实现或修复，且改什么已经足够清楚时使用。
 ---
 
 # cstack-implement · 实现需求

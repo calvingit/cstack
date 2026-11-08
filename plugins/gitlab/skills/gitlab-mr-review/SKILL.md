@@ -1,6 +1,6 @@
 ---
 name: gitlab-mr-review
-description: 当要评审一个 GitLab MR，或提交评审前要自查指定 MR、diff 或分支上的改动时使用。不用于决定能否合并、不用于逐条验收需求、不用于处理已提出的评审意见。
+description: 当要评审一个 GitLab MR，或提交评审前要自查指定 MR、diff 或分支上的改动时使用。
 ---
 
 # gitlab-mr-review · MR 评审

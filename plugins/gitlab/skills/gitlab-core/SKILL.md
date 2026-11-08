@@ -1,6 +1,6 @@
 ---
 name: gitlab-core
-description: 仅当用户手动触发，或任务需要读取 glab CLI 陷阱、自部署实例能力矩阵或写操作安全约束时使用。不自动触发。
+description: 仅当用户手动触发，或任务需要读取 glab CLI 陷阱、自部署实例能力矩阵或写操作安全约束时使用。
 disable-model-invocation: true
 ---
 

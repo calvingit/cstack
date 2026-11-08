@@ -1,6 +1,6 @@
 ---
 name: cstack-orchestrate
-description: 仅当用户手动触发，要求并行实现多个互不阻塞的切片时使用。串行实现不要用，单个切片不要用。
+description: 仅当用户手动触发，要求并行实现多个可独立推进的切片时使用。
 disable-model-invocation: true
 ---
 

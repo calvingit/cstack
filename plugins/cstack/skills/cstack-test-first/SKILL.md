@@ -1,6 +1,6 @@
 ---
 name: cstack-test-first
-description: 当用户要求先写失败测试再实现，或要用这个循环钉住一个明确行为时使用。不用于判定验收通过或审计测试。
+description: 当用户要求先写失败测试再实现，或要用这个循环钉住一个明确行为时使用。
 ---
 
 # cstack-test-first · 测试先行

@@ -1,6 +1,6 @@
 ---
 name: cstack-research
-description: 当技术问题的答案或库和产品的比较需要仓库以外的资料时使用。不用于解释仓库内代码或定位故障根因。
+description: 当技术问题的答案或库和产品的比较需要仓库以外的资料时使用。
 ---
 
 # cstack-research · 技术调研

@@ -1,6 +1,6 @@
 ---
 name: cstack-chinese-writing-style
-description: 当要改写或审校中文技术写作、消除英文式翻译腔时使用。覆盖技术文档、API 文档、错误提示、PR 描述和提交信息，也用于机器翻译的译后润色。不用于改写英文原文，也不用于判断代码或方案是否正确。
+description: 当要改写或审校中文技术文档、错误提示、PR 描述或提交信息，消除英文式翻译腔或润色机器翻译时使用。
 ---
 # cstack-chinese-writing-style · 中文技术写作自然化
 

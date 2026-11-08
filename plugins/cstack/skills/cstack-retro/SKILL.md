@@ -1,6 +1,6 @@
 ---
 name: cstack-retro
-description: 当用户要求复盘一次任务或会话，包括流程、工具、指令或检查时使用。不用于交接或改进实现本身。
+description: 当用户要求复盘一次任务或会话，包括流程、工具、指令或检查时使用。
 ---
 
 # cstack-retro · 复盘工程任务

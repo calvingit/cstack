@@ -1,6 +1,6 @@
 ---
 name: cstack-create-verification-skill
-description: 当用户要求建立、修好或更新项目的验证方法，或验收还没有可靠运行方式时使用。不用于判定本次候选是否通过。
+description: 当用户要求建立、修好或更新项目的验证方法，或验收需要建立可靠的运行方式时使用。
 ---
 
 # cstack-create-verification-skill · 建立与更新项目验证方法

@@ -20,8 +20,8 @@ PLUGINS_ROOT = ROOT / "plugins"
 
 LINK_RE = re.compile(r"\[[^\]]*\]\(([^)]+)\)")
 FENCE_RE = re.compile(r"```.*?```", re.S)
-EXPLICIT_PHRASES = ("仅当用户手动触发", "不自动触发")
-EXCLUSION_MARKERS = ("不用于", "不判断", "不记录", "不决定", "不负责", "不要", "不做")
+EXPLICIT_PHRASES = ("仅当用户手动触发",)
+FORBIDDEN_MARKERS = ("不", "勿")
 ALLOWED_DESCRIPTION_TOKENS = (
     "PR",
     "MR",
@@ -258,11 +258,10 @@ def check_skill(directory: Path, plugin: Plugin, report: Report) -> None:
     disabled = disable == "true"
     if disable not in (None, "true", "false"):
         report.add(f"{rel(skill_md)}: disable-model-invocation 只能是 true 或 false")
-    if description and not disabled:
-        if not any(marker in description for marker in EXCLUSION_MARKERS):
-            report.add(
-                f"{rel(skill_md)}: 自动触发的 description 要写明排除条件（不用于 / 不判断 / 不决定 …）"
-            )
+    if description and any(marker in description for marker in FORBIDDEN_MARKERS):
+        report.add(
+            f"{rel(skill_md)}: description 只写正向陈述，含否定表述: {description}"
+        )
     core_invocation_phrase = f"调用 `{plugin.core_skill}`"
     if name != plugin.core_skill and core_invocation_phrase in text:
         report.add(
@@ -296,9 +295,9 @@ def check_skill(directory: Path, plugin: Plugin, report: Report) -> None:
     if disable != "true" and allow is False:
         report.add(f"{rel(skill_md)}: Claude 允许自动调用，但 Codex allow_implicit_invocation 为 false")
     if explicit_by_text and not disabled:
-        report.add(f"{rel(skill_md)}: 描述要求手动触发或不自动触发，但未设置 disable-model-invocation: true")
+        report.add(f"{rel(skill_md)}: 描述要求手动触发，但未设置 disable-model-invocation: true")
     if explicit_by_text and allow is not False:
-        report.add(f"{rel(skill_md)}: 描述要求手动触发或不自动触发，但 Codex 未关闭隐式调用")
+        report.add(f"{rel(skill_md)}: 描述要求手动触发，但 Codex 未关闭隐式调用")
     if description and not explicit_by_text and disabled:
         report.add(f"{rel(skill_md)}: 描述像可自动触发，但设置了 disable-model-invocation: true")
     if description and not explicit_by_text and allow is False:

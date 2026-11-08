@@ -1,6 +1,6 @@
 ---
 name: cstack-verify
-description: 当要按已确认的验收条件核对某个候选的实际行为时使用。不用于改产品，也不用于批准发布。
+description: 当要按已确认的验收条件核对某个候选的实际行为时使用。
 ---
 
 # cstack-verify · 验收候选变更

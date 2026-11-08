@@ -1,6 +1,6 @@
 ---
 name: cstack-core
-description: 仅当用户手动触发，或任务需要读取共享判断约束、产物类型、ID 约定、共享判据或 Agent 角色边界时使用。不自动触发。
+description: 仅当用户手动触发，或任务需要读取共享判断约束、产物类型、ID 约定、共享判据或 Agent 角色边界时使用。
 disable-model-invocation: true
 ---
 

@@ -1,7 +1,7 @@
 # CStack 共享内核
 
 > 这里是 `cstack-core` Skill 的判断强制约束与产物词汇，由 [SKILL.md](SKILL.md) 索引。
-> 它只提供共享词汇与强制约束，不是独立任务方法；其他 Skill 需要与共享词汇保持一致时读取 `cstack-core` 的对应文件，不自动触发。
+> 它只提供共享词汇与强制约束，不是独立任务方法；其他 Skill 需要与共享词汇保持一致时读取 `cstack-core` 的对应文件；`cstack-core` 仅手动触发。
 
 ## 怎么用
 

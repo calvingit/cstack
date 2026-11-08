@@ -1,6 +1,6 @@
 ---
 name: cstack-create-design-md
-description: 仅当用户手动触发，要求建立或更新项目的界面设计系统文档时使用。不用于技术方案，也不审查具体界面。
+description: 仅当用户手动触发，要求建立或更新项目的界面设计系统文档时使用。
 disable-model-invocation: true
 ---
 

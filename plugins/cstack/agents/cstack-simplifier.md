@@ -1,6 +1,6 @@
 ---
 name: cstack-simplifier
-description: 只读简化审查代理。当用户要求找出当前改动中可移除的多余复杂度时使用。收尾可以不派。不要用于无授权修改代码或顺手清理无关范围，也不能代替验收或审查。
+description: 只读简化审查代理，当用户要求找出当前改动中可移除的多余复杂度时使用。
 model: inherit
 tools: Read, Grep, Glob, Bash
 ---

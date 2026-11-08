@@ -1,6 +1,6 @@
 ---
 name: cstack-create-project-profile
-description: 仅当用户手动触发，要求建立、更新或迁移项目里稳定的工程约定档案时使用。不记录当前任务状态。
+description: 仅当用户手动触发，要求建立、更新或迁移项目里稳定的工程约定档案时使用。
 disable-model-invocation: true
 ---
 

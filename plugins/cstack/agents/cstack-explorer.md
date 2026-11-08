@@ -1,6 +1,6 @@
 ---
 name: cstack-explorer
-description: 只读事实调查代理。当需要查清代码实际行为、调用方、配置、依赖版本或文档事实，且结果会喂给一个未决选择时使用。不要用于修改代码或做需求决策。
+description: 只读事实调查代理，当需要查清代码实际行为、调用方、配置、依赖版本或文档事实，且结果会喂给一个未决选择时使用。
 model: inherit
 tools: Read, Grep, Glob, Bash
 ---

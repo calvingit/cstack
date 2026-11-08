@@ -1,6 +1,6 @@
 ---
 name: gitlab-rebase
-description: 当要把特性分支变基到已经前进的 release 或主干分支，或合并前需要与目标分支对齐时使用。不用于拆分改动、不用于解决需要产品决策的代码分歧、不用于改写已合并的提交。
+description: 当要把特性分支变基到已经前进的 release 或主干分支，或合并前需要与目标分支对齐时使用。
 ---
 
 # gitlab-rebase · 与目标分支对齐

@@ -1,6 +1,6 @@
 ---
 name: gitlab-reviewer
-description: 只读 MR 评审代理。当需要独立评审一个 GitLab MR 是否引入可证实缺陷、回归或维护风险时使用。不用于修改代码、不用于逐条验收需求、不用于决定能否合并。
+description: 只读 MR 评审代理，当需要独立评审一个 GitLab MR，找出可证实的缺陷、回归或维护风险时使用。
 model: inherit
 tools: Read, Grep, Glob, Bash
 ---

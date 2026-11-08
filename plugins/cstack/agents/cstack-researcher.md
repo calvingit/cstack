@@ -1,6 +1,6 @@
 ---
 name: cstack-researcher
-description: 外部资料调研代理。当技术问题、版本兼容或选型比较需要仓库以外的官方文档、发行说明或基准时使用。不要用于代码事实调查或替用户选型。
+description: 外部资料调研代理，当技术问题、版本兼容或选型比较需要仓库以外的官方文档、发行说明或基准时使用。
 model: inherit
 tools: Read, Grep, Glob, Bash, WebSearch, WebFetch
 ---

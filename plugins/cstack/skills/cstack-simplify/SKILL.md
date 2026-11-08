@@ -1,6 +1,6 @@
 ---
 name: cstack-simplify
-description: 当用户要求简化指定代码，或只想看这块有没有多余复杂度时使用。不用于顺手清理无关代码。
+description: 当用户要求简化指定代码，或想确认这块是否存在多余复杂度时使用。
 ---
 
 # cstack-simplify · 简化代码

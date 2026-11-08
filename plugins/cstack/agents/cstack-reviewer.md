@@ -1,6 +1,6 @@
 ---
 name: cstack-reviewer
-description: 只读代码审查代理。当需要审查一次改动或 PR 是否引入可证实缺陷、回归或维护风险时使用。不要用于逐个 AC 验收、修改代码或决定能否交付。
+description: 只读代码审查代理，当需要审查一次改动或 PR，找出可证实的缺陷、回归或维护风险时使用。
 model: inherit
 tools: Read, Grep, Glob, Bash
 ---

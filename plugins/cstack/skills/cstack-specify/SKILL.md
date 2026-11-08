@@ -1,6 +1,6 @@
 ---
 name: cstack-specify
-description: 当已经确认的需求要固化成带 R# / AC# 编号的规格或验收依据时使用。业务上还没定的选择不要在这里决定。
+description: 当已经确认的需求要固化成带 R# / AC# 编号的规格或验收依据时使用。
 ---
 
 # cstack-specify · 整理规格

@@ -1,6 +1,6 @@
 ---
 name: cstack-codebase-design
-description: 当要设计或判断一个具体模块的接口、Seam、依赖方向或测试面时使用。不判断整体架构是否成立，也不决定是否需要技术方案或删除现有代码。
+description: 当要设计或判断一个具体模块的接口、Seam、依赖方向或测试面时使用。
 ---
 
 # cstack-codebase-design · 设计深模块

@@ -1,6 +1,6 @@
 ---
 name: cstack-why
-description: 仅当用户手动触发，要求查某项设计、约束或改动为什么会存在时使用。不用于讲当前代码怎么运行。
+description: 仅当用户手动触发，要求查某项设计、约束或改动为什么会存在时使用。
 disable-model-invocation: true
 ---
 

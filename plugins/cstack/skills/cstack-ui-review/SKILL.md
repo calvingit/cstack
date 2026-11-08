@@ -1,6 +1,6 @@
 ---
 name: cstack-ui-review
-description: 当用户要求看网页、桌面或移动端界面的样子、适配、无障碍或交互时使用。不用于逐条业务验收或代码审查。
+description: 当用户要求看网页、桌面或移动端界面的样子、适配、无障碍或交互时使用。
 ---
 
 # cstack-ui-review · 审查界面

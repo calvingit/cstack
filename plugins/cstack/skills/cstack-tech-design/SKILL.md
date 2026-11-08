@@ -1,6 +1,6 @@
 ---
 name: cstack-tech-design
-description: 当共享接口、跨模块归属、数据模型、生命周期、兼容或迁移取舍会卡住后续实现时使用。不用于局部模块设计。
+description: 当共享接口、跨模块归属、数据模型、生命周期、兼容或迁移取舍会阻塞后续实现时使用。
 ---
 
 # cstack-tech-design · 设计技术方案

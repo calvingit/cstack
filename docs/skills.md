@@ -8,7 +8,7 @@
 | --- | --- | --- |
 | **DEFINE · 明确需求** | 要做什么，如何判断完成？ | [cstack-clarify](../plugins/cstack/skills/cstack-clarify/SKILL.md)：澄清未决选择；[cstack-specify](../plugins/cstack/skills/cstack-specify/SKILL.md)：整理需求与验收条件 |
 | **PLAN · 规划方案** | 哪些技术决策需要确定，如何分步交付？ | [cstack-tech-design](../plugins/cstack/skills/cstack-tech-design/SKILL.md)：确定共享或难以回退的技术选择；[cstack-slice](../plugins/cstack/skills/cstack-slice/SKILL.md)：拆分可验证的纵向切片 |
-| **BUILD · 实现与诊断** | 如何实现需求或定位故障？ | [cstack-implement](../plugins/cstack/skills/cstack-implement/SKILL.md)：在授权范围内实现；[cstack-orchestrate](../plugins/cstack/skills/cstack-orchestrate/SKILL.md)：用 `git worktree` 并行实现互不阻塞的切片；[cstack-diagnose](../plugins/cstack/skills/cstack-diagnose/SKILL.md)：建立反馈回路并定位根因；[cstack-test-first](../plugins/cstack/skills/cstack-test-first/SKILL.md)：围绕行为走测试先行循环 |
+| **BUILD · 实现与诊断** | 如何实现需求或定位故障？ | [cstack-implement](../plugins/cstack/skills/cstack-implement/SKILL.md)：在授权范围内实现；[cstack-orchestrate](../plugins/cstack/skills/cstack-orchestrate/SKILL.md)：用 `git worktree` 并行实现可独立推进的切片；[cstack-diagnose](../plugins/cstack/skills/cstack-diagnose/SKILL.md)：建立反馈回路并定位根因；[cstack-test-first](../plugins/cstack/skills/cstack-test-first/SKILL.md)：围绕行为走测试先行循环 |
 | **VERIFY · 验收** | 实际行为是否满足已确认需求？ | [cstack-create-verification-skill](../plugins/cstack/skills/cstack-create-verification-skill/SKILL.md)：建立或更新可重复的验证方法；[cstack-verify](../plugins/cstack/skills/cstack-verify/SKILL.md)：按验收条件核验候选变更 |
 | **REVIEW · 审查** | 变更或测试中有哪些可证实的问题？ | [cstack-review](../plugins/cstack/skills/cstack-review/SKILL.md)：审查变更及相关路径；[cstack-test-audit](../plugins/cstack/skills/cstack-test-audit/SKILL.md)：在有疑点时审计测试有效性 |
 | **SHIP · 交付** | 当前交付候选是否就绪，授权范围允许做什么？ | [cstack-ship](../plugins/cstack/skills/cstack-ship/SKILL.md)：判断并在授权范围内执行交付 |
@@ -88,7 +88,7 @@
 
 ## 共享层
 
-[cstack-core](../plugins/cstack/skills/cstack-core/SKILL.md) 是不自动触发的共享 Skill，供其他 Skill 按需读取文件；读取不会扩大授权。它索引共享判断约束 [PRINCIPLES.md](../plugins/cstack/skills/cstack-core/PRINCIPLES.md)，约定产物字段与 ID 的写法（[ARTIFACTS.md](../plugins/cstack/skills/cstack-core/ARTIFACTS.md)）、共享判据（[CRITERIA.md](../plugins/cstack/skills/cstack-core/CRITERIA.md)）和角色契约（[ROLES.md](../plugins/cstack/skills/cstack-core/ROLES.md)）。安装单个 Skill 时可以不安装 `cstack-core`；各 Skill 内嵌了独立运行所需的约束、产物和判据要点。
+[cstack-core](../plugins/cstack/skills/cstack-core/SKILL.md) 是仅手动触发的共享 Skill，供其他 Skill 按需读取文件；读取不会扩大授权。它索引共享判断约束 [PRINCIPLES.md](../plugins/cstack/skills/cstack-core/PRINCIPLES.md)，约定产物字段与 ID 的写法（[ARTIFACTS.md](../plugins/cstack/skills/cstack-core/ARTIFACTS.md)）、共享判据（[CRITERIA.md](../plugins/cstack/skills/cstack-core/CRITERIA.md)）和角色契约（[ROLES.md](../plugins/cstack/skills/cstack-core/ROLES.md)）。安装单个 Skill 时可以不安装 `cstack-core`；各 Skill 内嵌了独立运行所需的约束、产物和判据要点。
 
 ## 判断边界
 

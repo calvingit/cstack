@@ -1,6 +1,6 @@
 ---
 name: cstack-handoff
-description: 当用户要求交接，或一段还没做完的工作需要留给下次接着做时使用。不用于推进跨会话大工作的决策，也不用于复盘。
+description: 当用户要求交接，或进行中的工作需要留给下次接着做时使用。
 ---
 
 # cstack-handoff · 工程交接

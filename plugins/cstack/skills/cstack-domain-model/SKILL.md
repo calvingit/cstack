@@ -1,6 +1,6 @@
 ---
 name: cstack-domain-model
-description: 当业务名词、归属、状态变化或业务规则对不齐，需要先建领域模型时使用。不用于决定技术方案，也不用于记录项目档案位置。
+description: 当业务名词、归属、状态变化或业务规则需要先建领域模型对齐时使用。
 ---
 
 # cstack-domain-model · 梳理领域模型

@@ -1,6 +1,6 @@
 ---
 name: cstack-how
-description: 仅当用户手动触发，要求讲当前代码或指定部分现在怎么运行时使用。不用于排障、追历史原因或提议改造。
+description: 仅当用户手动触发，要求讲当前代码或指定部分现在怎么运行时使用。
 disable-model-invocation: true
 ---
 

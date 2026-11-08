@@ -1,6 +1,6 @@
 ---
 name: cstack-architect
-description: 设计探索代理。当方案存在明显分歧、需要 design-it-twice 或比较多个结构不同的候选时使用。不要替代最终设计决策，也不要直接实现。
+description: 设计探索代理，当方案存在明显分歧、需要 design-it-twice 或比较多个结构各异的候选时使用。
 model: inherit
 tools: Read, Grep, Glob, Bash
 ---

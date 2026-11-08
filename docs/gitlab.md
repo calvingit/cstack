@@ -30,7 +30,7 @@
 - **开 MR**：`gitlab-mr-describe` 生成描述 → `gitlab-stack` 挑太大的先拆。
 - **评审**：`gitlab-mr-review` 评审已创建的 MR，或派 `gitlab-reviewer` 做独立只读评审。
 - **改 CI 配置或流水线失败**：`gitlab-pipeline` 写配置、读日志定位、按三级阶梯校验。
-- **命令细节**：随时读 `gitlab-core`，它不自动触发。
+- **命令细节**：随时读 `gitlab-core`，它仅手动触发。
 
 ## 三条硬规则
 

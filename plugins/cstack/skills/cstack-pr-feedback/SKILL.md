@@ -1,6 +1,6 @@
 ---
 name: cstack-pr-feedback
-description: 当用户要求核对或处理某个 PR 上的评审意见时使用。不用于合并或发布，也不用于逐条验收。
+description: 当用户要求核对或处理某个 PR 上的评审意见时使用。
 ---
 
 # cstack-pr-feedback · 处理 PR 反馈

@@ -1,6 +1,6 @@
 ---
 name: cstack-clarify
-description: 当目标、用户可见行为、范围或验收上还有会改变结果的未决选择时使用。请求已经清楚，就不要追问。
+description: 当目标、用户可见行为、范围或验收上还有会改变结果的未决选择时使用。
 ---
 
 # cstack-clarify · 澄清需求

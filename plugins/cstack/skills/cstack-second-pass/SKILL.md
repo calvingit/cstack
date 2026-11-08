@@ -1,6 +1,6 @@
 ---
 name: cstack-second-pass
-description: 仅当用户手动触发，第一遍实现已经能运行、要求用已学到的知识从变更前基线重写更简洁的版本时使用。不用于局部简化或新增功能。
+description: 仅当用户手动触发，第一遍实现已经能运行，要求用已学到的知识从变更前基线重写更简洁的版本时使用。
 disable-model-invocation: true
 ---
 

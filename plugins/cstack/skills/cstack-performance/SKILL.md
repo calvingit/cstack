@@ -1,6 +1,6 @@
 ---
 name: cstack-performance
-description: 当启动慢、界面卡、延迟高、资源占用异常、怀疑变慢，或用户要求测量或优化性能时使用。不用于原因不明的故障，也不判定验收是否通过。
+description: 当启动慢、界面卡、延迟高、资源占用异常、怀疑变慢，或用户要求测量或优化性能时使用。
 ---
 
 # cstack-performance · 分析性能
