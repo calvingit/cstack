@@ -36,7 +36,7 @@
 | --- | --- |
 | [cstack-create-project-profile](../plugins/cstack/skills/cstack-create-project-profile/SKILL.md) | 建立或更新稳定的项目工程档案（PROFILE） |
 | [cstack-create-design-md](../plugins/cstack/skills/cstack-create-design-md/SKILL.md) | 建立或更新项目的界面设计系统文档（DESIGN.md） |
-| [cstack-simplify](../plugins/cstack/skills/cstack-simplify/SKILL.md) | 在请求范围内识别或移除当前已无职责的复杂度 |
+| [cstack-simplify](../plugins/cstack/skills/cstack-simplify/SKILL.md) | 在请求范围内识别或移除当前已无职责的复杂度，包括把后加的功能并回原设计 |
 | [cstack-second-pass](../plugins/cstack/skills/cstack-second-pass/SKILL.md) | 第一遍已能运行时，用已学到的知识从变更前基线重写更简洁的版本 |
 | [cstack-ui-review](../plugins/cstack/skills/cstack-ui-review/SKILL.md) | 根据实际界面与交互检查视觉和可用性 |
 | [cstack-performance](../plugins/cstack/skills/cstack-performance/SKILL.md) | 测量性能、定位瓶颈并按授权优化 |
@@ -70,6 +70,7 @@
 | 这个方案有没有问题 | [cstack-challenge](../plugins/cstack/skills/cstack-challenge/SKILL.md) | [cstack-review](../plugins/cstack/skills/cstack-review/SKILL.md)（审的是变更） |
 | 这些测试是不是假的 | [cstack-test-audit](../plugins/cstack/skills/cstack-test-audit/SKILL.md) | [cstack-verify](../plugins/cstack/skills/cstack-verify/SKILL.md)（判 AC） |
 | 第一遍已经能运行，要从变更前基线重写得更简洁 | [cstack-second-pass](../plugins/cstack/skills/cstack-second-pass/SKILL.md) | [cstack-simplify](../plugins/cstack/skills/cstack-simplify/SKILL.md)（在现有代码上减复杂度） |
+| 功能已经能用，但它是贴着原有结构加的，看起来像后补的 | [cstack-simplify](../plugins/cstack/skills/cstack-simplify/SKILL.md)：把功能并回原设计 | [cstack-second-pass](../plugins/cstack/skills/cstack-second-pass/SKILL.md)（从基线重写整份变更，要保住第一遍） |
 | 行为、状态、界面或可行性还说不清，要对照实物拍板 | [cstack-prototype](../plugins/cstack/skills/cstack-prototype/SKILL.md) | [cstack-implement](../plugins/cstack/skills/cstack-implement/SKILL.md)（答案已经清楚就直接做）；[cstack-second-pass](../plugins/cstack/skills/cstack-second-pass/SKILL.md)（已能运行之后从基线重写）；[cstack-simplify](../plugins/cstack/skills/cstack-simplify/SKILL.md)（局部减复杂度） |
 | 要定界面的颜色、字体和组件规范 | [cstack-create-design-md](../plugins/cstack/skills/cstack-create-design-md/SKILL.md) | [cstack-tech-design](../plugins/cstack/skills/cstack-tech-design/SKILL.md)（那是技术方案） |
 | 当前页面好不好看、交互有没有问题 | [cstack-ui-review](../plugins/cstack/skills/cstack-ui-review/SKILL.md) | [cstack-create-design-md](../plugins/cstack/skills/cstack-create-design-md/SKILL.md)（写的是规范，不审页面） |

@@ -26,6 +26,8 @@ disable-model-invocation: true
 
 重写由 **Implementer** 执行，减复杂度由 **Simplifier** 判断，两者可以在同一上下文完成，报告标明执行者。重写本身自带一次减复杂度；写完后残留的可删复杂度仍交回 `cstack-simplify`。
 
+本 Skill 从基线整体重写，需要保住可用的第一遍；只想把后加的功能并回原设计、其余代码不动时，用 `cstack-simplify`。
+
 ## 产物
 
 - **读**：行为依据（`AC#` / `DECISIONS` / 会话确认）、变更前基线、第一遍的测试。
