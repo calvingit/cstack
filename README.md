@@ -32,6 +32,16 @@ flowchart LR
 /plugin install gitlab@cstack
 ```
 
+### Codex
+
+信任仓库后，使用 CLI 添加市场，再到 Codex 桌面端的 Plugins Directory 安装所需插件：
+
+```bash
+codex plugin marketplace add calvingit/cstack
+```
+
+本仓库提供 `.agents/plugins/marketplace.json` 作为 Codex 仓库级插件市场；本地克隆后，可在 Codex Plugins Directory 中选择并安装其中的插件。
+
 ## 从哪开始
 
 | 阶段 | 主要 Skill |

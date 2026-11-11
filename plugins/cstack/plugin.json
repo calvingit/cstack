@@ -1,0 +1,27 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "cstack",
+  "version": "0.6.8",
+  "description": "CStack 工程方法 Skills：覆盖需求澄清、方案设计、实现、验收、审查与交付。",
+  "author": {
+    "name": "calvingit"
+  },
+  "homepage": "https://github.com/calvingit/cstack",
+  "repository": "https://github.com/calvingit/cstack",
+  "keywords": [
+    "skills",
+    "engineering",
+    "workflow",
+    "verification",
+    "code-review"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "CStack",
+        "shortDescription": "面向 AI Coding Agent 的工程方法",
+        "longDescription": "按需使用需求澄清、方案设计、实现、验收、审查和交付 Skills。"
+      }
+    }
+  }
+}

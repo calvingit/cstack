@@ -1,0 +1,39 @@
+{
+  "name": "cstack",
+  "interface": {
+    "displayName": "CStack 插件",
+    "shortDescription": "CStack 工程方法与 GitLab 协作 Skills"
+  },
+  "plugins": [
+    {
+      "name": "cstack",
+      "source": {
+        "source": "local",
+        "path": "./plugins/cstack"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity",
+      "interface": {
+        "displayName": "CStack"
+      }
+    },
+    {
+      "name": "gitlab",
+      "source": {
+        "source": "local",
+        "path": "./plugins/gitlab"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity",
+      "interface": {
+        "displayName": "GitLab"
+      }
+    }
+  ]
+}
