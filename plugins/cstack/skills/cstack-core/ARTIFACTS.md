@@ -17,6 +17,8 @@
 
 界面设计系统（通常是 `DESIGN.md`）也不是第 7 类产物。它只记录视觉系统，位置由 `PROFILE` 的「界面设计系统位置」给出；该字段为空时，沿用仓库根目录已有的 `DESIGN.md`。唯一写入者是 `cstack-create-design-md`。气质与受众写在该文档的 Overview，不另建产品事实文件。
 
+`AGENTS.md`（或项目等效的指令文件）也不是第 7 类产物。它是给 Coding Agent 执行任务用的项目指令入口，只放有仓库依据的稳定规则、指针和读取条件；权威内容留在原位置。唯一写入者是 `cstack-improve-agents-md`。`cstack-create-project-profile` 只在其中写入或更新 PROFILE 的入口与读取条件。
+
 ## 最小字段
 
 ### PROFILE

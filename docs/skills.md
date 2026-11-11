@@ -36,6 +36,7 @@
 | --- | --- |
 | [cstack-create-project-profile](../plugins/cstack/skills/cstack-create-project-profile/SKILL.md) | 建立或更新稳定的项目工程档案（PROFILE） |
 | [cstack-create-design-md](../plugins/cstack/skills/cstack-create-design-md/SKILL.md) | 建立或更新项目的界面设计系统文档（DESIGN.md） |
+| [cstack-improve-agents-md](../plugins/cstack/skills/cstack-improve-agents-md/SKILL.md) | 创建、审查或优化项目级 Agent 指令 |
 | [cstack-simplify](../plugins/cstack/skills/cstack-simplify/SKILL.md) | 在请求范围内识别或移除当前已无职责的复杂度，包括把后加的功能并回原设计 |
 | [cstack-second-pass](../plugins/cstack/skills/cstack-second-pass/SKILL.md) | 第一遍已能运行时，用已学到的知识从变更前基线重写更简洁的版本 |
 | [cstack-ui-review](../plugins/cstack/skills/cstack-ui-review/SKILL.md) | 根据实际界面与交互检查视觉和可用性 |
@@ -75,6 +76,7 @@
 | 要定界面的颜色、字体和组件规范 | [cstack-create-design-md](../plugins/cstack/skills/cstack-create-design-md/SKILL.md) | [cstack-tech-design](../plugins/cstack/skills/cstack-tech-design/SKILL.md)（那是技术方案） |
 | 当前页面好不好看、交互有没有问题 | [cstack-ui-review](../plugins/cstack/skills/cstack-ui-review/SKILL.md) | [cstack-create-design-md](../plugins/cstack/skills/cstack-create-design-md/SKILL.md)（写的是规范，不审页面） |
 | 共享接口、数据模型或迁移怎么定 | [cstack-tech-design](../plugins/cstack/skills/cstack-tech-design/SKILL.md) | [cstack-create-design-md](../plugins/cstack/skills/cstack-create-design-md/SKILL.md)（不写视觉规范） |
+| 要写或精简仓库的 Agent 指令 | [cstack-improve-agents-md](../plugins/cstack/skills/cstack-improve-agents-md/SKILL.md) | [cstack-create-project-profile](../plugins/cstack/skills/cstack-create-project-profile/SKILL.md)（那是工程档案，只在指令里写档案指针） |
 
 ## 触发方式
 
@@ -84,7 +86,7 @@
 
 | 触发方式 | Skill |
 | --- | --- |
-| 手动触发 | [cstack-core](../plugins/cstack/skills/cstack-core/SKILL.md)、[cstack-bro](../plugins/cstack/skills/cstack-bro/SKILL.md)、[cstack-create-project-profile](../plugins/cstack/skills/cstack-create-project-profile/SKILL.md)、[cstack-create-design-md](../plugins/cstack/skills/cstack-create-design-md/SKILL.md)、[cstack-how](../plugins/cstack/skills/cstack-how/SKILL.md)、[cstack-impact](../plugins/cstack/skills/cstack-impact/SKILL.md)、[cstack-orchestrate](../plugins/cstack/skills/cstack-orchestrate/SKILL.md)、[cstack-restate-goal](../plugins/cstack/skills/cstack-restate-goal/SKILL.md)、[cstack-second-pass](../plugins/cstack/skills/cstack-second-pass/SKILL.md)、[cstack-wayfinding](../plugins/cstack/skills/cstack-wayfinding/SKILL.md)、[cstack-why](../plugins/cstack/skills/cstack-why/SKILL.md)、[gitlab-core](gitlab.md) |
+| 手动触发 | [cstack-core](../plugins/cstack/skills/cstack-core/SKILL.md)、[cstack-bro](../plugins/cstack/skills/cstack-bro/SKILL.md)、[cstack-create-project-profile](../plugins/cstack/skills/cstack-create-project-profile/SKILL.md)、[cstack-create-design-md](../plugins/cstack/skills/cstack-create-design-md/SKILL.md)、[cstack-improve-agents-md](../plugins/cstack/skills/cstack-improve-agents-md/SKILL.md)、[cstack-how](../plugins/cstack/skills/cstack-how/SKILL.md)、[cstack-impact](../plugins/cstack/skills/cstack-impact/SKILL.md)、[cstack-orchestrate](../plugins/cstack/skills/cstack-orchestrate/SKILL.md)、[cstack-restate-goal](../plugins/cstack/skills/cstack-restate-goal/SKILL.md)、[cstack-second-pass](../plugins/cstack/skills/cstack-second-pass/SKILL.md)、[cstack-wayfinding](../plugins/cstack/skills/cstack-wayfinding/SKILL.md)、[cstack-why](../plugins/cstack/skills/cstack-why/SKILL.md)、[gitlab-core](gitlab.md) |
 | 可自动触发 | 上表「工作流 Skill」与「辅助 Skill」中的其余全部 Skill，以及 GitLab 插件的七个自动触发技能（见 [GitLab 插件](gitlab.md)） |
 
 ## 共享层

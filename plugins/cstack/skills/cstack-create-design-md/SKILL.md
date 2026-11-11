@@ -22,7 +22,7 @@ disable-model-invocation: true
 - 已有设计文档时不静默覆盖：先展示差异与拟写内容，用户确认后再写。更新时与写入前的副本对比，确认有没有退步。
 - 写完要校验：项目指令或 PROFILE 写了校验命令就运行该命令，没写就运行官方 CLI。命令运行后失败不交付；命令没能运行起来，就人工核对并报告未验证，未运行不等于通过。
 - 不改产品代码、不改测试、不把设计值硬塞进实现。配置本身不授予提交或推送权限。
-- `AGENTS.md`（或等效指令文件）与工程档案的写入权归 `cstack-create-project-profile`。本 Skill 只交回待并入的片段，不直接改那些文件。
+- 工程档案的写入权归 `cstack-create-project-profile`；`AGENTS.md` 正文的写入权归 `cstack-improve-agents-md`。本 Skill 只交回待并入的片段，不直接改那些文件。
 - 与 `cstack-tech-design`、`cstack-ui-review`、`cstack-prototype` 分清：本 Skill 写规范文档；技术方案写共享技术决定；界面审查读规范找看得见的问题；原型用来试一个说不清的方向，试出来的结论可以写回文档，原型代码本身不算规范。
 
 ## 产物
