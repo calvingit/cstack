@@ -127,7 +127,7 @@ Contract 描述预期行为，不代表实现已经遵守；Observed 描述当�
 
 ### 6. 生成状态图
 
-发现有意义的状态机后，默认提供 Mermaid 状态图。优先使用 stateDiagram-v2：
+发现有意义的状态机后，默认提供 Mermaid 状态图。Mermaid 是可审查、可版本管理的文本图示；如果用户需要对话内交互探索，优先按宿主实际提供的原生 visualize 能力呈现，或交由 cstack-visual-explain 处理展示。不要假设每个 Runtime 都提供原生可视化，也不要让展示层改写模型语义。优先使用 stateDiagram-v2：
 
 - Overview 展示主要状态、关键事件、正常路径和重要异常路径。
 - 复杂模型再拆出 Detailed 图，展示 Guard、重试、超时或多个状态维度之间的关系。
