@@ -1,0 +1,6 @@
+interface:
+  display_name: "CStack 状态机建模"
+  short_description: "从需求或代码梳理状态与转换"
+  default_prompt: "使用 $cstack-statechart 梳理这个实体或流程的状态、事件、转换和关键约束，并生成状态图。"
+policy:
+  allow_implicit_invocation: true
