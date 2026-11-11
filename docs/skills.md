@@ -77,7 +77,7 @@
 | 要定界面的颜色、字体和组件规范 | [cstack-create-design-md](../plugins/cstack/skills/cstack-create-design-md/SKILL.md) | [cstack-tech-design](../plugins/cstack/skills/cstack-tech-design/SKILL.md)（那是技术方案） |
 | 当前页面好不好看、交互有没有问题 | [cstack-ui-review](../plugins/cstack/skills/cstack-ui-review/SKILL.md) | [cstack-create-design-md](../plugins/cstack/skills/cstack-create-design-md/SKILL.md)（写的是规范，不审页面） |
 | 共享接口、数据模型或迁移怎么定 | [cstack-tech-design](../plugins/cstack/skills/cstack-tech-design/SKILL.md) | [cstack-create-design-md](../plugins/cstack/skills/cstack-create-design-md/SKILL.md)（不写视觉规范） |
-| 要从需求或代码梳理实体生命周期、事件和状态转换 | [cstack-statechart](../plugins/cstack/skills/cstack-statechart/SKILL.md) | [cstack-domain-model](../plugins/cstack/skills/cstack-domain-model/SKILL.md)（对齐业务概念与规则）；[cstack-how](../plugins/cstack/skills/cstack-how/SKILL.md)（只追踪具体代码路径）；[cstack-visual-explain](../plugins/cstack/skills/cstack-visual-explain/SKILL.md)（解释已有关系） |
+| 要从需求或代码梳理实体生命周期、事件和状态转换 | [cstack-statechart](../plugins/cstack/skills/cstack-statechart/SKILL.md) | [cstack-domain-model](../plugins/cstack/skills/cstack-domain-model/SKILL.md)（对齐业务概念与规则）；[cstack-how](../plugins/cstack/skills/cstack-how/SKILL.md)（只追踪具体代码路径）；[cstack-visual-explain](../plugins/cstack/skills/cstack-visual-explain/SKILL.md)（只做图形解释，不建状态模型） |
 | 要写或精简仓库的 Agent 指令 | [cstack-improve-agents-md](../plugins/cstack/skills/cstack-improve-agents-md/SKILL.md) | [cstack-create-project-profile](../plugins/cstack/skills/cstack-create-project-profile/SKILL.md)（那是工程档案，只在指令里写档案指针） |
 
 ## 触发方式
