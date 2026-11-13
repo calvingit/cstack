@@ -187,6 +187,12 @@ def check_marketplace_sources(plugins: list[Plugin], report: Report) -> dict | N
             or not resolved.is_dir()
         ):
             report.add(f"{rel(market_path)}: 插件 {name} 的 source {source!r} 不是仓库内目录")
+            continue
+        expected = f"plugins/{name}"
+        if relative != expected:
+            report.add(
+                f"{rel(market_path)}: 插件 {name} 的 source {source!r}，应为 './{expected}'"
+            )
     for plugin in plugins:
         if plugin.name not in declared:
             report.add(f"{plugin.name}: 插件未在 marketplace.json 中声明")
@@ -283,6 +289,9 @@ def check_agents_marketplace(plugins: list[Plugin], report: Report) -> None:
             )
         source = entry.get("source")
         if not isinstance(source, dict) or source.get("source") != "local":
+            report.add(
+                f"{rel(path)}: {plugin.name} 的 source 必须是 local 来源对象"
+            )
             continue
         expected_path = f"./plugins/{plugin.name}"
         if source.get("path") != expected_path:

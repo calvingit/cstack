@@ -21,7 +21,7 @@ CStack 是一套面向 AI Coding Agent 的工程方法 Skills，覆盖需求澄�
 
 ### 只装一个 Skill
 
-每个 Skill 目录自包含，可以单独复制到项目的 Skills 目录。不安装 `cstack-core` 也能运行：各 Skill 内嵌了独立运行所需的约束、产物和判据要点。
+每个 Skill 目录自包含，可以单独复制到项目的 Skills 目录（例如 Claude Code 的 `.claude/skills/`）。不安装 `cstack-core` 也能运行：各 Skill 内嵌了独立运行所需的约束、产物和判据要点。
 
 ## 为什么需要 CStack
 
@@ -91,11 +91,7 @@ flowchart LR
 
 ### Claude Code
 
-```text
-/plugin marketplace add calvingit/cstack
-/plugin install cstack@cstack
-/plugin install gitlab@cstack
-```
+添加市场和安装插件的命令见[快速开始](#快速开始)，两个插件可以只装其中一个。
 
 ### Codex
 
@@ -123,7 +119,7 @@ codex plugin marketplace add calvingit/cstack
 
 ## 更新
 
-各宿主按插件清单中的 `version` 判断更新。Claude Code 和 Codex 刷新市场后即可看到新版本，也可以直接复制插件目录更新。
+插件清单中的 `version` 供宿主判断是否更新，发布新版本时要同步改掉所有宿主清单，`check_repo.py` 会校验它们与 `.claude-plugin/plugin.json` 一致。需要立即替换时，也可以直接复制插件目录覆盖安装。
 
 ## 文档
 
@@ -142,7 +138,7 @@ codex plugin marketplace add calvingit/cstack
 python3 scripts/check_repo.py
 ```
 
-脚本对 `plugins/` 下每个插件分别检查：Skill 名与目录一致、description 只使用中文和允许的英文术语、相对链接有效、各宿主清单与 `.claude-plugin/plugin.json` 的名称和版本一致、三个市场文件（`.claude-plugin/marketplace.json`、`.agents/plugins/marketplace.json`、`.grok-plugin/marketplace.json`）的条目、版本和 `source` 路径一致、`openai.yaml` 触发策略与 frontmatter 对齐，以及 Skill 和子代理使用该插件自己的前缀。GitHub Actions 在推送和 PR 事件上运行同一脚本。
+脚本对 `plugins/` 下每个插件分别检查：Skill 名与目录一致、description 只使用中文和允许的英文术语并写成含「时使用」的正向触发语句、相对链接有效、各宿主清单与 `.claude-plugin/plugin.json` 的名称和版本一致、三个市场文件（`.claude-plugin/marketplace.json`、`.agents/plugins/marketplace.json`、`.grok-plugin/marketplace.json`）的条目、版本和 `source` 路径一致、`openai.yaml` 触发策略与 frontmatter 对齐，以及 Skill 和子代理使用该插件自己的前缀。GitHub Actions 在推送和 PR 事件上运行同一脚本。
 
 ## 贡献
 

@@ -4,7 +4,7 @@
 
 ## 1. 定位
 
-CStack 是面向 AI Coding Agent 的工程方法 Skills 包，Markdown-first，跨 Runtime 使用。差异化目标可以概括为一句话：**让验证证据、审查结论和交付决策都绑定到明确的代码候选、环境与授权范围；相关条件变化后，重新判定证据是否失效。**
+CStack 是面向 AI Coding Agent 的工程方法 Skills，Markdown-first，跨 Runtime 使用。差异化目标可以概括为一句话：**让验证证据、审查结论和交付决策都绑定到明确的代码候选、环境与授权范围；相关条件变化后，重新判定证据是否失效。**
 
 明确不做的事：
 
