@@ -38,12 +38,12 @@ disable-model-invocation: true
 
 - **Implementer**：从基线实现候选 B，负责自检，不写 `EVIDENCE`。
 - **Simplifier**：只读比较候选 A 与 B，判断复杂度和维护成本的差异。可以由同一上下文承担；当候选影响面大、风险高或比较结论有争议时，优先派独立实例。
-- 第二遍 Implementer 与第一遍实现者之间，隔离上下文优先于更换模型。Runtime 不支持独立实例时，按角色顺序在同一上下文执行并标明限制；若任务要求严格隔离，则暂停并请求可用的独立上下文。第二遍从基线重写本身即是一次整体简化；候选 B 中残留的可移除复杂度仍交给 `cstack-simplify` 判断。
+- 隔离第二遍 Implementer 与第一遍实现者的上下文，比更换模型更重要。Runtime 不支持独立实例时，按角色顺序在同一上下文执行并标明限制；若任务要求严格隔离，则暂停并请求可用的独立上下文。第二遍从基线重写本身即是一次整体简化；候选 B 中残留的可移除复杂度仍交给 `cstack-simplify` 判断。
 
 ## 产物
 
-- **读**：已确认的行为依据、变更前基线、候选 A 的可恢复引用、项目约定、基线测试，以及 Learning Handoff（第一遍经验交接）。
-- **写**：Learning Handoff、必要时的简短 Design Sketch、候选 A/B 标识和比较报告。记录可留在会话或任务工作区，不建立新的权威需求或技术决策。
+- **读**：已确认的行为依据、变更前基线、候选 A 的可恢复引用、项目约定、基线测试，以及第一遍的 Learning Handoff（由第二遍 Implementer 读取）。
+- **写**：Learning Handoff（由了解候选 A 的上下文整理）、必要时的简短 Design Sketch、候选 A/B 标识和比较报告。记录可留在会话或任务工作区，不建立新的权威需求或技术决策。
 - **不写**：`EVIDENCE`，不修改 `SPEC` / `DECISIONS` / `TECH`，不把比较结论写成验收结论。
 - 比较方法与判据见 [references/comparison.md](references/comparison.md)。只在需要选择测试方法或判断候选差异时读取。
 
@@ -84,7 +84,7 @@ disable-model-invocation: true
 
 每条标为 `Fact`、`Inference` 或 `Unknown`。不复制第一遍代码、架构图、设计结论或完整推理过程；无法证明的内容不能包装成事实。
 
-### 4. 在独立上下文做设计重建
+### 4. 在独立上下文重建设计
 
 第二遍 Implementer 读取：
 
@@ -169,7 +169,7 @@ disable-model-invocation: true
 - A 结果：
 - B 结果：
 - Differential / Property-based Testing：
-- 行为差异及行为契约分类：
+- 行为差异及按契约分类：
 - 不可比项：
 
 ## 候选比较
