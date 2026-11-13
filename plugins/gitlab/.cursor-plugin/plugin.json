@@ -1,0 +1,17 @@
+{
+  "name": "gitlab",
+  "description": "GitLab 自部署实例的协作 Skills：提交、MR、评审、变基、拆分与 CI 配置。",
+  "version": "0.2.2",
+  "author": {
+    "name": "calvingit"
+  },
+  "homepage": "https://github.com/calvingit/cstack",
+  "repository": "https://github.com/calvingit/cstack",
+  "keywords": [
+    "gitlab",
+    "glab",
+    "merge-request",
+    "code-review",
+    "skills"
+  ]
+}

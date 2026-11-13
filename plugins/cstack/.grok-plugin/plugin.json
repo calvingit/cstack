@@ -1,0 +1,8 @@
+{
+  "name": "cstack",
+  "version": "0.6.9",
+  "description": "CStack 工程方法 Skills：覆盖需求澄清、方案设计、实现、验收、审查与交付。",
+  "skills": [
+    "./skills"
+  ]
+}

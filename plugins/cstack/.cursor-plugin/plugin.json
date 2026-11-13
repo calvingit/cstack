@@ -1,0 +1,18 @@
+{
+  "name": "cstack",
+  "description": "CStack 工程方法 Skills：覆盖需求澄清、方案设计、实现、验收、审查与交付。",
+  "version": "0.6.9",
+  "author": {
+    "name": "calvingit"
+  },
+  "homepage": "https://github.com/calvingit/cstack",
+  "repository": "https://github.com/calvingit/cstack",
+  "keywords": [
+    "skills",
+    "engineering",
+    "agent",
+    "workflow",
+    "verification",
+    "code-review"
+  ]
+}
