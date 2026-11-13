@@ -1,6 +1,6 @@
 # CStack
 
-CStack 是一套面向 AI Coding Agent 的工程方法 Skills，覆盖需求澄清、方案设计、实现、验收、审查和交付。它不强制每次任务走完整流程，而是把工程判断拆成可按需取用的方法，让每条完成声明都绑定到明确的代码候选、环境和授权范围。
+CStack 是一套面向 AI Coding Agent 的工程方法 Skills，覆盖需求澄清、方案设计、实现、验收、审查和交付。它不强制每次任务走完整流程，而是把工程判断拆成可按需取用的方法，让验证证据、审查结论和交付决策都绑定到明确的代码候选、环境与授权范围。
 
 [设计思想](docs/design.md) · [Skill 参考](docs/skills.md) · [Agent 角色](docs/agents.md) · [GitLab 插件](docs/gitlab.md) · [报告问题](https://github.com/calvingit/cstack/issues)
 
@@ -31,10 +31,10 @@ Coding Agent 能写出可运行的代码，但“能运行”不等于“可交�
 - 变更引入了哪些可证明的缺陷或风险？
 - 现在是否可以合并或发布？
 
-加流程、加文档、增加模型投票都不能自动回答这些问题，流程本身不产生证据。CStack 把判断建立在四件事上：
+增加流程、文档或多模型投票，都不能自动回答这些问题；流程本身不产生证据。CStack 把判断建立在四件事上：
 
 - **证据绑定候选**：每条验证结论写明候选、环境、执行者、覆盖范围和未覆盖范围；候选或环境变化后，只重判受影响的部分。
-- **产物按需启用**：`PROFILE`、`DECISIONS`、`SPEC`、`TECH`、`SLICES`、`EVIDENCE` 六类产物各有唯一写入者，可以省略，但不能凭空假设。
+- **产物按需启用**：`PROFILE`、`DECISIONS`、`SPEC`、`TECH`、`SLICES`、`EVIDENCE` 六类产物各有唯一写入者，可以省略，但省略不等于没有要求，更不等于可以凭空假设。
 - **角色分离判断**：Implementer 不写 `EVIDENCE`；Verifier 判验收条件是否满足，Reviewer 判变更引入了什么缺陷，两者不能合并成一份结论。
 - **深度由风险决定**：按不确定性、影响半径、验证难度和可逆性决定设计、验证和审查的深度，不做加权打分。
 
@@ -53,7 +53,7 @@ flowchart LR
     REVIEW -. 需要修改 .-> BUILD
 ```
 
-六阶段是理解工程工作的地图，不是必须按顺序执行的流水线。可以从当前问题进入，按需跳过上游阶段或返回；目标和验收依据已经清楚的局部修改，可以直接从实现开始。
+六阶段是理解工程工作的地图，不是必须按顺序执行的流水线。可以从当前问题进入，按需跳过上游阶段或返回；目标和验收依据已经清楚、现有检查足够的局部修改，可以直接从实现开始。
 
 唯一不能跳过的是收尾：任何要声明完成的任务，都必须实际运行 [cstack-verify](plugins/cstack/skills/cstack-verify/SKILL.md) 和 [cstack-review](plugins/cstack/skills/cstack-review/SKILL.md)；[cstack-simplify](plugins/cstack/skills/cstack-simplify/SKILL.md) 可以跳过。验收或审查记为未运行的，不等于通过。
 
@@ -62,7 +62,7 @@ flowchart LR
 | 插件 | 定位 | Skill 数 |
 | --- | --- | --- |
 | `cstack` | 工程方法：六阶段、共享产物链、可派发的 Agent 角色 | 39 |
-| `gitlab` | 平台操作：自部署 GitLab 上的提交、MR、评审、变基与拆分 | 7 |
+| `gitlab` | 平台操作：自部署 GitLab 实例上的提交、MR、评审、变基与拆分 | 7 |
 
 两个插件职责不同、没有依赖，可以只装其中一个。
 
@@ -72,19 +72,19 @@ flowchart LR
 | --- | --- |
 | **DEFINE · 明确需求** | [cstack-clarify](plugins/cstack/skills/cstack-clarify/SKILL.md) · [cstack-specify](plugins/cstack/skills/cstack-specify/SKILL.md) |
 | **PLAN · 规划方案** | [cstack-tech-design](plugins/cstack/skills/cstack-tech-design/SKILL.md) · [cstack-slice](plugins/cstack/skills/cstack-slice/SKILL.md) |
-| **BUILD · 实现与诊断** | [cstack-implement](plugins/cstack/skills/cstack-implement/SKILL.md) · [cstack-diagnose](plugins/cstack/skills/cstack-diagnose/SKILL.md) · [cstack-test-first](plugins/cstack/skills/cstack-test-first/SKILL.md) |
+| **BUILD · 实现与诊断** | [cstack-implement](plugins/cstack/skills/cstack-implement/SKILL.md) · [cstack-orchestrate](plugins/cstack/skills/cstack-orchestrate/SKILL.md) · [cstack-diagnose](plugins/cstack/skills/cstack-diagnose/SKILL.md) · [cstack-test-first](plugins/cstack/skills/cstack-test-first/SKILL.md) |
 | **VERIFY · 验收** | [cstack-create-verification-skill](plugins/cstack/skills/cstack-create-verification-skill/SKILL.md) · [cstack-verify](plugins/cstack/skills/cstack-verify/SKILL.md) |
 | **REVIEW · 审查** | [cstack-review](plugins/cstack/skills/cstack-review/SKILL.md) · [cstack-test-audit](plugins/cstack/skills/cstack-test-audit/SKILL.md) |
 | **SHIP · 交付** | [cstack-ship](plugins/cstack/skills/cstack-ship/SKILL.md) |
 
-此外还有按需使用的辅助 Skill：并行编排、性能测量、界面审查、影响半径、原型验证、状态图、二次重写、中文技术写作等，完整清单见 [Skill 参考](docs/skills.md)。
+此外还有按需使用的辅助 Skill：性能测量、界面审查、影响半径、原型验证、状态图、第二遍重写、中文技术写作等，完整清单见 [Skill 参考](docs/skills.md)。
 
 ## 工作方式
 
-1. **从当前问题进入**：目标清楚、影响局部时直接实现；需求、路径或验收说不清时，先用 clarify、specify 或 prototype。
+1. **从当前问题进入**：目标清楚、影响局部且现有检查足够时直接实现；需求、路径或验收说不清时，先用 `cstack-clarify`、`cstack-specify` 或 `cstack-prototype`。
 2. **按需形成产物**：只有会被下游引用的事实才写成权威产物，下游按 `R#`、`AC#`、`D#`、`S#` 引用，不复制内容。
 3. **实现并自检**：Implementer 在授权范围内修改，记录自检和未解决问题，不写 `EVIDENCE`。
-4. **验收与审查**：Verifier 逐个 `AC#` 给出 `PASS` / `FAIL` / `NOT VERIFIED`；Reviewer 审查 diff 的缺陷与风险。两种判断都不能由实现者代写。
+4. **验收与审查**：Verifier 逐个 `AC#` 给出 `PASS` / `FAIL` / `NOT VERIFIED`；Reviewer 审查 diff，找出缺陷与风险。两种判断都不能由实现者作出。
 5. **交付**：`cstack-ship` 判断就绪状态；合并与部署各自需要明确授权，就绪不等于已授权。
 
 ## 安装方式
@@ -142,7 +142,7 @@ codex plugin marketplace add calvingit/cstack
 python3 scripts/check_repo.py
 ```
 
-脚本对 `plugins/` 下每个插件分别检查：Skill 名与目录一致、描述以中文为主、相对链接有效、各宿主清单与 `.claude-plugin/plugin.json` 的名称和版本一致、两个市场文件（`.agents/plugins/marketplace.json`、`.grok-plugin/marketplace.json`）的条目与版本一致、`openai.yaml` 触发策略与 frontmatter 对齐，以及 Skill 和子代理使用该插件自己的前缀。GitHub Actions 在推送和 PR 事件上运行同一脚本。
+脚本对 `plugins/` 下每个插件分别检查：Skill 名与目录一致、description 只使用中文和允许的英文术语、相对链接有效、各宿主清单与 `.claude-plugin/plugin.json` 的名称和版本一致、三个市场文件（`.claude-plugin/marketplace.json`、`.agents/plugins/marketplace.json`、`.grok-plugin/marketplace.json`）的条目、版本和 `source` 路径一致、`openai.yaml` 触发策略与 frontmatter 对齐，以及 Skill 和子代理使用该插件自己的前缀。GitHub Actions 在推送和 PR 事件上运行同一脚本。
 
 ## 贡献
 

@@ -89,7 +89,7 @@
 | 触发方式 | Skill |
 | --- | --- |
 | 手动触发 | [cstack-core](../plugins/cstack/skills/cstack-core/SKILL.md)、[cstack-bro](../plugins/cstack/skills/cstack-bro/SKILL.md)、[cstack-create-project-profile](../plugins/cstack/skills/cstack-create-project-profile/SKILL.md)、[cstack-create-design-md](../plugins/cstack/skills/cstack-create-design-md/SKILL.md)、[cstack-improve-agents-md](../plugins/cstack/skills/cstack-improve-agents-md/SKILL.md)、[cstack-how](../plugins/cstack/skills/cstack-how/SKILL.md)、[cstack-impact](../plugins/cstack/skills/cstack-impact/SKILL.md)、[cstack-orchestrate](../plugins/cstack/skills/cstack-orchestrate/SKILL.md)、[cstack-restate-goal](../plugins/cstack/skills/cstack-restate-goal/SKILL.md)、[cstack-second-pass](../plugins/cstack/skills/cstack-second-pass/SKILL.md)、[cstack-wayfinding](../plugins/cstack/skills/cstack-wayfinding/SKILL.md)、[cstack-why](../plugins/cstack/skills/cstack-why/SKILL.md)、[gitlab-core](gitlab.md) |
-| 可自动触发 | 上表「工作流 Skill」与「辅助 Skill」中的其余全部 Skill，以及 GitLab 插件的七个自动触发技能（见 [GitLab 插件](gitlab.md)） |
+| 可自动触发 | 上表「工作流 Skill」与「辅助 Skill」中的其余全部 Skill，以及 GitLab 插件的六个自动触发技能（见 [GitLab 插件](gitlab.md)） |
 
 ## 共享层
 

@@ -258,7 +258,7 @@ def check_agents_marketplace(plugins: list[Plugin], report: Report) -> None:
     """The Codex repo marketplace must expose every plugin with its version."""
     path = ROOT / ".agents" / "plugins" / "marketplace.json"
     if not path.is_file():
-        report.add(f"{rel(path)}: 缺少 Codex marketplace")
+        report.add(f"{rel(path)}: 缺少 Codex 市场文件")
         return
     data = load_json(path, report)
     if not data:
@@ -295,7 +295,7 @@ def check_grok_marketplace(plugins: list[Plugin], report: Report) -> None:
     """The Grok marketplace must expose every plugin with its manifest version."""
     path = ROOT / ".grok-plugin" / "marketplace.json"
     if not path.is_file():
-        report.add(f"{rel(path)}: 缺少 Grok marketplace")
+        report.add(f"{rel(path)}: 缺少 Grok 市场文件")
         return
     data = load_json(path, report)
     if not data:

@@ -2,7 +2,7 @@
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "gitlab",
   "version": "0.2.2",
-  "description": "GitLab 自部署实例的协作 Skills：提交、MR、评审、变基、拆分与 CI 配置。",
+  "description": "自部署 GitLab 实例的协作 Skills：提交、MR、评审、变基、拆分与 CI 配置。",
   "author": {
     "name": "calvingit"
   },
@@ -19,8 +19,8 @@
     "com.openai": {
       "interface": {
         "displayName": "GitLab",
-        "shortDescription": "自部署 GitLab 协作 Skills",
-        "longDescription": "辅助完成 GitLab 提交、MR 描述与评审、变基、改动拆分和流水线配置。",
+        "shortDescription": "自部署 GitLab 实例的协作 Skills",
+        "longDescription": "辅助完成 GitLab 提交、MR 描述与评审、变基、改动拆分和 CI 配置。",
         "developerName": "calvingit",
         "category": "Developer Tools",
         "capabilities": [
