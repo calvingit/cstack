@@ -1,6 +1,6 @@
 # GitLab 插件
 
-> 面向日常使用自部署 GitLab 服务器的协作场景，覆盖提交、MR 与评审。工程方法本身见 [Skill 参考](skills.md)。
+> 面向日常使用自部署 GitLab 实例的协作场景，覆盖提交、MR 与评审。工程方法本身见 [Skill 参考](skills.md)。
 
 ## 适用与不适用
 

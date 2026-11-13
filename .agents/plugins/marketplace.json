@@ -18,7 +18,8 @@
       "category": "Productivity",
       "interface": {
         "displayName": "CStack"
-      }
+      },
+      "version": "0.6.9"
     },
     {
       "name": "gitlab",
@@ -33,7 +34,8 @@
       "category": "Productivity",
       "interface": {
         "displayName": "GitLab"
-      }
+      },
+      "version": "0.2.2"
     }
   ]
 }

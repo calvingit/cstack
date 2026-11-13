@@ -187,6 +187,12 @@ def check_marketplace_sources(plugins: list[Plugin], report: Report) -> dict | N
             or not resolved.is_dir()
         ):
             report.add(f"{rel(market_path)}: 插件 {name} 的 source {source!r} 不是仓库内目录")
+            continue
+        expected = f"plugins/{name}"
+        if relative != expected:
+            report.add(
+                f"{rel(market_path)}: 插件 {name} 的 source {source!r}，应为 './{expected}'"
+            )
     for plugin in plugins:
         if plugin.name not in declared:
             report.add(f"{plugin.name}: 插件未在 marketplace.json 中声明")
@@ -215,6 +221,116 @@ def check_versions(plugins: list[Plugin], market: dict | None, report: Report) -
             report.add(
                 f"版本不一致: {plugin.name} 的 plugin.json={plugin_version!r}，"
                 f"marketplace.json={entry_version!r}"
+            )
+
+
+HOST_MANIFESTS = (
+    ("plugin.json", "Agent Plugins"),
+    (".codex-plugin/plugin.json", "Codex"),
+    (".cursor-plugin/plugin.json", "Cursor"),
+    (".github/plugin/plugin.json", "GitHub Copilot"),
+    (".grok-plugin/plugin.json", "Grok"),
+    ("gemini-extension.json", "Gemini CLI"),
+    ("kimi.plugin.json", "Kimi Code"),
+)
+
+
+def check_host_manifests(plugin: Plugin, report: Report) -> None:
+    """Each supported host manifest must agree on plugin name and version."""
+    canonical = load_json(plugin.manifest_path, report)
+    if not canonical:
+        return
+    name = canonical.get("name")
+    version = canonical.get("version")
+    for relative, host in HOST_MANIFESTS:
+        path = plugin.root / relative
+        if not path.is_file():
+            report.add(f"{rel(path)}: 缺少 {host} 清单")
+            continue
+        data = load_json(path, report)
+        if not data:
+            continue
+        if data.get("name") != name:
+            report.add(
+                f"{rel(path)}: name {data.get('name')!r} 与 {rel(plugin.manifest_path)} 的 {name!r} 不一致"
+            )
+        if data.get("version") != version:
+            report.add(
+                f"{rel(path)}: version {data.get('version')!r} 与 {rel(plugin.manifest_path)} 的 {version!r} 不一致"
+            )
+
+
+def check_agents_marketplace(plugins: list[Plugin], report: Report) -> None:
+    """The Codex repo marketplace must expose every plugin with its version."""
+    path = ROOT / ".agents" / "plugins" / "marketplace.json"
+    if not path.is_file():
+        report.add(f"{rel(path)}: 缺少 Codex 市场文件")
+        return
+    data = load_json(path, report)
+    if not data:
+        return
+    entries = {
+        item.get("name"): item
+        for item in data.get("plugins") or []
+        if isinstance(item, dict)
+    }
+    for plugin in plugins:
+        canonical = load_json(plugin.manifest_path, report)
+        if not canonical:
+            continue
+        entry = entries.get(plugin.name)
+        if entry is None:
+            report.add(f"{rel(path)}: 缺少插件 {plugin.name} 的条目")
+            continue
+        if entry.get("version") != canonical.get("version"):
+            report.add(
+                f"{rel(path)}: {plugin.name} 的 version={entry.get('version')!r}，"
+                f"与 {rel(plugin.manifest_path)} 的 {canonical.get('version')!r} 不一致"
+            )
+        source = entry.get("source")
+        if not isinstance(source, dict) or source.get("source") != "local":
+            report.add(
+                f"{rel(path)}: {plugin.name} 的 source 必须是 local 来源对象"
+            )
+            continue
+        expected_path = f"./plugins/{plugin.name}"
+        if source.get("path") != expected_path:
+            report.add(
+                f"{rel(path)}: {plugin.name} 的 source.path={source.get('path')!r}，应为 {expected_path!r}"
+            )
+
+
+def check_grok_marketplace(plugins: list[Plugin], report: Report) -> None:
+    """The Grok marketplace must expose every plugin with its manifest version."""
+    path = ROOT / ".grok-plugin" / "marketplace.json"
+    if not path.is_file():
+        report.add(f"{rel(path)}: 缺少 Grok 市场文件")
+        return
+    data = load_json(path, report)
+    if not data:
+        return
+    entries = {
+        item.get("name"): item
+        for item in data.get("plugins") or []
+        if isinstance(item, dict)
+    }
+    for plugin in plugins:
+        canonical = load_json(plugin.manifest_path, report)
+        if not canonical:
+            continue
+        entry = entries.get(plugin.name)
+        if entry is None:
+            report.add(f"{rel(path)}: 缺少插件 {plugin.name} 的条目")
+            continue
+        if entry.get("version") != canonical.get("version"):
+            report.add(
+                f"{rel(path)}: {plugin.name} 的 version={entry.get('version')!r}，"
+                f"与 {rel(plugin.manifest_path)} 的 {canonical.get('version')!r} 不一致"
+            )
+        expected_source = f"./plugins/{plugin.name}"
+        if entry.get("source") != expected_source:
+            report.add(
+                f"{rel(path)}: {plugin.name} 的 source={entry.get('source')!r}，应为 {expected_source!r}"
             )
 
 
@@ -361,7 +477,10 @@ def main() -> int:
         for directory in skill_dirs:
             check_skill(directory, plugin, report)
         check_agents(plugin, report)
+        check_host_manifests(plugin, report)
     check_versions(plugins, market, report)
+    check_agents_marketplace(plugins, report)
+    check_grok_marketplace(plugins, report)
     check_links(report)
     check_licenses(report)
     report.plugin_count = len(plugins)

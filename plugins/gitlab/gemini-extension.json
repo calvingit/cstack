@@ -1,0 +1,8 @@
+{
+  "name": "gitlab",
+  "description": "自部署 GitLab 实例的协作 Skills：提交、MR、评审、变基、拆分与 CI 配置。",
+  "version": "0.2.2",
+  "author": {
+    "name": "calvingit"
+  }
+}
