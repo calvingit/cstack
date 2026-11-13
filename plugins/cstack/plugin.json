@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "cstack",
-  "version": "0.6.8",
+  "version": "0.6.9",
   "description": "CStack 工程方法 Skills：覆盖需求澄清、方案设计、实现、验收、审查与交付。",
   "author": {
     "name": "calvingit"
